@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api/games/'
+const baseURL = 'http://localhost:3000/api/players/'
 
 export default {
   getData(id) {

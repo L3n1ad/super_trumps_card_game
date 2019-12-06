@@ -12,8 +12,8 @@ const createRouter = require('./helpers/create_router.js');
 MongoClient.connect('mongodb://localhost:27017')
   .then((client) => {
     const db = client.db('super_trumps');
-    const gamesCollection = db.collection('games');
-    app.use('/api/games', createRouter(gamesCollection));
+    const playersCollection = db.collection('players');
+    app.use('/api/palyers', createRouter(playersCollection));
   })
     .catch(console.error);
 
