@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-const cors = require('cors');
+const cors = require("cors");
+
 app.use(cors())
 
 app.use(bodyParser.json());
@@ -13,10 +14,10 @@ MongoClient.connect('mongodb://localhost:27017')
   .then((client) => {
     const db = client.db('super_trumps');
     const playersCollection = db.collection('players');
-    app.use('/api/palyers', createRouter(playersCollection));
+    app.use('/api/players', createRouter(playersCollection));
   })
-    .catch(console.error);
+  .catch(console.error);
 
-  app.listen(3000, function() {
-    console.log(`Super Trumps server running on port ${this.address().port}`);
-  });
+app.listen(3000, function() {
+  console.log(`Super Trumps server running on port ${this.address().port}`);
+});
