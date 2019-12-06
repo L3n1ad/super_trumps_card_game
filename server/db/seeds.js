@@ -1,4 +1,4 @@
-use game_hub;
+use super_trumps;
 db.dropDatabase();
 
 db.players.insertMany([
