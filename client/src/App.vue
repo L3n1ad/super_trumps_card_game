@@ -4,7 +4,7 @@
 
 <script>
 import GameService from './services/GameService.js'
-
+//EventBus to be added when created in form.
 export default {
   name: 'app',
   data(){
@@ -35,10 +35,16 @@ export default {
         this.playerOne.name = names[0];
         this.playerTwo.name = names[1];
         sendPlayersToDB();
-      });
+      })
   },
   methods: {
-    //Send Players to DB.
+    //Send Players to DB and retrieve Players.
+    sendPlayersToDB() {
+      GameService.updateData(playerOne)
+        .then(dbDetailsOne => this.playerOne = dbDetailsOne);
+      GameService.updateData(playerTwo)
+        .then(dbDetailsTwo => this.playerTwo = dbDetailsTwo)
+    }
   }
 }
 </script>
