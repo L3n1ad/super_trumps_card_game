@@ -46,15 +46,15 @@ export default {
       eventBus.$on('form-names', names => {
         this.playerOne.name = names[0];
         this.playerTwo.name = names[1];
-        sendPlayersToDB();
+        this.sendPlayersToDB();
       })
   },
   methods: {
     //Send Players to DB and retrieve Players.
     sendPlayersToDB() {
-      GameService.updateData(playerOne)
+      GameService.updateData(this.playerOne)
         .then(dbDetailsOne => this.playerOne = dbDetailsOne);
-      GameService.updateData(playerTwo)
+      GameService.updateData(this.playerTwo)
         .then(dbDetailsTwo => this.playerTwo = dbDetailsTwo)
     }
   }
