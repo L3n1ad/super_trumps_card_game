@@ -10,7 +10,9 @@ export default {
   data(){
     return{
       allHeroes: [],
-      allHeroesID: []
+      allHeroesID: [],
+      playerOne: {},
+      playerTwo: {}
     }
   },
   mounted() {
@@ -20,6 +22,13 @@ export default {
       return obj._id
     }))
     .then( ids => this.allHeroesID = ids);
+
+    //EventBus from Form.
+    eventBus.$on('form-names', names) => {
+      this.playerOne.name = names[0];
+      this.playerTwo.name = names[1];
+      sendPlayersToDB();
+    }
 
   }
 }
