@@ -1,12 +1,24 @@
 <template lang="html">
+  <div>
+    <form-names></form-names>
+    <player-box></player-box>
 
+  </div>
 </template>
 
 <script>
+import { eventBus } from '@/main.js'
+import NewGameForm from "@/components/NewGameForm";
+import GameGrid from "@/components/GameGrid";
 import GameService from './services/GameService.js'
-//EventBus to be added when created in form.
+
 export default {
   name: 'app',
+  components: {
+    "form-names": NewGameForm,
+    "game-grid": GameGrid
+
+  },
   data(){
     return{
       allHeroes: [],
