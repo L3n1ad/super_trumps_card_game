@@ -6,6 +6,10 @@ export default {
     return fetch(superHeroesURL)
       .then(res => res.json())
   },
+  getAllPlayers(){
+    return fetch(baseURL)
+      .then(res => res.json())
+  },
   getData(id) {
     return fetch(baseURL + id, {
       method: "SHOW",

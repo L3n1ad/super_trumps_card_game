@@ -12,7 +12,11 @@ export default {
       allHeroes: [],
       allHeroesID: [],
       playerOne: {},
+<<<<<<< HEAD
       playerTwo: {}
+=======
+      plyaerTwo: {}
+>>>>>>> develop
     }
   },
   mounted() {
@@ -23,12 +27,21 @@ export default {
     }))
     .then( ids => this.allHeroesID = ids);
 
+<<<<<<< HEAD
     //EventBus from Form.
     eventBus.$on('form-names', names) => {
       this.playerOne.name = names[0];
       this.playerTwo.name = names[1];
       sendPlayersToDB();
     }
+=======
+    GameService.getAllPlayers()
+      .then( data => {
+        console.log(data);
+        this.playerOne = data[0]
+        this.playerTwo = data[1]
+      })
+>>>>>>> develop
 
   }
 }
