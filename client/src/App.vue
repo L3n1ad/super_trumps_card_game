@@ -9,11 +9,17 @@ export default {
   name: 'app',
   data(){
     return{
-      allHeroes: []
+      allHeroes: [],
+      allHeroesID: []
     }
   },
   mounted() {
-    GameService.getAllSuperHeroes().then(data => this.allHeroes = data);
+    GameService.getAllSuperHeroes()
+    .then(data => this.allHeroes = data)
+    .then(() => this.allHeroes.map(obj => {
+      return obj._id
+    }))
+    .then( ids => this.allHeroesID = ids);
 
   }
 }
