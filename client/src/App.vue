@@ -31,11 +31,11 @@ export default {
       })
 
       //EventBus from Form.
-      eventBus.$on('form-names', names) => {
+      eventBus.$on('form-names', names => {
         this.playerOne.name = names[0];
         this.playerTwo.name = names[1];
         sendPlayersToDB();
-      }
+      });
   },
   methods: {
     //Send Players to DB.
