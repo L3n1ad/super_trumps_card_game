@@ -5,9 +5,10 @@
 <script>
 import playerBox from "./playerBox"
 export default {
-  name: "game-grid"
+  name: "game-grid",
   components: {
     "player-box": playerBox
+  }
 }
 </script>
 
