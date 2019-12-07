@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import PlayerBox from "./PlayerBox"
+import playerBox from "./playerBox"
 export default {
   name: "game-grid"
   components: {
-    "player-box": PlayerBox
+    "player-box": playerBox
 }
 </script>
 

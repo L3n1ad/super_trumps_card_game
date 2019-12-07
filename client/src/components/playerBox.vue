@@ -4,13 +4,13 @@
 </template>
 
 <script>
-import PlayerHead from "./PlayerHead"
-import PlayerCard from "./PlayerCard"
+import playerHead from "./playerHead"
+import playerCard from "./playerCard"
 export default {
   name: "player-box"
   components: {
-    "player-head": PlayerHead,
-    "player-card": PlayerCard
+    "player-head": playerHead,
+    "player-card": playerCard
   }
 }
 </script>

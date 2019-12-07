@@ -8,15 +8,15 @@
 
 <script>
 import { eventBus } from '@/main.js'
-import NewGameForm from "@/components/NewGameForm";
-import GameGrid from "@/components/GameGrid";
+import newGameForm from "@/components/newGameForm";
+import gameGrid from "@/components/gameGrid";
 import GameService from './services/GameService.js'
 
 export default {
   name: 'app',
   components: {
-    "form-names": NewGameForm,
-    "game-grid": GameGrid
+    "form-names": newGameForm,
+    "game-grid": gameGrid
 
   },
   data(){

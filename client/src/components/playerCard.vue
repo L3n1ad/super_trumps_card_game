@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "palyer-card"
+  name: "player-card"
 }
 </script>
 
