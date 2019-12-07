@@ -12,7 +12,7 @@ export default {
       allHeroes: [],
       allHeroesID: [],
       playerOne: {},
-      plyaerTwo: {}
+      playerTwo: {}
     }
   },
   mounted() {
