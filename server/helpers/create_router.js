@@ -39,8 +39,9 @@ const createRouter = function(collection) {
     delete updatedData._id;
 
     collection
-    .findOneAndUpdate({_id: ObjectID(id)}, {
-      $set: updatedData})
+    .findOneAndUpdate({_id: ObjectID(id)},
+      {$set: updatedData},
+      {returnOriginal: false})
       .then(result => {
         res.json(result.value);
       })
