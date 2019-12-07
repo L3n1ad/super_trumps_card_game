@@ -10,7 +10,9 @@ export default {
   data(){
     return{
       allHeroes: [],
-      allHeroesID: []
+      allHeroesID: [],
+      playerOne: {},
+      plyaerTwo: {}
     }
   },
   mounted() {
@@ -20,6 +22,13 @@ export default {
       return obj._id
     }))
     .then( ids => this.allHeroesID = ids);
+
+    GameService.getAllPlayers()
+      .then( data => {
+        console.log(data);
+        this.playerOne = data[0]
+        this.playerTwo = data[1]
+      })
 
   }
 }
