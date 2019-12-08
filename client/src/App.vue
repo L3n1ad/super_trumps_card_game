@@ -45,14 +45,6 @@ export default {
           this.playerTwo.hand = [this.allHeroesID[27]]
         })
     });
-    .then( ids => this.allHeroesID = ids);
-
-    GameService.getAllPlayers()
-      .then( data => {
-        console.log(data);
-        this.playerOne = data[0]
-        this.playerTwo = data[1]
-      })
 
       //EventBus from Form.
       eventBus.$on('form-names', names => {
@@ -68,6 +60,25 @@ export default {
         .then(dbDetailsOne => this.playerOne = dbDetailsOne);
       GameService.updateData(this.playerTwo)
         .then(dbDetailsTwo => this.playerTwo = dbDetailsTwo)
+    },
+    // Shuffle deck with Fisher-Yates shuffle
+    shuffleDeck(deck){
+      let randomCard;
+      let temperoryCard;
+      for (let index = deck.length - 1; index > -1 ; index -= 1) {
+        randomCard = Math.floor(Math.random() * index);
+        temperoryCard = deck[index];
+        deck[index] = deck[randomCard];
+        deck[randomCard] = temperoryCard;
+      }
+    },
+    // SPLIT DECK
+    splitDeck(deck){
+      const shuffledDeck = this.shuffleDeck(deck);
+      const playerOneHand = this.playerOne.hand
+      const playerTwoHand = this.playerTwo.hand
+      playerOneHand.push(shuffledDeck.splice(0, 15))
+      playerTwoHand.push(shuffledDeck.splice(0, 15))
     }
   }
 }
