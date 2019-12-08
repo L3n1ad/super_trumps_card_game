@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <form-names></form-names>
-    <player-box></player-box>
+    <game-grid></game-grid>
 
   </div>
 </template>
@@ -33,7 +33,8 @@ export default {
     .then(() => this.allHeroes.map(obj => {
       return obj._id
     }))
-    .then( ids => this.allHeroesID = ids);
+    .then( ids => this.allHeroesID = ids)
+
 
     GameService.getAllPlayers()
       .then( data => {
@@ -41,6 +42,8 @@ export default {
         this.playerOne = data[0]
         this.playerTwo = data[1]
       })
+      .then(() => this.splitCards())
+
 
       //EventBus from Form.
       eventBus.$on('form-names', names => {
@@ -48,13 +51,25 @@ export default {
         this.playerTwo.name = names[1];
         sendPlayersToDB();
       })
+
+
   },
   methods: {
+    splitCards() {
+      const arrayToRandomise = this.allHeroesID.slice(0)
+      const i = arrayToRandomise.length
+      const numOfSlices = 2
+      const n = i/numOfSlices
+      const randomisedArray = arrayToRandomise.sort(() => Math.random() - 0.5);
+      this.playerOne.hand = randomisedArray.slice(0,n)
+      this.playerTwo.hand = randomisedArray.slice(n,i)
+    },
+
     //Send Players to DB and retrieve Players.
     sendPlayersToDB() {
-      GameService.updateData(playerOne)
+      GameService.updateData(this.playerOne)
         .then(dbDetailsOne => this.playerOne = dbDetailsOne);
-      GameService.updateData(playerTwo)
+      GameService.updateData(this.playerTwo)
         .then(dbDetailsTwo => this.playerTwo = dbDetailsTwo)
     }
   }
