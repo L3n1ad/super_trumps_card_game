@@ -49,7 +49,7 @@ export default {
       eventBus.$on('form-names', names => {
         this.playerOne.name = names[0];
         this.playerTwo.name = names[1];
-        sendPlayersToDB();
+        this.sendPlayersToDB();
       })
 
 
@@ -57,13 +57,14 @@ export default {
   methods: {
     splitCards() {
       const arrayToRandomise = this.allHeroesID.slice(0)
-      const i = arrayToRandomise.length
+      const numCards = arrayToRandomise.length
       const numOfSlices = 2
-      const n = i/numOfSlices
+      const n = numCards/numOfSlices
       const randomisedArray = arrayToRandomise.sort(() => Math.random() - 0.5);
       this.playerOne.hand = randomisedArray.slice(0,n)
-      this.playerTwo.hand = randomisedArray.slice(n,i)
+      this.playerTwo.hand = randomisedArray.slice(n,numCards)
     },
+
 
     //Send Players to DB and retrieve Players.
     sendPlayersToDB() {
