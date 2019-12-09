@@ -1,10 +1,11 @@
 <template lang="html">
-
+  <h1>{{hero.name}}</h1>
 </template>
 
 <script>
 export default {
-  name: "player-card"
+  name: "player-card",
+  props: ['hero']
 }
 </script>
 

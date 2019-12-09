@@ -89,10 +89,14 @@ export default {
       }
     },
     playerOneHero(){
-      return this.allHeroes.filter(hero => hero._id == this.playerOneCard)[0]
+      const hero = this.allHeroes.filter(hero => hero._id == this.playerOneCard)[0];
+      eventBus.$emit('playerOneHero', hero)
+      return hero
     },
     playerTwoHero(){
-      return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
+      const hero = this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
+      eventBus.$emit('playerTwoHero', hero)
+      return hero
     }
   }
 }
