@@ -28,21 +28,35 @@ export default {
     }
   },
   mounted() {
+    // GameService.getAllSuperHeroes()
+    // .then(data => this.allHeroes = data)
+    // .then(() => this.allHeroes.map(obj => {
+    //   return obj._id
+    // }))
+    // .then( ids => this.allHeroesID = ids)
+    //
+    //
+    // GameService.getAllPlayers()
+    //   .then( data => {
+    //     console.log(data);
+    //     this.playerOne = data[0]
+    //     this.playerTwo = data[1]
+    //   })
+    //   .then(() => this.splitCards())
     GameService.getAllSuperHeroes()
     .then(data => this.allHeroes = data)
     .then(() => this.allHeroes.map(obj => {
       return obj._id
     }))
     .then( ids => this.allHeroesID = ids)
-
-
-    GameService.getAllPlayers()
-      .then( data => {
-        console.log(data);
-        this.playerOne = data[0]
-        this.playerTwo = data[1]
-      })
-      .then(() => this.splitCards())
+    .then(() =>{
+      GameService.getAllPlayers()
+        .then( data => {
+          this.playerOne = data[0]
+          this.playerTwo = data[1]
+        })
+        .then(() => this.splitCards())
+    });
 
 
       //EventBus from Form.
