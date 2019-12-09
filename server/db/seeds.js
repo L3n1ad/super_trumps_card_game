@@ -10,7 +10,7 @@ db.players.insertMany([
   {
     "name": "Nelson",
     "hand": [655],
-    "inTurn": true
+    "inTurn": false
   }
 ]);
 
