@@ -24,7 +24,10 @@ export default {
       allHeroes: [],
       allHeroesID: [],
       playerOne: {},
-      playerTwo: {}
+      playerTwo: {},
+      playerOneCard: "",
+      playerTwoCard: "",
+      inPlay: []
     }
   },
   mounted() {
@@ -47,6 +50,7 @@ export default {
       eventBus.$on('form-names', names => {
         this.playerOne.name = names[0];
         this.playerTwo.name = names[1];
+        this.getTopCards();
         this.sendPlayersToDB();
       })
   },
@@ -60,8 +64,11 @@ export default {
       this.playerOne.hand = randomisedArray.slice(0,n)
       this.playerTwo.hand = randomisedArray.slice(n,numCards)
     },
-
-
+    getTopCards(){
+      this.playerOneCard = this.playerOne.hand.shift()
+      this.playerTwoCard = this.playerTwo.hand.shift()
+      this.inPlay.push(this.playerOneCard, this.playerTwoCard)
+    },
     //Send Players to DB and retrieve Players.
     sendPlayersToDB() {
       GameService.updateData(this.playerOne)
