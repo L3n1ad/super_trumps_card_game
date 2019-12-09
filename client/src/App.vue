@@ -69,6 +69,18 @@ export default {
       GameService.updateData(this.playerTwo)
         .then(dbDetailsTwo => this.playerTwo = dbDetailsTwo)
     }
+  },
+  computed: {
+    scorePlayerOne() {
+      if(this.playerOne.hand){
+        return this.playerOne.hand.length;
+      }
+    },
+    scorePlayerTwo() {
+      if(this.playerTwo.hand){
+        return this.playerTwo.hand.length;
+      }
+    }
   }
 }
 </script>
