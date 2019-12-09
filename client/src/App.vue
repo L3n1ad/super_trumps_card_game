@@ -45,14 +45,16 @@ export default {
         })
         .then(() => this.splitCards())
     });
-
-      //EventBus from Form.
-      eventBus.$on('form-names', names => {
-        this.playerOne.name = names[0];
-        this.playerTwo.name = names[1];
-        this.getTopCards();
-        this.sendPlayersToDB();
-      })
+    eventBus.$on('chosenAttribute', (attribute, value) =>{
+      this.getWinner(attribute, value)
+    });
+    //EventBus from Form.
+    eventBus.$on('form-names', names => {
+      this.playerOne.name = names[0];
+      this.playerTwo.name = names[1];
+      this.getTopCards();
+      this.sendPlayersToDB();
+    })
   },
   methods: {
     splitCards() {
@@ -75,6 +77,18 @@ export default {
         .then(dbDetailsOne => this.playerOne = dbDetailsOne);
       GameService.updateData(this.playerTwo)
         .then(dbDetailsTwo => this.playerTwo = dbDetailsTwo)
+    },
+    getWinner(attribute, value){
+      const playerOneAttr = parseInt(this.playerOneHero.powerstats[attribute])
+      const playerTwoAttr = parseInt(this.playerTwoHero.powerstats[attribute])
+
+      if(playerOneAttr > playerTwoAttr){
+        console.log(this.playerOne);
+      } else if (playerOneAttr < playerTwoAttr){
+        console.log(this.playerTwo);
+      } else {
+        console.log('draw');
+      }
     }
   },
   computed: {
