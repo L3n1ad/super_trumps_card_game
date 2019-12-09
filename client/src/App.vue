@@ -87,6 +87,12 @@ export default {
       if(this.playerTwo.hand){
         return this.playerTwo.hand.length;
       }
+    },
+    playerOneHero(){
+      return this.allHeroes.filter(hero => hero._id == this.playerOneCard)[0]
+    },
+    playerTwoHero(){
+      return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
     }
   }
 }
