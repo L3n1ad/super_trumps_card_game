@@ -4,8 +4,9 @@
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <button v-if="nextRoundButton" v-on:click="nextRound" type="button" name="button">Next Round</button>
     <div v-if="endGame">
-      <h1 v-if='playerOne.inTurn'>{{playerOne.name}} wins!</h1>
-      <h1 v-else>{{playerTwo.name}} wins!</h1>
+      <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
+      <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
+      <h1 v-else> DRAW</h1>
     </div>
   </div>
 </template>
@@ -72,7 +73,7 @@ export default {
   },
   methods: {
     splitCards() {
-      const arrayToRandomise = this.allHeroesID.slice(0)
+      const arrayToRandomise = this.allHeroesID.slice(26)
       const numCards = arrayToRandomise.length
       const numOfSlices = 2
       const n = numCards/numOfSlices
@@ -128,12 +129,12 @@ export default {
   computed: {
     scorePlayerOne() {
       if(this.playerOne.hand){
-        return this.playerOne.hand.length + this.inPlay.length / 2;
+        return this.playerOne.hand.length
       }
     },
     scorePlayerTwo() {
       if(this.playerTwo.hand){
-        return this.playerTwo.hand.length + this.inPlay.length / 2;
+        return this.playerTwo.hand.length
       }
     },
     playerOneHero(){
