@@ -109,12 +109,12 @@ export default {
   computed: {
     scorePlayerOne() {
       if(this.playerOne.hand){
-        return this.playerOne.hand.length;
+        return this.playerOne.hand.length + this.inPlay.length / 2;
       }
     },
     scorePlayerTwo() {
       if(this.playerTwo.hand){
-        return this.playerTwo.hand.length;
+        return this.playerTwo.hand.length + this.inPlay.length / 2;
       }
     },
     playerOneHero(){
