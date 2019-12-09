@@ -2,7 +2,7 @@
   <div>
     <form-names></form-names>
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero'></game-grid>
-
+    <button v-if="nextRoundButton" v-on:click="nextRound" type="button" name="button">Next Round</button>
   </div>
 </template>
 
@@ -27,7 +27,8 @@ export default {
       playerTwo: {},
       playerOneCard: "",
       playerTwoCard: "",
-      inPlay: []
+      inPlay: [],
+      nextRoundButton: false
     }
   },
   mounted() {
@@ -87,15 +88,22 @@ export default {
         this.playerOne.hand = this.playerOne.hand.flat(2)
         this.playerOne.inTurn = true
         this.playerTwo.inTurn = false
+        this.inPlay = []
       } else if (playerOneAttr < playerTwoAttr){
         this.playerTwo.hand.push(this.inPlay)
         this.playerTwo.hand = this.playerTwo.hand.flat(2)
         this.playerOne.inTurn = false
         this.playerTwo.inTurn = true
+        this.inPlay = []
       } else {
         console.log('draw');
       }
       this.sendPlayersToDB()
+      this.nextRoundButton = true
+    },
+    nextRound(){
+      this.nextRoundButton = false
+      this.getTopCards()
     }
   },
   computed: {
