@@ -1,17 +1,22 @@
 <template lang="html">
-  <div v-if='hero' class="">
-    <h3>{{hero.name}}</h3>
-    <img v-bind:src="hero.image.url" alt="" width="100">
-    <div class="">
-      <p>Intelligence</p>
-      <p>Strength</p>
-      <p>Speed</p>
-      <p>Durability</p>
-      <p>Power</p>
-      <p>Combat</p>
+  <div class="">
+    <div v-if='displayPlayer && hero' class="">
+      <h3>{{hero.name}}</h3>
+      <img v-bind:src="hero.image.url" alt="" width="100">
+      <div class="">
+        <p>Intelligence</p>
+        <p>Strength</p>
+        <p>Speed</p>
+        <p>Durability</p>
+        <p>Power</p>
+        <p>Combat</p>
+      </div>
+      <div>
+        <p v-for='(value, attribute) in hero.powerstats' v-on:click='chooseAttribute(attribute, value)'>{{value}}</p>
+      </div>
     </div>
-    <div>
-      <p v-for='(value, attribute) in hero.powerstats' v-on:click='chooseAttribute(attribute, value)'>{{value}}</p>
+    <div v-else class="">
+      <h1>Whatever</h1>
     </div>
   </div>
 </template>
@@ -20,7 +25,7 @@
 import {eventBus} from '../main.js'
 export default {
   name: "player-card",
-  props: ['hero'],
+  props: ['hero', 'displayPlayer'],
   data(){
     return{
       attribute: ''

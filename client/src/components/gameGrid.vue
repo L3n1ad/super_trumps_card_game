@@ -1,7 +1,10 @@
 <template lang="html">
   <div class="">
-    <player-box :hero="playerOneHero" :player='playerOne'>{{playerOneHero}}</player-box>
-    <player-box :hero="playerTwoHero" :player='playerTwo'></player-box>
+    <player-box :hero="playerOneHero" :player='playerOne' :displayPlayer='displayPlayerOne' :playerWins='playerOneWins'>{{playerOneHero}}</player-box>
+    <player-box :hero="playerTwoHero" :player='playerTwo' :displayPlayer='displayPlayerTwo' :playerWins='playerTwoWins'></player-box>
+    <div v-if="draw">
+      <h1>Draw</h1>
+    </div>
   </div>
 </template>
 
@@ -11,7 +14,7 @@ import {eventBus} from '../main.js'
 
 export default {
   name: "game-grid",
-  props: ['playerOne', 'playerTwo', 'playerOneHero', 'playerTwoHero'],
+  props: ['playerOne', 'playerTwo', 'playerOneHero', 'playerTwoHero', 'displayPlayerOne', 'displayPlayerTwo', 'draw', 'playerOneWins', 'playerTwoWins'],
   components: {
     "player-box": playerBox
   }
