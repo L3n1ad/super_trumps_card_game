@@ -10,7 +10,7 @@
       <p>Power</p>
       <p>Combat</p>
     </div>
-    <div class="">
+    <div>
       <p v-for='(value, attribute) in hero.powerstats' v-on:click='chooseAttribute(attribute, value)'>{{value}}</p>
     </div>
   </div>
