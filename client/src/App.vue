@@ -43,15 +43,12 @@ export default {
           this.playerOne = data[0]
           this.playerTwo = data[1]
         })
-<<<<<<< HEAD
-        .then(() => {
-          this.playerOne.hand = [this.allHeroesID[5]]
-          this.playerTwo.hand = [this.allHeroesID[27]]
-        })
-=======
         .then(() => this.splitCards())
->>>>>>> develop
     });
+
+    eventBus.$on('chosenAttribute', (attribute, value, heroid) => {
+      this.getWinner(attribute, value, heroid);
+    })
 
       //EventBus from Form.
       eventBus.$on('form-names', names => {
@@ -70,6 +67,13 @@ export default {
       const randomisedArray = arrayToRandomise.sort(() => Math.random() - 0.5);
       this.playerOne.hand = randomisedArray.slice(0,n)
       this.playerTwo.hand = randomisedArray.slice(n,numCards)
+    },
+    getWinner(attribute, value, heroid){
+      const heroes = [this.playerOneCard, this.playerTwoCard]
+      const playerOnHero = heroes.filter( hero => hero === heroid )
+      const playerOther = heroes.filter(hero => hero !== heroid)
+      console.log(playerOnHero);
+      console.log(playerOther);
     },
     getTopCards(){
       this.playerOneCard = this.playerOne.hand.shift()

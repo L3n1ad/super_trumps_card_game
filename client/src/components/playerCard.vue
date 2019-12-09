@@ -20,7 +20,7 @@
 import {eventBus} from '../main.js'
 export default {
   name: "player-card",
-  props: ['hero'],
+  props: ['hero', 'player'],
   data(){
     return{
       attribute: ''
@@ -28,7 +28,7 @@ export default {
   },
   methods:{
     chooseAttribute(attribute, value){
-      eventBus.$emit('chosenAttribute', attribute, value)
+      eventBus.$emit('chosenAttribute', attribute, value, this.hero._id)
     }
   }
 }

@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <player-head :player='player'></player-head>
-    <player-card :hero='hero'></player-card>
+    <player-card :hero='hero' :player='player'></player-card>
   </div>
 
 </template>
