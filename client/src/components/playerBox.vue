@@ -1,5 +1,5 @@
 <template lang="html">
-  <div >
+  <div>
     <player-head :player='player'></player-head>
     <player-card :hero='hero'></player-card>
   </div>
