@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <form-names></form-names>
-    <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero'></game-grid>
+    <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins'></game-grid>
     <button v-if="nextRoundButton" v-on:click="nextRound" type="button" name="button">Next Round</button>
   </div>
 </template>
@@ -28,7 +28,12 @@ export default {
       playerOneCard: "",
       playerTwoCard: "",
       inPlay: [],
-      nextRoundButton: false
+      nextRoundButton: false,
+      displayPlayerOne: "",
+      displayPlayerTwo: "",
+      playerOneWins: false,
+      playerTwoWins: false,
+      draw: false
     }
   },
   mounted() {
@@ -43,11 +48,15 @@ export default {
         .then( data => {
           this.playerOne = data[0]
           this.playerTwo = data[1]
+          this.displayPlayerOne = this.playerOne.inTurn
+          this.displayPlayerTwo = this.playerTwo.inTurn
         })
         .then(() => this.splitCards())
     });
     eventBus.$on('chosenAttribute', (attribute, value) =>{
       this.getWinner(attribute, value)
+      this.displayPlayerOne = true
+      this.displayPlayerTwo = true
     });
     //EventBus from Form.
     eventBus.$on('form-names', names => {
@@ -89,14 +98,16 @@ export default {
         this.playerOne.inTurn = true
         this.playerTwo.inTurn = false
         this.inPlay = []
+        this.playerOneWins = true
       } else if (playerOneAttr < playerTwoAttr){
         this.playerTwo.hand.push(this.inPlay)
         this.playerTwo.hand = this.playerTwo.hand.flat(2)
         this.playerOne.inTurn = false
         this.playerTwo.inTurn = true
         this.inPlay = []
+        this.playerTwoWins = true
       } else {
-        console.log('draw');
+        this.draw = true
       }
       this.sendPlayersToDB()
       this.nextRoundButton = true
@@ -104,6 +115,10 @@ export default {
     nextRound(){
       this.nextRoundButton = false
       this.getTopCards()
+      this.displayPlayerOne = this.playerOne.inTurn
+      this.displayPlayerTwo = this.playerTwo.inTurn
+      this.draw = this.playerOneWins = this.playerTwoWins = false
+
     }
   },
   computed: {
@@ -122,6 +137,9 @@ export default {
     },
     playerTwoHero(){
       return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
+    },
+    endGame(){
+      return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
     }
   }
 }
