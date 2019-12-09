@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <form-names></form-names>
-    <player-box></player-box>
+    <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero'></game-grid>
 
   </div>
 </template>
@@ -24,7 +24,10 @@ export default {
       allHeroes: [],
       allHeroesID: [],
       playerOne: {},
-      playerTwo: {}
+      playerTwo: {},
+      playerOneCard: "",
+      playerTwoCard: "",
+      inPlay: []
     }
   },
   mounted() {
@@ -40,20 +43,39 @@ export default {
           this.playerOne = data[0]
           this.playerTwo = data[1]
         })
+<<<<<<< HEAD
         .then(() => {
           this.playerOne.hand = [this.allHeroesID[5]]
           this.playerTwo.hand = [this.allHeroesID[27]]
         })
+=======
+        .then(() => this.splitCards())
+>>>>>>> develop
     });
 
       //EventBus from Form.
       eventBus.$on('form-names', names => {
         this.playerOne.name = names[0];
         this.playerTwo.name = names[1];
+        this.getTopCards();
         this.sendPlayersToDB();
       })
   },
   methods: {
+    splitCards() {
+      const arrayToRandomise = this.allHeroesID.slice(0)
+      const numCards = arrayToRandomise.length
+      const numOfSlices = 2
+      const n = numCards/numOfSlices
+      const randomisedArray = arrayToRandomise.sort(() => Math.random() - 0.5);
+      this.playerOne.hand = randomisedArray.slice(0,n)
+      this.playerTwo.hand = randomisedArray.slice(n,numCards)
+    },
+    getTopCards(){
+      this.playerOneCard = this.playerOne.hand.shift()
+      this.playerTwoCard = this.playerTwo.hand.shift()
+      this.inPlay.push(this.playerOneCard, this.playerTwoCard)
+    },
     //Send Players to DB and retrieve Players.
     sendPlayersToDB() {
       GameService.updateData(this.playerOne)
@@ -79,6 +101,24 @@ export default {
       const playerTwoHand = this.playerTwo.hand
       playerOneHand.push(shuffledDeck.splice(0, 15))
       playerTwoHand.push(shuffledDeck.splice(0, 15))
+    }
+  },
+  computed: {
+    scorePlayerOne() {
+      if(this.playerOne.hand){
+        return this.playerOne.hand.length;
+      }
+    },
+    scorePlayerTwo() {
+      if(this.playerTwo.hand){
+        return this.playerTwo.hand.length;
+      }
+    },
+    playerOneHero(){
+      return this.allHeroes.filter(hero => hero._id == this.playerOneCard)[0];
+    },
+    playerTwoHero(){
+      return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
     }
   }
 }
