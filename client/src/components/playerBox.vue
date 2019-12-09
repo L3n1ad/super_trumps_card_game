@@ -1,6 +1,6 @@
 <template lang="html">
   <div >
-    <player-head></player-head>
+    <player-head :player='player'></player-head>
     <player-card :hero='hero'></player-card>
   </div>
 
@@ -12,7 +12,7 @@ import playerCard from "./playerCard"
 
 export default {
   name: "player-box",
-  props: ['hero'],
+  props: ['hero', 'player'],
   components: {
     "player-head": playerHead,
     "player-card": playerCard

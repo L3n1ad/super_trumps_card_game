@@ -1,5 +1,5 @@
 <template lang="html">
-  <h1>{{hero.name}}</h1>
+  <h1 v-if='hero'>{{hero.name}}</h1>
 </template>
 
 <script>

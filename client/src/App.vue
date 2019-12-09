@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <form-names></form-names>
-    <game-grid></game-grid>
+    <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero'></game-grid>
 
   </div>
 </template>
@@ -89,14 +89,10 @@ export default {
       }
     },
     playerOneHero(){
-      const hero = this.allHeroes.filter(hero => hero._id == this.playerOneCard)[0];
-      eventBus.$emit('playerOneHero', hero)
-      return hero
+      return this.allHeroes.filter(hero => hero._id == this.playerOneCard)[0];
     },
     playerTwoHero(){
-      const hero = this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
-      eventBus.$emit('playerTwoHero', hero)
-      return hero
+      return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
     }
   }
 }
