@@ -1,8 +1,12 @@
 <template lang="html">
   <div>
     <form-names></form-names>
-    <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins'></game-grid>
+    <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <button v-if="nextRoundButton" v-on:click="nextRound" type="button" name="button">Next Round</button>
+    <div v-if="endGame">
+      <h1 v-if='playerOne.inTurn'>{{playerOne.name}} wins!</h1>
+      <h1 v-else>{{playerTwo.name}} wins!</h1>
+    </div>
   </div>
 </template>
 

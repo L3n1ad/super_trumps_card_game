@@ -1,11 +1,14 @@
 <template lang="html">
-  <h1 v-if='player'>{{player.name}}</h1>
+  <div v-if='player'>
+    <h1>{{player.name}}</h1>
+    <p>{{score}}</p>
+  </div>
 </template>
 
 <script>
 export default {
   name: "player-head",
-  props: ['player']
+  props: ['player', 'score']
 }
 </script>
 
