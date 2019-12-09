@@ -83,12 +83,19 @@ export default {
       const playerTwoAttr = parseInt(this.playerTwoHero.powerstats[attribute])
 
       if(playerOneAttr > playerTwoAttr){
-        console.log(this.playerOne);
+        this.playerOne.hand.push(this.inPlay)
+        this.playerOne.hand = this.playerOne.hand.flat(2)
+        this.playerOne.inTurn = true
+        this.playerTwo.inTurn = false
       } else if (playerOneAttr < playerTwoAttr){
-        console.log(this.playerTwo);
+        this.playerTwo.hand.push(this.inPlay)
+        this.playerTwo.hand = this.playerTwo.hand.flat(2)
+        this.playerOne.inTurn = false
+        this.playerTwo.inTurn = true
       } else {
         console.log('draw');
       }
+      this.sendPlayersToDB()
     }
   },
   computed: {
