@@ -70,8 +70,8 @@ export default {
     },
     getWinner(attribute, value, heroid){
       const heroes = [this.playerOneCard, this.playerTwoCard]
-      const playerOnHero = heroes.filter( hero => hero === heroid )
-      const playerOther = heroes.filter(hero => hero !== heroid)
+      const playerOnHeroId = heroes.filter( hero => hero === heroid )
+      const playerOtherId = heroes.filter(hero => hero !== heroid)
       console.log(playerOnHero);
       console.log(playerOther);
     },
