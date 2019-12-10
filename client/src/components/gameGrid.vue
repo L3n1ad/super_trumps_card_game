@@ -1,7 +1,7 @@
 <template lang="html">
-  <div class="">
-    <player-box :hero="playerOneHero" :player='playerOne' :displayPlayer='displayPlayerOne' :playerWins='playerOneWins' :score='scorePlayerOne'>{{playerOneHero}}</player-box>
-    <player-box :hero="playerTwoHero" :player='playerTwo' :displayPlayer='displayPlayerTwo' :playerWins='playerTwoWins' :score="scorePlayerTwo"></player-box>
+  <div class="game-grid-grid">
+    <player-box class="player-box-1" :hero="playerOneHero" :player='playerOne' :displayPlayer='displayPlayerOne' :playerWins='playerOneWins' :score='scorePlayerOne'>{{playerOneHero}}</player-box>
+    <player-box class="player-box-2" :hero="playerTwoHero" :player='playerTwo' :displayPlayer='displayPlayerTwo' :playerWins='playerTwoWins' :score="scorePlayerTwo"></player-box>
     <div v-if="draw">
       <h1>Draw</h1>
     </div>
@@ -22,4 +22,73 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.game-grid-grid {
+  grid-area: 2 / 3 / 2 / 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px auto;
+}
+
+.player-box-1 {
+  grid-area: 1 / 1 / 3 / 2;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  width: 400px;
+  margin: auto;
+}
+
+.player-box-2 {
+  grid-area: 1 / 3 / 3 / 4;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  width: 400px;
+  margin: auto;
+}
+ .player-box-1 >>> .player-head {
+  grid-area: 1/1/1/1;
+  text-align: center;
+  color: #0c5f95;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  letter-spacing: 2px;
+  cursor: default;
+  display: grid;
+  grid-template-columns: 2fr 1fr 50px;
+  margin-left: 20px;
+}
+
+.player-box-1 >>> .player-card {
+  grid-area: 2/1/2/1;
+  margin-left: 15%;
+  margin-right:15%;
+  border: solid 2px black;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #0c5f95;
+  display: grid;
+  grid-template-rows: auto 150px repeat(6, 1fr);
+}
+
+
+.player-box-2 >>> .player-head {
+  grid-area: 1/1/1/1;
+  text-align: center;
+  color: #af6214;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  letter-spacing: 2px;
+  cursor: default;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.player-box-2 >>> .player-card {
+  grid-area: 2/1/2/1;
+  margin-left: 15%;
+  margin-right:15%;
+  border: solid 2px black;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #af6214;
+  display: grid;
+  grid-template-rows: auto 150px repeat(6, 1fr);
+}
 </style>

@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
     <h1 v-if='playerWins'>Winner</h1>
-    <player-head :player='player' :score='score'></player-head>
-    <player-card :hero='hero' :displayPlayer='displayPlayer'></player-card>
+    <player-head class="player-head":player='player' :score='score'></player-head>
+    <player-card class="player-card" :hero='hero' :displayPlayer='displayPlayer'></player-card>
   </div>
 
 </template>

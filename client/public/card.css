@@ -1,12 +1,14 @@
 body {
   height: 100vh;
   width: 100vw;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 450px auto auto;
   background-color: black;
   font-family: tomorrow;
   margin: 0px;
+}
+#main-screen {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 450px auto auto;
 }
 
 .background {
@@ -52,14 +54,14 @@ body {
   cursor: pointer;
 }
 
-.game-grid {
+/* .game-grid-grid {
   grid-area: 2 / 3 / 2 / 10;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px auto;
-}
+} */
 
-.player-box-1 {
+/* .player-box-1 {
   grid-area: 1 / 1 / 3 / 2;
   display: grid;
   grid-template-rows: 1fr 5fr;
@@ -73,9 +75,9 @@ body {
   grid-template-rows: 1fr 5fr;
   width: 400px;
   margin: auto;
-}
+} */
 
-.player-head-1 {
+/* .player-box-1 player-head {
   grid-area: 1/1/1/1;
   text-align: center;
   color: #0c5f95;
@@ -85,7 +87,7 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr 50px;
   margin-left: 20px;
-}
+} */
 
 .splat-1 {
   background-image: url('splat-white-1.png');
@@ -96,7 +98,7 @@ body {
   text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
 }
 
-.player-head-2 {
+/* .player-box-2 player-head {
   grid-area: 1/1/1/1;
   text-align: center;
   color: #af6214;
@@ -105,7 +107,7 @@ body {
   cursor: default;
   display: grid;
   grid-template-columns: 2fr 1fr;
-}
+} */
 
 .splat-2 {
   background-image: url('splat-white-2.png');
@@ -116,7 +118,7 @@ body {
   text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
 }
 
-.player-card-1 {
+/* .player-card-1 {
   grid-area: 2/1/2/1;
   margin-left: 15%;
   margin-right:15%;
@@ -126,17 +128,17 @@ body {
   background-color: #0c5f95;
   display: grid;
   grid-template-rows: auto 150px repeat(6, 1fr);
-}
+} */
 
-h4 {
+/* .character-name {
   margin: 2%;
   color: white;
   letter-spacing: 2px;
   font-size: 1.5rem;
   cursor: default;
-}
+} */
 
-.character-image-1 {
+/* .character-image-1 {
   background-image: url(https://www.superherodb.com/pictures2/portraits/10/100/274.jpg);
   background-position: center;
   background-size: cover;
@@ -145,15 +147,15 @@ h4 {
   margin-right: 25px;
   margin-bottom: 5px;
   border: solid 5px black;
-}
+} */
 
-.attribute-name {
+/* .attributes {
   text-align: left;
   margin-left: 10%;
   cursor: pointer;
-}
+} */
 
-.player-card-2 {
+/* .player-card-2 {
   grid-area: 2/1/2/1;
   margin-left: 15%;
   margin-right:15%;
@@ -163,9 +165,9 @@ h4 {
   background-color: #af6214;
   display: grid;
   grid-template-rows: auto 150px repeat(6, 1fr);
-}
+} */
 
-.character-image-2 {
+/* .character-image-2 {
   background-image: url(https://www.superherodb.com/pictures2/portraits/10/100/1496.jpg);
   background-position: center;
   background-size: cover;
@@ -174,12 +176,12 @@ h4 {
   margin-right: 25px;
   margin-bottom: 5px;
   border: solid 5px black;
-}
+} */
 
-.vs {
+/* .vs {
   grid-area: 2 / 2 / 3 / 3;
   background-image: url("vs.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-}
+} */
