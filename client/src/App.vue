@@ -79,6 +79,8 @@ export default {
     eventBus.$on('form-names', names => {
       this.playerOne.name = names[0];
       this.playerTwo.name = names[1];
+      this.playerOne.inTurn = this.trueOrFalse();
+      this.playerTwo.inTurn = !this.playerOne.inTurn;
       this.scoreCount();
       this.getTopCards();
       this.sendPlayersToDB();
@@ -88,7 +90,7 @@ export default {
   },
   methods: {
     splitCards() {
-      const arrayToRandomise = this.allHeroesID.slice(23, 26)
+      const arrayToRandomise = this.allHeroesID.slice(0)
       const numCards = arrayToRandomise.length
       const numOfSlices = 2
       const n = numCards/numOfSlices
@@ -144,6 +146,9 @@ export default {
     scoreCount() {
          this.scorePlayerOne = this.playerOne.hand.length
          this.scorePlayerTwo = this.playerTwo.hand.length
+    },
+    trueOrFalse(){
+      return Math.random() >= 0.5;
     }
   },
   computed: {
