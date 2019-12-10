@@ -3,12 +3,17 @@
     <div class="background">
 
     </div>
-    <form-names class="form"></form-names>
-    <h1 class="start-game">Start Game</h1>
+    <form-names v-if="showForm" class="form"></form-names>
+    <h1 class="start-game" v-on:click="toggleForm">{{startButtonText}}</h1>
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
+<<<<<<< HEAD
     <div class="winner-draw" v-if="endGame">
+=======
+    <h1 v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
+    <div v-if="endGame || endGameButton">
+>>>>>>> develop
       <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
       <h1 v-else> DRAW</h1>
@@ -45,7 +50,11 @@ export default {
       playerTwoWins: false,
       draw: false,
       scorePlayerOne: 15,
-      scorePlayerTwo: 15
+      scorePlayerTwo: 15,
+      showForm: false,
+      gameStarted: false,
+      startButtonText: "Start Game",
+      endGameButton: false
     }
   },
   mounted() {
@@ -73,7 +82,6 @@ export default {
     //EventBus from Form.
     eventBus.$on('form-card-amount', amountOfCards =>{
       if(amountOfCards != 30){
-        console.log(amountOfCards);
         let cardsPerPlayer = amountOfCards / 2;
         let manyToRemove = 15 - cardsPerPlayer;
         this.playerOne.hand.splice( cardsPerPlayer, manyToRemove );
@@ -91,7 +99,13 @@ export default {
       this.sendPlayersToDB();
       this.displayPlayerOne = this.playerOne.inTurn
       this.displayPlayerTwo = this.playerTwo.inTurn
+      this.showForm = false
+      this.startButtonText = "Start New Game"
+      this.endGameButton = false
+      this.gameStarted = true
     })
+
+    eventBus.$on('close-window', () => this.showForm = false)
   },
   methods: {
     splitCards() {
@@ -154,6 +168,12 @@ export default {
     },
     trueOrFalse(){
       return Math.random() >= 0.5;
+    },
+    toggleForm(){
+      this.showForm = !this.showForm
+    },
+    triggerEndGame(){
+      this.endGameButton = true
     }
   },
   computed: {
@@ -174,7 +194,7 @@ export default {
       return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
     },
     endGame(){
-      return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
+      this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
     }
   }
 }
