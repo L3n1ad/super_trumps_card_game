@@ -8,13 +8,18 @@
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
+<<<<<<< HEAD
     <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
+=======
+    <h1 v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
+>>>>>>> develop
     <div v-if="endGame || endGameButton">
       <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
       <h1 v-else> DRAW</h1>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -54,22 +59,8 @@ export default {
     }
   },
   mounted() {
-    GameService.getAllSuperHeroes()
-    .then(data => this.allHeroes = data)
-    .then(() => this.allHeroes.map(obj => {
-      return obj._id
-    }))
-    .then( ids => this.allHeroesID = ids)
-    .then(() =>{
-      GameService.getAllPlayers()
-        .then( data => {
-          this.playerOne = data[0]
-          this.playerTwo = data[1]
-          this.displayPlayerOne = this.playerOne.inTurn
-          this.displayPlayerTwo = this.playerTwo.inTurn
-        })
-        .then(() => this.splitCards())
-    });
+    this.getStartingData()
+
     eventBus.$on('chosenAttribute', (attribute, value) =>{
       this.getWinner(attribute, value)
       this.displayPlayerOne = true
@@ -77,6 +68,7 @@ export default {
     });
     //EventBus from Form.
     eventBus.$on('form-card-amount', amountOfCards =>{
+      this.splitCards()
       if(amountOfCards != 30){
         let cardsPerPlayer = amountOfCards / 2;
         let manyToRemove = 15 - cardsPerPlayer;
@@ -86,6 +78,7 @@ export default {
     });
 
     eventBus.$on('form-names', names => {
+      this.playerOneWins = this.playerTwoWins = this.draw = false
       this.playerOne.name = names[0];
       this.playerTwo.name = names[1];
       this.playerOne.inTurn = this.trueOrFalse();
@@ -104,7 +97,27 @@ export default {
     eventBus.$on('close-window', () => this.showForm = false)
   },
   methods: {
+    getStartingData(){
+      GameService.getAllSuperHeroes()
+      .then(data => this.allHeroes = data)
+      .then(() => this.allHeroes.map(obj => {
+        return obj._id
+      }))
+      .then( ids => this.allHeroesID = ids)
+      .then(() =>{
+        GameService.getAllPlayers()
+          .then( data => {
+            this.playerOne = data[0]
+            this.playerTwo = data[1]
+            this.displayPlayerOne = this.playerOne.inTurn
+            this.displayPlayerTwo = this.playerTwo.inTurn
+          })
+          .then(() => this.splitCards())
+      });
+    },
     splitCards() {
+      this.playerOne.hand = []
+      this.playerTwo.hand = []
       const arrayToRandomise = this.allHeroesID.slice(0)
       const numCards = arrayToRandomise.length
       const numOfSlices = 2
@@ -116,6 +129,7 @@ export default {
     getTopCards(){
       this.playerOneCard = this.playerOne.hand.shift()
       this.playerTwoCard = this.playerTwo.hand.shift()
+      this.inPlay = []
       this.inPlay.push(this.playerOneCard, this.playerTwoCard)
     },
     //Send Players to DB and retrieve Players.
@@ -190,7 +204,7 @@ export default {
       return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
     },
     endGame(){
-      this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
+      return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
     }
   }
 }
