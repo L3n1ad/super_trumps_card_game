@@ -20,12 +20,12 @@ db.superHeroes.insertMany([
     "id": "30",
     "name": "Ant-Man",
     "powerstats": {
-      "intelligence": "100",
-      "strength": "18",
-      "speed": "23",
-      "durability": "28",
-      "power": "32",
-      "combat": "32"
+      "intelligence": "87",
+      "strength": "31",
+      "speed": "42",
+      "durability": "45",
+      "power": "74",
+      "combat": "67"
     },
     "biography": {
       "full-name": "Hank Pym",
@@ -75,11 +75,11 @@ db.superHeroes.insertMany([
   "id": "38",
   "name": "Aquaman",
   "powerstats": {
-    "intelligence": "81",
+    "intelligence": "67",
     "strength": "85",
     "speed": "79",
     "durability": "80",
-    "power": "100",
+    "power": "91",
     "combat": "80"
   },
   "biography": {
