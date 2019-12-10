@@ -9,10 +9,10 @@
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
     <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
-    <div v-if="endGame || endGameButton">
-      <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
-      <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
-      <h1 v-else> DRAW</h1>
+    <div class="display-winner-container" v-if="endGame || endGameButton">
+      <h1 class="display-winner-item" v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
+      <h1 class="display-winner-item" v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
+      <h1 class="display-winner-item" v-else> DRAW</h1>
     </div>
   </div>
 
@@ -207,12 +207,19 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .winner-draw{
+  .display-winner-container{
+    grid-area: 2/1/2/1;
     font-size: 6rem;
     text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
     font-family: tomorrow;
     color: white;
     z-index: 5;
-    width: 100%;
+  }
+
+  .display-winner-item {
+    text-align: center;
+    background-color: #d3dbdf;
+    opacity: 0.95;
+    padding-bottom: 3%;
   }
 </style>

@@ -112,13 +112,12 @@ export default {
 }
 
 .draw {
+  grid-area: 2/1/2/3;
   font-size: 6rem;
   text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
   font-family: tomorrow;
   color: white;
   z-index: 5;
-  bottom: 50%;
-  top: 50%;
   text-align: center;
 }
 </style>
