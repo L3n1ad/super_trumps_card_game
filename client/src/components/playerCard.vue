@@ -80,9 +80,19 @@ export default {
     text-transform: uppercase;
   }
 
-  .feature {
-
+  .attribute-value > div:hover {
+    float: right;
+    text-align:right;
+    margin-right: 10%;
+    cursor: pointer;
+    color: #d3dbdf;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition-property: margin-right;
+    transition-duration: 1s;
   }
+
   .image {
     width: 200px;
     height: 200px;
