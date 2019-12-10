@@ -55,6 +55,20 @@ export default {
     letter-spacing: 1.5px;
     text-transform: uppercase;
   }
+  .attribute-title > div:hover {
+    float: left;
+    text-align: left;
+    margin-left: 10%;
+    cursor: pointer;
+    grid-area: 3/1/3/1;
+    text-transform: capitalize;
+    color: #d3dbdf;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition-property: margin-left;
+    transition-duration: 1s;
+  }
 
   .attribute-value {
     float: right;
@@ -64,6 +78,10 @@ export default {
     color: #d3dbdf;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+  }
+
+  .feature {
+
   }
   .image {
     width: 200px;
