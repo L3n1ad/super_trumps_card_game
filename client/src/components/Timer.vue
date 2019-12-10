@@ -18,8 +18,7 @@ export default {
     return{
       timer: null,
       totalTime: (1*60),
-      // resetButton: false,
-      // title: "Let the countdown begin!!"
+
 
     }},
   mounted() {
@@ -30,18 +29,17 @@ export default {
     startTimer() {
       console.log("timer running");
     this.timer = setInterval(() => this.countdown(), 1000);
-    // this.resetButton = true;
+
   },
-    // stopTimer: function() {
-    //   clearInterval(this.timer);
-    //   this.timer = null;
-    //   // this.resetButton = true;
-    // },
+    stopTimer() {
+      clearInterval(this.timer);
+      this.timer = null;
+
+    },
     // resetTimer: function() {
     //   this.totalTime = (1 * 60);
     //   clearInterval(this.timer);
     //   this.timer = null;
-    //   this.resetButton = false;
     // },
     padTime(time) {
       return (time < 10 ? '0' : '') + time;

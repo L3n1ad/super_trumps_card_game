@@ -6,6 +6,8 @@
     <input type="text" id="player2" placeholder="Name" v-model="player2" required/>
     <input type="range" min="6" max="30" value="18" step="6" v-model="cardAmount" class="slider" id="rangeCards">
     <p>{{cardAmount}}</p>
+    <label for=""></label>
+    <input type="radio" name="" value="">
     <input type="submit" name="submit" value="START" />
   </form>
 
