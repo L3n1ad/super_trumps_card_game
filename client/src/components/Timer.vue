@@ -1,31 +1,42 @@
 <template lang="html">
-  <div id="timer">
+  <div v-if="startTimer" id="timer">
     <span id="minutes">{{minutes}}</span>
     <span id="middle">:</span>
     <span id="seconds">{{seconds}}</span>
     <!-- <span>{{totalTime}}</span> -->
     <div>
-      <button v-on:click="startTimer">Start</button>
+      <!-- <button v-on:click="startTimer">Start</button> -->
     </div>
   </div>
 
 </template>
 
 <script>
+import { eventBus } from '@/main.js';
 export default {
   name: "timer",
   data(){
     return{
       timer: null,
-      totalTime: (1*60),
+      totalTime: null,
 
 
     }},
   mounted() {
-
+    eventBus.$on("form-game-time", gameTime =>{
+      this.totalTime = (parseInt(gameTime) * 60)
+      this.startTimer()
+    })
   },
-
   methods:{
+    timeOutEndGame() {
+      eventBus.$emit("form-card-amount", this.cardAmount);
+      const names = [this.player1, this.player2]
+      eventBus.$emit("form-names", names);
+      if(this.gameTime > 0){
+        eventBus.$emit("form-game-time", this.gameTime)
+        }
+      },  
     startTimer() {
       console.log("timer running");
     this.timer = setInterval(() => this.countdown(), 1000);
