@@ -20,12 +20,12 @@ db.superHeroes.insertMany([
     "id": "30",
     "name": "Ant-Man",
     "powerstats": {
-      "intelligence": "100",
-      "strength": "18",
-      "speed": "23",
-      "durability": "28",
-      "power": "32",
-      "combat": "32"
+      "intelligence": "231",
+      "strength": "766",
+      "speed": "12",
+      "durability": "7",
+      "power": "276",
+      "combat": "3"
     },
     "biography": {
       "full-name": "Hank Pym",
@@ -75,12 +75,12 @@ db.superHeroes.insertMany([
   "id": "38",
   "name": "Aquaman",
   "powerstats": {
-    "intelligence": "81",
-    "strength": "85",
-    "speed": "79",
-    "durability": "80",
-    "power": "100",
-    "combat": "80"
+    "intelligence": "90",
+    "strength": "843",
+    "speed": "6800",
+    "durability": "8",
+    "power": "301",
+    "combat": "7"
   },
   "biography": {
     "full-name": "Orin",
@@ -129,12 +129,12 @@ db.superHeroes.insertMany([
   "id": "70",
   "name": "Batman",
   "powerstats": {
-    "intelligence": "100",
-    "strength": "26",
-    "speed": "27",
-    "durability": "50",
-    "power": "47",
-    "combat": "100"
+    "intelligence": "176",
+    "strength": "378",
+    "speed": "14",
+    "durability": "5",
+    "power": "342",
+    "combat": "9"
   },
   "biography": {
     "full-name": "Bruce Wayne",
@@ -179,12 +179,12 @@ db.superHeroes.insertMany([
   "id": "106",
   "name": "Black Panther",
   "powerstats": {
-    "intelligence": "88",
-    "strength": "16",
-    "speed": "30",
-    "durability": "60",
-    "power": "41",
-    "combat": "100"
+    "intelligence": "143",
+    "strength": "489",
+    "speed": "37",
+    "durability": "7",
+    "power": "299",
+    "combat": "8"
   },
   "biography": {
     "full-name": "T'Challa",
@@ -234,12 +234,12 @@ db.superHeroes.insertMany([
   "id": "104",
   "name": "Black Mamba",
   "powerstats": {
-    "intelligence": "75",
-    "strength": "10",
-    "speed": "35",
-    "durability": "42",
-    "power": "88",
-    "combat": "65"
+    "intelligence": "132",
+    "strength": "311",
+    "speed": "24",
+    "durability": "6",
+    "power": "323",
+    "combat": "5"
   },
   "biography": {
     "full-name": "Tanya Sealy",
@@ -283,12 +283,12 @@ db.superHeroes.insertMany([
   "id": "127",
   "name": "Boba Fett",
   "powerstats": {
-    "intelligence": "63",
-    "strength": "10",
-    "speed": "38",
-    "durability": "36",
-    "power": "68",
-    "combat": "70"
+    "intelligence": "165",
+    "strength": "207",
+    "speed": "107",
+    "durability": "7",
+    "power": "231",
+    "combat": "6"
   },
   "biography": {
     "full-name": "",
@@ -336,12 +336,12 @@ db.superHeroes.insertMany([
   "id": "149",
   "name": "Captain America",
   "powerstats": {
-    "intelligence": "69",
-    "strength": "19",
-    "speed": "38",
-    "durability": "55",
-    "power": "60",
-    "combat": "100"
+    "intelligence": "117",
+    "strength": "915",
+    "speed": "18",
+    "durability": "10",
+    "power": "447",
+    "combat": "9"
   },
   "biography": {
     "full-name": "Steve Rogers",
@@ -386,12 +386,12 @@ db.superHeroes.insertMany([
   "id": "157",
   "name": "Captain Marvel",
   "powerstats": {
-    "intelligence": "84",
-    "strength": "88",
-    "speed": "71",
-    "durability": "95",
-    "power": "100",
-    "combat": "90"
+    "intelligence": "201",
+    "strength": "947",
+    "speed": "1537",
+    "durability": "10",
+    "power": "487",
+    "combat": "7"
   },
   "biography": {
     "full-name": "Carol Danvers",
@@ -439,12 +439,12 @@ db.superHeroes.insertMany([
   "id": "165",
   "name": "Catwoman",
   "powerstats": {
-    "intelligence": "69",
-    "strength": "11",
+    "intelligence": "153",
+    "strength": "342",
     "speed": "33",
-    "durability": "28",
-    "power": "27",
-    "combat": "85"
+    "durability": "6",
+    "power": "198",
+    "combat": "7"
   },
   "biography": {
     "full-name": "Selina Kyle",
@@ -493,12 +493,12 @@ db.superHeroes.insertMany([
   "id": "194",
   "name": "Cyborg",
   "powerstats": {
-    "intelligence": "75",
-    "strength": "53",
-    "speed": "42",
-    "durability": "85",
-    "power": "71",
-    "combat": "64"
+    "intelligence": "249",
+    "strength": "901",
+    "speed": "95",
+    "durability": "8",
+    "power": "264",
+    "combat": "4"
   },
   "biography": {
     "full-name": "Victor Stone",
@@ -544,12 +544,12 @@ db.superHeroes.insertMany([
   "id": "201",
   "name": "Daredevil",
   "powerstats": {
-    "intelligence": "75",
-    "strength": "13",
-    "speed": "25",
-    "durability": "35",
-    "power": "61",
-    "combat": "100"
+    "intelligence": "183",
+    "strength": "369",
+    "speed": "19",
+    "durability": "7",
+    "power": "351",
+    "combat": "9"
   },
   "biography": {
     "full-name": "Matt Murdock",
@@ -607,12 +607,12 @@ db.superHeroes.insertMany([
   "id": "332",
   "name": "Hulk",
   "powerstats": {
-    "intelligence": "88",
-    "strength": "100",
-    "speed": "63",
-    "durability": "100",
-    "power": "98",
-    "combat": "85"
+    "intelligence": "78",
+    "strength": "801",
+    "speed": "117",
+    "durability": "9",
+    "power": "372",
+    "combat": "3"
   },
   "biography": {
     "full-name": "Bruce Banner",
@@ -663,12 +663,12 @@ db.superHeroes.insertMany([
   "id": "720",
   "name": "Wonder Woman",
   "powerstats": {
-    "intelligence": "88",
-    "strength": "100",
-    "speed": "79",
-    "durability": "100",
-    "power": "100",
-    "combat": "100"
+    "intelligence": "151",
+    "strength": "954",
+    "speed": "3806",
+    "durability": "10",
+    "power": "488",
+    "combat": "6"
   },
   "biography": {
     "full-name": "Diana Prince",
@@ -717,12 +717,12 @@ db.superHeroes.insertMany([
   "id": "346",
   "name": "Iron Man",
   "powerstats": {
-    "intelligence": "100",
-    "strength": "85",
-    "speed": "58",
-    "durability": "85",
-    "power": "100",
-    "combat": "64"
+    "intelligence": "268",
+    "strength": "769",
+    "speed": "2785",
+    "durability": "9",
+    "power": "825",
+    "combat": "8"
   },
   "biography": {
     "full-name": "Tony Stark",
@@ -771,12 +771,12 @@ db.superHeroes.insertMany([
   "id": "561",
   "name": "Robin",
   "powerstats": {
-    "intelligence": "88",
-    "strength": "11",
-    "speed": "27",
-    "durability": "28",
-    "power": "32",
-    "combat": "85"
+    "intelligence": "136",
+    "strength": "476",
+    "speed": "23",
+    "durability": "5",
+    "power": "458",
+    "combat": "6"
   },
   "biography": {
     "full-name": "Dick Grayson",
@@ -822,12 +822,12 @@ db.superHeroes.insertMany([
   "id": "659",
   "name": "Thor",
   "powerstats": {
-    "intelligence": "69",
-    "strength": "100",
-    "speed": "83",
-    "durability": "100",
-    "power": "100",
-    "combat": "100"
+    "intelligence": "122",
+    "strength": "913",
+    "speed": "12789",
+    "durability": "10",
+    "power": "453",
+    "combat": "6"
   },
   "biography": {
     "full-name": "Thor Odinson",
@@ -874,12 +874,12 @@ db.superHeroes.insertMany([
   "id": "620",
   "name": "Spider-Man",
   "powerstats": {
-    "intelligence": "90",
-    "strength": "55",
-    "speed": "67",
-    "durability": "75",
-    "power": "74",
-    "combat": "85"
+    "intelligence": "163",
+    "strength": "632",
+    "speed": "146",
+    "durability": "6",
+    "power": "561",
+    "combat": "7"
   },
   "biography": {
     "full-name": "Peter Parker",
@@ -937,12 +937,12 @@ db.superHeroes.insertMany([
   "id": "644",
   "name": "Superman",
   "powerstats": {
-    "intelligence": "94",
-    "strength": "100",
-    "speed": "100",
-    "durability": "100",
-    "power": "100",
-    "combat": "85"
+    "intelligence": "213",
+    "strength": "993",
+    "speed": "2785",
+    "durability": "10",
+    "power": "489",
+    "combat": "6"
   },
   "biography": {
     "full-name": "Clark Kent",
@@ -992,12 +992,12 @@ db.superHeroes.insertMany([
   "id": "423",
   "name": "Magneto",
   "powerstats": {
-    "intelligence": "88",
-    "strength": "80",
-    "speed": "27",
-    "durability": "84",
-    "power": "91",
-    "combat": "80"
+    "intelligence": "231",
+    "strength": "798",
+    "speed": "67",
+    "durability": "4",
+    "power": "643",
+    "combat": "3"
   },
   "biography": {
     "full-name": "Erik Magnus Lensherr",
@@ -1045,12 +1045,12 @@ db.superHeroes.insertMany([
   "id": "717",
   "name": "Wolverine",
   "powerstats": {
-    "intelligence": "63",
-    "strength": "32",
-    "speed": "50",
-    "durability": "100",
-    "power": "89",
-    "combat": "100"
+    "intelligence": "132",
+    "strength": "679",
+    "speed": "21",
+    "durability": "9",
+    "power": "398",
+    "combat": "5"
   },
   "biography": {
     "full-name": "Logan",
@@ -1105,12 +1105,12 @@ db.superHeroes.insertMany([
   "id": "298",
   "name": "Green Arrow",
   "powerstats": {
-    "intelligence": "81",
-    "strength": "12",
-    "speed": "35",
-    "durability": "28",
-    "power": "39",
-    "combat": "90"
+    "intelligence": "176",
+    "strength": "324",
+    "speed": "16",
+    "durability": "4",
+    "power": "248",
+    "combat": "8"
   },
   "biography": {
     "full-name": "Oliver Queen",
@@ -1153,14 +1153,14 @@ db.superHeroes.insertMany([
 {
   "response": "success",
   "id": "265",
-  "name": "Flash II",
+  "name": "Flash",
   "powerstats": {
-    "intelligence": "88",
-    "strength": "48",
-    "speed": "100",
-    "durability": "60",
-    "power": "100",
-    "combat": "60"
+    "intelligence": "146",
+    "strength": "345",
+    "speed": "945786",
+    "durability": "7",
+    "power": "341",
+    "combat": "3"
   },
   "biography": {
     "full-name": "Barry Allen",
@@ -1207,12 +1207,12 @@ db.superHeroes.insertMany([
   "id": "432",
   "name": "Martian Manhunter",
   "powerstats": {
-    "intelligence": "100",
-    "strength": "95",
-    "speed": "92",
-    "durability": "100",
-    "power": "100",
-    "combat": "85"
+    "intelligence": "213",
+    "strength": "942",
+    "speed": "2315",
+    "durability": "9",
+    "power": "402",
+    "combat": "7"
   },
   "biography": {
     "full-name": "J'onn J'onzz",
@@ -1258,12 +1258,12 @@ db.superHeroes.insertMany([
   "id": "370",
   "name": "Joker",
   "powerstats": {
-    "intelligence": "100",
-    "strength": "10",
+    "intelligence": "224",
+    "strength": "337",
     "speed": "12",
-    "durability": "60",
-    "power": "43",
-    "combat": "70"
+    "durability": "4",
+    "power": "219",
+    "combat": "3"
   },
   "biography": {
     "full-name": "Jack Napier",
@@ -1312,12 +1312,12 @@ db.superHeroes.insertMany([
   "id": "514",
   "name": "Penguin",
   "powerstats": {
-    "intelligence": "75",
-    "strength": "10",
-    "speed": "12",
-    "durability": "28",
-    "power": "30",
-    "combat": "45"
+    "intelligence": "221",
+    "strength": "117",
+    "speed": "7",
+    "durability": "4",
+    "power": "261",
+    "combat": "2"
   },
   "biography": {
     "full-name": "Oswald Chesterfield Cobblepot",
@@ -1361,12 +1361,12 @@ db.superHeroes.insertMany([
   "id": "530",
   "name": "Punisher",
   "powerstats": {
-    "intelligence": "69",
-    "strength": "16",
-    "speed": "21",
-    "durability": "45",
-    "power": "42",
-    "combat": "100"
+    "intelligence": "132",
+    "strength": "334",
+    "speed": "15",
+    "durability": "6",
+    "power": "207",
+    "combat": "8"
   },
   "biography": {
     "full-name": "Frank Castle",
@@ -1429,12 +1429,12 @@ db.superHeroes.insertMany([
   "id": "275",
   "name": "Gamora",
   "powerstats": {
-    "intelligence": "75",
-    "strength": "85",
-    "speed": "42",
-    "durability": "85",
-    "power": "53",
-    "combat": "100"
+    "intelligence": "135",
+    "strength": "678",
+    "speed": "41",
+    "durability": "8",
+    "power": "364",
+    "combat": "8"
   },
   "biography": {
     "full-name": "Gamora Zen Whoberi Ben Titan",
@@ -1479,12 +1479,12 @@ db.superHeroes.insertMany([
   "id": "310",
   "name": "Harry Potter",
   "powerstats": {
-    "intelligence": "75",
-    "strength": "7",
-    "speed": "21",
-    "durability": "10",
-    "power": "100",
-    "combat": "50"
+    "intelligence": "169",
+    "strength": "113",
+    "speed": "11",
+    "durability": "4",
+    "power": "387",
+    "combat": "4"
   },
   "biography": {
     "full-name": "Harry James Potter",
@@ -1532,12 +1532,12 @@ db.superHeroes.insertMany([
   "id": "650",
   "name": "T-800",
   "powerstats": {
-    "intelligence": "75",
-    "strength": "34",
-    "speed": "17",
-    "durability": "60",
-    "power": "73",
-    "combat": "65"
+    "intelligence": "201",
+    "strength": "841",
+    "speed": "117",
+    "durability": "8",
+    "power": "386",
+    "combat": "5"
   },
   "biography": {
     "full-name": "Cyberdyne Systems Series 800 Terminator Model 101",
@@ -1581,12 +1581,12 @@ db.superHeroes.insertMany([
   "id": "655",
   "name": "Thanos",
   "powerstats": {
-    "intelligence": "100",
-    "strength": "100",
-    "speed": "33",
-    "durability": "100",
-    "power": "100",
-    "combat": "80"
+    "intelligence": "267",
+    "strength": "942",
+    "speed": "5",
+    "durability": "10",
+    "power": "467",
+    "combat": "9"
   },
   "biography": {
     "full-name": "Thanos",
