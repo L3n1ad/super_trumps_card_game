@@ -206,14 +206,5 @@ export default {
     width: 100%;
   }
 
-  .end-game {
-    grid-area: 5 / 5 / 5 / 9;
-    color: white;
-    text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
-    margin: 2%;
-    text-align: center;
-    cursor: pointer;
-    z-index: 3;
-    font-size: 3rem;
-  }
+
 </style>

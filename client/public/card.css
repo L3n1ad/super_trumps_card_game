@@ -47,6 +47,19 @@ body {
   cursor: pointer;
 }
 
+.start-game:hover {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  color: white;
+  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+  font-size: 3.5em;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  text-align: center;
+  cursor: pointer;
+  transition: 1s;
+}
+
 .next-round {
   grid-area: 4 / 5 / 4 / 9;
   color: white;
@@ -56,6 +69,18 @@ body {
   cursor: pointer;
   z-index: 3;
   font-size: 3rem;
+}
+
+.next-round:hover {
+  grid-area: 4 / 5 / 4 / 9;
+  color: white;
+  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+  margin: 2%;
+  text-align: center;
+  cursor: pointer;
+  z-index: 3;
+  font-size: 3.5rem;
+  transition: 1s;
 }
 
 .end-game {
@@ -69,13 +94,16 @@ body {
   font-size: 3rem;
 }
 
-.finish-game {
-  grid-area: 4 / 5 / 5 / 9;
+.end-game:hover {
+  grid-area: 5 / 5 / 5 / 9;
   color: white;
   text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
   margin: 2%;
   text-align: center;
   cursor: pointer;
+  z-index: 3;
+  font-size: 3.5rem;
+  transition: 1s;
 }
 
 /* .game-grid-grid {
