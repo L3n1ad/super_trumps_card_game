@@ -8,7 +8,8 @@
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
-    <div v-if="endGame">
+    <h1 v-on:click="triggerEndGame">End Game</h1>
+    <div v-if="endGame || endGameButton">
       <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
       <h1 v-else> DRAW</h1>
@@ -48,7 +49,8 @@ export default {
       scorePlayerTwo: 15,
       showForm: false,
       gameStarted: false,
-      startButtonText: "Start Game"
+      startButtonText: "Start Game",
+      endGameButton: false
     }
   },
   mounted() {
@@ -76,7 +78,6 @@ export default {
     //EventBus from Form.
     eventBus.$on('form-card-amount', amountOfCards =>{
       if(amountOfCards != 30){
-        console.log(amountOfCards);
         let cardsPerPlayer = amountOfCards / 2;
         let manyToRemove = 15 - cardsPerPlayer;
         this.playerOne.hand.splice( cardsPerPlayer, manyToRemove );
@@ -96,6 +97,7 @@ export default {
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.showForm = false
       this.startButtonText = "Start New Game"
+      this.endGameButton = false
     })
 
     eventBus.$on('close-window', () => this.showForm = false)
@@ -164,6 +166,9 @@ export default {
     },
     toggleForm(){
       this.showForm = !this.showForm
+    },
+    triggerEndGame(){
+      this.endGameButton = true
     }
   },
   computed: {
@@ -184,7 +189,7 @@ export default {
       return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
     },
     endGame(){
-      return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
+      this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
     }
   }
 }
