@@ -1,6 +1,10 @@
 <template lang="html">
-  <div>
+  <div id='main-screen'>
+    <div class="background">
+
+    </div>
     <form-names></form-names>
+
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <button v-if="nextRoundButton" v-on:click="nextRound" type="button" name="button">Next Round</button>
     <div v-if="endGame">
@@ -151,4 +155,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 </style>
