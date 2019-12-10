@@ -1,12 +1,11 @@
 <template>
-  <form class="" v-on:submit.prevent="handleSubmit">
+  <form class="form-contents" v-on:submit.prevent="handleSubmit">
     <label for="player1">Player 1:</label>
     <input type="text" id="player1" placeholder="Name" v-model="player1" required/>
     <label for="player2">Player 2:</label>
     <input type="text" id="player2" placeholder="Name" v-model="player2" required/>
     <input type="submit" name="submit" value="START" />
   </form>
-
 </template>
 
 <script>
@@ -30,4 +29,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  /* .form-contents {
+    text-align: center;
+    font-size: 3rem;
+  } */
 </style>

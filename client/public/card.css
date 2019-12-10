@@ -11,6 +11,17 @@ body {
   grid-template-rows: auto 450px auto auto;
 }
 
+/* .form {
+  position: absolute;
+  height: 90%;
+  width: 90%;
+  background-color: white;
+  z-index: 10;
+  opacity: 0.9;
+  left: 5%;
+  top: 5%;
+} */
+
 .background {
   background-color: black;
   background-image: url(./images/background.jpg);
@@ -37,12 +48,14 @@ body {
 }
 
 .next-round {
-  grid-area: 3 / 5 / 4 / 9;
+  grid-area: 4 / 5 / 4 / 9;
   color: white;
   text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
   margin: 2%;
   text-align: center;
   cursor: pointer;
+  z-index: 3;
+  font-size: 3rem;
 }
 
 .finish-game {

@@ -21,10 +21,13 @@ export default {
 
 <style lang="css" scoped>
 .game-grid-grid {
-  grid-area: 2 / 3 / 2 / 10;
+  /* grid-area: 2 / 3 / 2 / 10; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px auto;
+  position: fixed;
+  top: 25%;
+  left: 17%;
 }
 
 .player-box-1 {
@@ -36,7 +39,7 @@ export default {
 }
 
 .player-box-2 {
-  grid-area: 1 / 3 / 3 / 4;
+  grid-area: 1 / 3 / 3 / 3;
   display: grid;
   grid-template-rows: 1fr auto auto;
   width: 400px;
@@ -115,6 +118,6 @@ export default {
   z-index: 5;
   bottom: 50%;
   top: 50%;
-
+  text-align: center;
 }
 </style>
