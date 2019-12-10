@@ -8,7 +8,7 @@ body {
 #main-screen {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 450px auto auto;
+  grid-template-rows: auto 450px 100px 100px;
 }
 
 .form {
@@ -49,6 +49,17 @@ body {
 
 .next-round {
   grid-area: 4 / 5 / 4 / 9;
+  color: white;
+  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+  margin: 2%;
+  text-align: center;
+  cursor: pointer;
+  z-index: 3;
+  font-size: 3rem;
+}
+
+.end-game {
+  grid-area: 5 / 5 / 5 / 9;
   color: white;
   text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
   margin: 2%;
