@@ -73,11 +73,13 @@ export default {
       this.playerTwo.name = names[1];
       this.getTopCards();
       this.sendPlayersToDB();
+      this.displayPlayerOne = this.playerOne.inTurn
+      this.displayPlayerTwo = this.playerTwo.inTurn
     })
   },
   methods: {
     splitCards() {
-      const arrayToRandomise = this.allHeroesID.slice(26)
+      const arrayToRandomise = this.allHeroesID.slice(0)
       const numCards = arrayToRandomise.length
       const numOfSlices = 2
       const n = numCards/numOfSlices
