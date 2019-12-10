@@ -2,9 +2,7 @@
   <div class="game-grid-grid">
     <player-box class="player-box-1" :hero="playerOneHero" :player='playerOne' :displayPlayer='displayPlayerOne' :playerWins='playerOneWins' :score='scorePlayerOne'>{{playerOneHero}}</player-box>
     <player-box class="player-box-2" :hero="playerTwoHero" :player='playerTwo' :displayPlayer='displayPlayerTwo' :playerWins='playerTwoWins' :score="scorePlayerTwo"></player-box>
-    <div v-if="draw">
-      <h1>Draw</h1>
-    </div>
+    <h1 class="draw" v-if="draw">Draw</h1>
   </div>
 </template>
 
@@ -107,5 +105,16 @@ export default {
   background-color: #af6214;
   display: grid;
   grid-template-rows: auto;
+}
+
+.draw {
+  font-size: 6rem;
+  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+  font-family: tomorrow;
+  color: white;
+  z-index: 5;
+  bottom: 50%;
+  top: 50%;
+
 }
 </style>
