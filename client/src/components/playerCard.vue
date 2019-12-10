@@ -38,7 +38,7 @@ export default {
 <style lang="css" scoped>
   .character-name {
     margin: 2%;
-    color: white;
+    color: #d3dbdf;
     letter-spacing: 2px;
     font-size: 1.5rem;
     cursor: default;
@@ -50,6 +50,10 @@ export default {
     margin-left: 10%;
     cursor: pointer;
     grid-area: 3/1/3/1;
+    text-transform: capitalize;
+    color: #d3dbdf;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
   }
 
   .attribute-value {
@@ -57,6 +61,9 @@ export default {
     text-align:right;
     margin-right: 10%;
     cursor: pointer;
+    color: #d3dbdf;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
   }
   .image {
     width: 200px;

@@ -15,6 +15,7 @@
       <h1 v-else> DRAW</h1>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -206,5 +207,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  .winner-draw{
+    font-size: 6rem;
+    text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+    font-family: tomorrow;
+    color: white;
+    z-index: 5;
+    width: 100%;
 
+
+  }
 </style>
