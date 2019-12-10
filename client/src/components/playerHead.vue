@@ -13,4 +13,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+h2 {
+  padding: 4%;
+}
 </style>

@@ -48,7 +48,7 @@ export default {
  .player-box-1 >>> .player-head {
   grid-area: 1/1/1/1;
   text-align: center;
-  color: #0c5f95;
+  color: #0473ba;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   letter-spacing: 2px;
   cursor: default;
@@ -72,16 +72,17 @@ export default {
   border: solid 2px black;
   border-radius: 25px;
   text-align: center;
-  background-color: #0c5f95;
+  background-color: #0473ba;
   display: grid;
   grid-template-rows: auto;
+  padding-bottom: 10px;
 }
 
 
 .player-box-2 >>> .player-head {
   grid-area: 1/1/1/1;
   text-align: center;
-  color: #af6214;
+  color: #e57e14;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   letter-spacing: 2px;
   cursor: default;
@@ -105,9 +106,10 @@ export default {
   border: solid 2px black;
   border-radius: 25px;
   text-align: center;
-  background-color: #af6214;
+  background-color: #e57e14;
   display: grid;
   grid-template-rows: auto;
+  padding-bottom: 10px;
 }
 
 .draw {

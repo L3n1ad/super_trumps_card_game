@@ -8,7 +8,7 @@
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
-    <div v-if="endGame">
+    <div class="winner-draw" v-if="endGame">
       <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
       <h1 v-else> DRAW</h1>
@@ -181,5 +181,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  .winner-draw{
+    font-size: 6rem;
+    text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+    font-family: tomorrow;
+    color: white;
+    z-index: 5;
+    width: 100%;
 
+
+  }
 </style>
