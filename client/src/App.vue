@@ -42,7 +42,9 @@ export default {
       displayPlayerTwo: "",
       playerOneWins: false,
       playerTwoWins: false,
-      draw: false
+      draw: false,
+      scorePlayerOne: 15,
+      scorePlayerTwo: 15
     }
   },
   mounted() {
@@ -68,9 +70,22 @@ export default {
       this.displayPlayerTwo = true
     });
     //EventBus from Form.
+    eventBus.$on('form-card-amount', amountOfCards =>{
+      if(amountOfCards != 30){
+        console.log(amountOfCards);
+        let cardsPerPlayer = amountOfCards / 2;
+        let manyToRemove = 15 - cardsPerPlayer;
+        this.playerOne.hand.splice( cardsPerPlayer, manyToRemove );
+        this.playerTwo.hand.splice( cardsPerPlayer, manyToRemove );
+      }
+    });
+
     eventBus.$on('form-names', names => {
       this.playerOne.name = names[0];
       this.playerTwo.name = names[1];
+      this.playerOne.inTurn = this.trueOrFalse();
+      this.playerTwo.inTurn = !this.playerOne.inTurn;
+      this.scoreCount();
       this.getTopCards();
       this.sendPlayersToDB();
       this.displayPlayerOne = this.playerOne.inTurn
@@ -123,6 +138,7 @@ export default {
       }
       this.sendPlayersToDB()
       this.nextRoundButton = true
+      this.scoreCount()
     },
     nextRound(){
       this.nextRoundButton = false
@@ -131,19 +147,26 @@ export default {
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.draw = this.playerOneWins = this.playerTwoWins = false
 
+    },
+    scoreCount() {
+         this.scorePlayerOne = this.playerOne.hand.length
+         this.scorePlayerTwo = this.playerTwo.hand.length
+    },
+    trueOrFalse(){
+      return Math.random() >= 0.5;
     }
   },
   computed: {
-    scorePlayerOne() {
-      if(this.playerOne.hand){
-        return this.playerOne.hand.length
-      }
-    },
-    scorePlayerTwo() {
-      if(this.playerTwo.hand){
-        return this.playerTwo.hand.length
-      }
-    },
+    // scorePlayerOne() {
+    //   if(this.playerOne.hand){
+    //     return this.playerOne.hand.length
+    //   }
+    // },
+    // scorePlayerTwo() {
+    //   if(this.playerTwo.hand){
+    //     return this.playerTwo.hand.length
+    //   }
+    // },
     playerOneHero(){
       return this.allHeroes.filter(hero => hero._id == this.playerOneCard)[0];
     },
