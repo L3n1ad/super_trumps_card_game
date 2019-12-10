@@ -161,14 +161,14 @@ body {
   grid-template-columns: 2fr 1fr;
 } */
 
-.splat-2 {
+/* .splat-2 {
   background-image: url('splat-white-2.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   text-align: center;
   text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
-}
+} */
 
 /* .player-card-1 {
   grid-area: 2/1/2/1;
