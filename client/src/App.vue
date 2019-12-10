@@ -3,8 +3,8 @@
     <div class="background">
 
     </div>
-    <form-names class="form"></form-names>
-    <h1 class="start-game">Start Game</h1>
+    <form-names v-if="showForm" class="form"></form-names>
+    <h1 class="start-game" v-on:click="toggleForm">Start Game</h1>
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
@@ -45,7 +45,10 @@ export default {
       playerTwoWins: false,
       draw: false,
       scorePlayerOne: 15,
-      scorePlayerTwo: 15
+      scorePlayerTwo: 15,
+      showForm: false,
+      gameStarted: false,
+      startButtonText: "Start Game"
     }
   },
   mounted() {
@@ -91,7 +94,10 @@ export default {
       this.sendPlayersToDB();
       this.displayPlayerOne = this.playerOne.inTurn
       this.displayPlayerTwo = this.playerTwo.inTurn
+      this.showForm = false
     })
+
+    eventBus.$on('close-window', () => this.showForm = false)
   },
   methods: {
     splitCards() {
@@ -154,6 +160,9 @@ export default {
     },
     trueOrFalse(){
       return Math.random() >= 0.5;
+    },
+    toggleForm(){
+      this.showForm = !this.showForm
     }
   },
   computed: {

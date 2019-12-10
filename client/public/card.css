@@ -11,7 +11,7 @@ body {
   grid-template-rows: auto 450px auto auto;
 }
 
-/* .form {
+.form {
   position: absolute;
   height: 90%;
   width: 90%;
@@ -20,7 +20,7 @@ body {
   opacity: 0.9;
   left: 5%;
   top: 5%;
-} */
+}
 
 .background {
   background-color: black;

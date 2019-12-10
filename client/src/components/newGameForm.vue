@@ -7,6 +7,7 @@
     <input type="range" min="6" max="30" value="18" step="6" v-model="cardAmount" class="slider" id="rangeCards">
     <p>{{cardAmount}}</p>
     <input type="submit" name="submit" value="START" />
+    <button v-on:click="closeWindow" name="close-window">Close Form</button>
   </form>
 </template>
 
@@ -26,7 +27,10 @@ export default {
       eventBus.$emit("form-card-amount", this.cardAmount);
       const names = [this.player1, this.player2]
       eventBus.$emit("form-names", names);
-      }
+    },
+    closeWindow(){
+      eventBus.$emit('close-window')
+    }
     }
   }
 
