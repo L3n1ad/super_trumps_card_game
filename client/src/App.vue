@@ -38,7 +38,9 @@ export default {
       displayPlayerTwo: "",
       playerOneWins: false,
       playerTwoWins: false,
-      draw: false
+      draw: false,
+      scorePlayerOne: 15,
+      scorePlayerTwo: 15
     }
   },
   mounted() {
@@ -67,6 +69,7 @@ export default {
     eventBus.$on('form-names', names => {
       this.playerOne.name = names[0];
       this.playerTwo.name = names[1];
+      this.scoreCount();
       this.getTopCards();
       this.sendPlayersToDB();
       this.displayPlayerOne = this.playerOne.inTurn
@@ -75,7 +78,7 @@ export default {
   },
   methods: {
     splitCards() {
-      const arrayToRandomise = this.allHeroesID.slice(0)
+      const arrayToRandomise = this.allHeroesID.slice(23, 26)
       const numCards = arrayToRandomise.length
       const numOfSlices = 2
       const n = numCards/numOfSlices
@@ -118,6 +121,7 @@ export default {
       }
       this.sendPlayersToDB()
       this.nextRoundButton = true
+      this.scoreCount()
     },
     nextRound(){
       this.nextRoundButton = false
@@ -126,19 +130,23 @@ export default {
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.draw = this.playerOneWins = this.playerTwoWins = false
 
+    },
+    scoreCount() {
+         this.scorePlayerOne = this.playerOne.hand.length
+         this.scorePlayerTwo = this.playerTwo.hand.length
     }
   },
   computed: {
-    scorePlayerOne() {
-      if(this.playerOne.hand){
-        return this.playerOne.hand.length
-      }
-    },
-    scorePlayerTwo() {
-      if(this.playerTwo.hand){
-        return this.playerTwo.hand.length
-      }
-    },
+    // scorePlayerOne() {
+    //   if(this.playerOne.hand){
+    //     return this.playerOne.hand.length
+    //   }
+    // },
+    // scorePlayerTwo() {
+    //   if(this.playerTwo.hand){
+    //     return this.playerTwo.hand.length
+    //   }
+    // },
     playerOneHero(){
       return this.allHeroes.filter(hero => hero._id == this.playerOneCard)[0];
     },
