@@ -21,17 +21,14 @@ export default {
 
 <style lang="css" scoped>
 .game-grid-grid {
-  /* grid-area: 2 / 3 / 2 / 10; */
+  grid-area: 2 / 1 / 2 / 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px auto;
-  position: fixed;
-  top: 25%;
-  left: 17%;
 }
 
 .player-box-1 {
-  grid-area: 1 / 1 / 3 / 2;
+  grid-area: 1 / 1 / 2 / 1;
   display: grid;
   grid-template-rows: 1fr;
   width: 400px;
@@ -39,9 +36,9 @@ export default {
 }
 
 .player-box-2 {
-  grid-area: 1 / 3 / 3 / 3;
+  grid-area: 1 / 2 / 2 / 2;
   display: grid;
-  grid-template-rows: 1fr auto auto;
+  grid-template-rows: 1fr;
   width: 400px;
   margin: auto;
 }
@@ -77,7 +74,6 @@ export default {
   grid-template-rows: auto;
   padding-bottom: 10px;
 }
-
 
 .player-box-2 >>> .player-head {
   grid-area: 1/1/1/1;

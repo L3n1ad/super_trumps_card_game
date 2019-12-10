@@ -8,11 +8,7 @@
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
-<<<<<<< HEAD
     <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
-=======
-    <h1 v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
->>>>>>> develop
     <div v-if="endGame || endGameButton">
       <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
@@ -219,6 +215,4 @@ export default {
     z-index: 5;
     width: 100%;
   }
-
-
 </style>
