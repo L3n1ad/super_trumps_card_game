@@ -24,6 +24,7 @@ export default {
   },
     methods: {
     handleSubmit() {
+      eventBus.$emit("form-card-amount", this.cardAmount);
       const names = [this.player1, this.player2]
       eventBus.$emit("form-names", names);
       }

@@ -38,7 +38,7 @@ export default {
       displayPlayerTwo: "",
       playerOneWins: false,
       playerTwoWins: false,
-      draw: false
+      draw: false,
     }
   },
   mounted() {
@@ -64,6 +64,16 @@ export default {
       this.displayPlayerTwo = true
     });
     //EventBus from Form.
+    eventBus.$on('form-card-amount', amountOfCards =>{
+      if(amountOfCards != 30){
+        console.log(amountOfCards);
+        let cardsPerPlayer = amountOfCards / 2;
+        let manyToRemove = 15 - cardsPerPlayer;
+        this.playerOne.hand.splice( cardsPerPlayer, manyToRemove );
+        this.playerTwo.hand.splice( cardsPerPlayer, manyToRemove );
+      }
+    });
+
     eventBus.$on('form-names', names => {
       this.playerOne.name = names[0];
       this.playerTwo.name = names[1];
