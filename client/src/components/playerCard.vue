@@ -2,17 +2,13 @@
   <div class="">
     <div v-if='displayPlayer && hero' class="">
       <h4 class="character-name">{{hero.name}}</h4>
-      <img class="image" v-bind:src="hero.image.url" alt="" width="100">
-      <div class="attributes">
-        <p>Intelligence</p>
-        <p>Strength</p>
-        <p>Speed</p>
-        <p>Durability</p>
-        <p>Power</p>
-        <p>Combat</p>
+      <img class="image" v-bind:src="hero.image.url">
+      <div class="attribute-title">
+        <div v-for='(value, attribute) in hero.powerstats' v-on:click='chooseAttribute(attribute, value)'>{{attribute}}:
+        </div>
       </div>
-      <div>
-        <p v-for='(value, attribute) in hero.powerstats' v-on:click='chooseAttribute(attribute, value)'>{{value}}</p>
+      <div class="attribute-value">
+          <div v-for='(value, attribute) in hero.powerstats' v-on:click='chooseAttribute(attribute, value)'>{{value}}</div>
       </div>
     </div>
     <div v-else class="">
@@ -48,15 +44,24 @@ export default {
     cursor: default;
   }
 
-  .attributes p {
+  .attribute-title {
+    float: left;
     text-align: left;
     margin-left: 10%;
     cursor: pointer;
+    grid-area: 3/1/3/1;
+  }
+
+  .attribute-value {
+    float: right;
+    text-align:right;
+    margin-right: 10%;
+    cursor: pointer;
   }
   .image {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     margin-left: 25px;
     margin-right: 25px;
     margin-bottom: 5px;

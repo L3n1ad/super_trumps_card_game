@@ -32,7 +32,7 @@ export default {
 .player-box-1 {
   grid-area: 1 / 1 / 3 / 2;
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 1fr;
   width: 400px;
   margin: auto;
 }
@@ -40,7 +40,7 @@ export default {
 .player-box-2 {
   grid-area: 1 / 3 / 3 / 4;
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 1fr auto auto;
   width: 400px;
   margin: auto;
 }
@@ -55,6 +55,14 @@ export default {
   grid-template-columns: 2fr 1fr 50px;
   margin-left: 20px;
 }
+.player-box-1 >>> .splat {
+  background-image: url('../../public/images/splat-white-1.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
+}
 
 .player-box-1 >>> .player-card {
   grid-area: 2/1/2/1;
@@ -65,7 +73,7 @@ export default {
   text-align: center;
   background-color: #0c5f95;
   display: grid;
-  grid-template-rows: auto 150px repeat(6, 1fr);
+  grid-template-rows: auto;
 }
 
 
@@ -80,6 +88,15 @@ export default {
   grid-template-columns: 2fr 1fr;
 }
 
+.player-box-2 >>> .splat {
+  background-image: url('../../public/images/splat-white-2.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
+}
+
 .player-box-2 >>> .player-card {
   grid-area: 2/1/2/1;
   margin-left: 15%;
@@ -89,6 +106,6 @@ export default {
   text-align: center;
   background-color: #af6214;
   display: grid;
-  grid-template-rows: auto 150px repeat(6, 1fr);
+  grid-template-rows: auto;
 }
 </style>
