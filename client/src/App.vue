@@ -4,9 +4,17 @@
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <button v-if="nextRoundButton" v-on:click="nextRound" type="button" name="button">Next Round</button>
     <div v-if="endGame">
-      <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
-      <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
-      <h1 v-else> DRAW</h1>
+      <div v-if="this.totalTime === 0">
+        <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
+        <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
+        <h1 v-else> DRAW</h1>
+      </div>
+      <div v-else>
+        <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
+        <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
+        <h1 v-else> DRAW</h1>
+      </div>
+
     </div>
     <timer>Countdown!</timer>
   </div>
@@ -44,7 +52,8 @@ export default {
       playerTwoWins: false,
       draw: false,
       scorePlayerOne: 15,
-      scorePlayerTwo: 15
+      scorePlayerTwo: 15,
+      totalTime: null
     }
   },
   mounted() {
@@ -92,7 +101,10 @@ export default {
       this.displayPlayerTwo = this.playerTwo.inTurn
 
     })
-  
+    eventBus.$on("time-out-end", timeOut => {
+      this.totalTime = timeOut;
+    })
+
   },
   methods: {
     splitCards() {
@@ -175,7 +187,7 @@ export default {
       return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
     },
     endGame(){
-      return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
+      return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0 || this.totalTime ===0
     }
   }
 }

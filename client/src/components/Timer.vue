@@ -29,14 +29,7 @@ export default {
     })
   },
   methods:{
-    timeOutEndGame() {
-      eventBus.$emit("form-card-amount", this.cardAmount);
-      const names = [this.player1, this.player2]
-      eventBus.$emit("form-names", names);
-      if(this.gameTime > 0){
-        eventBus.$emit("form-game-time", this.gameTime)
-        }
-      },  
+
     startTimer() {
       console.log("timer running");
     this.timer = setInterval(() => this.countdown(), 1000);
@@ -55,20 +48,28 @@ export default {
     padTime(time) {
       return (time < 10 ? '0' : '') + time;
     },
-    countdown() { if (this.totalTime > 0){
+    countdown() {
+      if (this.totalTime > 0){
       this.totalTime--;
       }
+      else {
+        clearInterval(this.timer);
+        this.timer = null;
+        eventBus.$emit("time-out-end", this.totalTime)
+        }
+
     }
   },
   computed: {
-    minutes: function() {
+    minutes() {
       const minutes = Math.floor(this.totalTime / 60);
       return this.padTime(minutes);
     },
-    seconds: function() {
+    seconds() {
       const seconds = this.totalTime - (this.minutes * 60);
       return this.padTime(seconds);
     }
+
   }
 }
 </script>

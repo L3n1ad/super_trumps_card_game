@@ -11,7 +11,7 @@
     <input type="radio" name="cardAmount" value="16" v-model="cardAmount">16 cards
     <p>OR</p>
     <label for="gameTime">Select duration of game:</label><br>
-    <input type="radio" name="gameTime" value="2" v-model="gameTime" id="gameTime">2 min<br>
+    <input type="radio" name="gameTime" value="1" v-model="gameTime" id="gameTime">1 min<br>
     <input type="radio" name="gameTime" value="5" v-model="gameTime">5 min
     <br>
     <input type="submit" name="submit" value="START" />
