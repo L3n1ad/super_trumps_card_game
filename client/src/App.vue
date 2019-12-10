@@ -75,6 +75,7 @@ export default {
       this.sendPlayersToDB();
       this.displayPlayerOne = this.playerOne.inTurn
       this.displayPlayerTwo = this.playerTwo.inTurn
+      
     })
   },
   methods: {

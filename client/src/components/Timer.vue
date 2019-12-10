@@ -1,8 +1,12 @@
 <template lang="html">
   <div id="timer">
-    <span id="minutes">1</span>
+    <span id="minutes">{{minutes}}</span>
     <span id="middle">:</span>
-    <span id="seconds">00</span>
+    <span id="seconds">{{seconds}}</span>
+    <!-- <span>{{totalTime}}</span> -->
+    <div>
+      <button v-on:click="startTimer">Start</button>
+    </div>
   </div>
 
 </template>
@@ -13,17 +17,18 @@ export default {
   data(){
     return{
       timer: null,
-      totalTime: (1 * 60),
+      totalTime: (1*60),
       // resetButton: false,
       // title: "Let the countdown begin!!"
 
     }},
   mounted() {
-  this.startTimer()
+
   },
 
   methods:{
-    startTimer: function() {
+    startTimer() {
+      console.log("timer running");
     this.timer = setInterval(() => this.countdown(), 1000);
     // this.resetButton = true;
   },
@@ -32,13 +37,28 @@ export default {
     //   this.timer = null;
     //   // this.resetButton = true;
     // },
-
-    
-    padTime: function(time) {
+    // resetTimer: function() {
+    //   this.totalTime = (1 * 60);
+    //   clearInterval(this.timer);
+    //   this.timer = null;
+    //   this.resetButton = false;
+    // },
+    padTime(time) {
       return (time < 10 ? '0' : '') + time;
     },
-    countdown: function() {
+    countdown() { if (this.totalTime > 0){
       this.totalTime--;
+      }
+    }
+  },
+  computed: {
+    minutes: function() {
+      const minutes = Math.floor(this.totalTime / 60);
+      return this.padTime(minutes);
+    },
+    seconds: function() {
+      const seconds = this.totalTime - (this.minutes * 60);
+      return this.padTime(seconds);
     }
   }
 }
