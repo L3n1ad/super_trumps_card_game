@@ -47,6 +47,7 @@ body {
   text-align: center;
   cursor: pointer;
   margin-top:1%;
+  transition: 1s;
 }
 
 .start-game:hover {
@@ -69,6 +70,7 @@ body {
   cursor: pointer;
   z-index: 3;
   font-size: 3rem;
+  transition: 1s;
 }
 
 .next-round:hover {
@@ -92,6 +94,7 @@ body {
   cursor: pointer;
   z-index: 3;
   font-size: 3rem;
+  transition: 1s;
 }
 
 .end-game:hover {

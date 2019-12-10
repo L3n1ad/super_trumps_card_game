@@ -44,14 +44,14 @@ export default {
 }
  .player-box-1 >>> .player-head {
   grid-area: 1/1/1/1;
-  text-align: center;
+  margin-left: 12%;
   color: #0473ba;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  text-shadow: -2px -2px 0 #d3dbdf, 2px -2px 0 #d3dbdf, -2px 2px 0 #d3dbdf, 2px 2px 0 #d3dbdf;
   letter-spacing: 2px;
   cursor: default;
   display: grid;
-  grid-template-columns: 2fr 1fr 50px;
-  margin-left: 20px;
+  grid-template-columns: 2fr 1fr;
+  font-size: 1.2rem;
 }
 .player-box-1 >>> .splat {
   background-image: url('../../public/images/splat-white-1.png');
@@ -60,6 +60,7 @@ export default {
   background-repeat: no-repeat;
   text-align: center;
   text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
+  font-size: 1.2rem;
 }
 
 .player-box-1 >>> .player-card {
@@ -77,13 +78,14 @@ export default {
 
 .player-box-2 >>> .player-head {
   grid-area: 1/1/1/1;
-  text-align: center;
+  margin-left: 12%;
   color: #e57e14;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  text-shadow: -2px -2px 0 #d3dbdf, 2px -2px 0 #d3dbdf, -2px 2px 0 #d3dbdf, 2px 2px 0 #d3dbdf;
   letter-spacing: 2px;
   cursor: default;
   display: grid;
   grid-template-columns: 2fr 1fr;
+  font-size: 1.2rem;
 }
 
 .player-box-2 >>> .splat {
@@ -93,6 +95,7 @@ export default {
   background-repeat: no-repeat;
   text-align: center;
   text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
+  font-size: 1.2rem;
 }
 
 .player-box-2 >>> .player-card {
