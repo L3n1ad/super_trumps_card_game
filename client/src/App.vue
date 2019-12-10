@@ -8,20 +8,24 @@
       <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
       <h1 v-else> DRAW</h1>
     </div>
+    <timer>Countdown!</timer>
   </div>
 </template>
 
 <script>
-import { eventBus } from '@/main.js'
+import { eventBus } from '@/main.js';
 import newGameForm from "@/components/newGameForm";
 import gameGrid from "@/components/gameGrid";
-import GameService from './services/GameService.js'
+import GameService from './services/GameService.js';
+import Timer from '@/components/Timer'
+
 
 export default {
   name: 'app',
   components: {
     "form-names": newGameForm,
-    "game-grid": gameGrid
+    "game-grid": gameGrid,
+    "timer": Timer
 
   },
   data(){
