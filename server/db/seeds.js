@@ -24,7 +24,7 @@ db.superHeroes.insertMany([
       "strength": "766",
       "speed": "12",
       "durability": "7",
-      "power": "276",
+      "power": "312",
       "combat": "3"
     },
     "biography": {
@@ -129,11 +129,11 @@ db.superHeroes.insertMany([
   "id": "70",
   "name": "Batman",
   "powerstats": {
-    "intelligence": "176",
+    "intelligence": "257",
     "strength": "378",
     "speed": "14",
     "durability": "5",
-    "power": "342",
+    "power": "442",
     "combat": "9"
   },
   "biography": {
@@ -179,12 +179,12 @@ db.superHeroes.insertMany([
   "id": "106",
   "name": "Black Panther",
   "powerstats": {
-    "intelligence": "143",
+    "intelligence": "177",
     "strength": "489",
     "speed": "37",
     "durability": "7",
-    "power": "299",
-    "combat": "8"
+    "power": "376",
+    "combat": "9"
   },
   "biography": {
     "full-name": "T'Challa",
@@ -234,11 +234,11 @@ db.superHeroes.insertMany([
   "id": "104",
   "name": "Black Mamba",
   "powerstats": {
-    "intelligence": "132",
+    "intelligence": "231",
     "strength": "311",
     "speed": "24",
     "durability": "6",
-    "power": "323",
+    "power": "411",
     "combat": "5"
   },
   "biography": {
@@ -280,55 +280,55 @@ db.superHeroes.insertMany([
 },
 {
   "response": "success",
-  "id": "127",
-  "name": "Boba Fett",
+  "id": "376",
+  "name": "Justice",
   "powerstats": {
     "intelligence": "165",
-    "strength": "207",
-    "speed": "107",
-    "durability": "7",
-    "power": "231",
-    "combat": "6"
+    "strength": "723",
+    "speed": "1100",
+    "durability": "8",
+    "power": "421",
+    "combat": "7"
   },
   "biography": {
-    "full-name": "",
+    "full-name": "Vance Astrovik",
     "alter-egos": "No alter egos found.",
     "aliases": [
-      "Teff",
-      "Sava Brek Madak",
-      "Jaster Mereel",
-      "Mandalore",
-      "Mand'alor"
+      "Marvel Boy",
+      "Manglin' John Mahoney",
+      "Astounding Astrovik",
+      "Superhuman Penitentiary Prisoner 344678",
+      "\"Super Tights\""
     ],
-    "place-of-birth": "Kamino",
-    "first-appearance": "-",
-    "publisher": "George Lucas",
-    "alignment": "bad"
+    "place-of-birth": "-",
+    "first-appearance": "Giant-Size Defenders #5 (July, 1975)",
+    "publisher": "Marvel Comics",
+    "alignment": "good"
   },
   "appearance": {
     "gender": "Male",
-    "race": "Human / Clone",
+    "race": "Human",
     "height": [
-      "6'0",
-      "183 cm"
+      "5'10",
+      "178 cm"
     ],
     "weight": [
-      "- lb",
-      "0 kg"
+      "180 lb",
+      "81 kg"
     ],
-    "eye-color": "Brown",
-    "hair-color": "Black"
+    "eye-color": "Hazel",
+    "hair-color": "Brown"
   },
   "work": {
-    "occupation": "Bounty Hunter",
-    "base": "-"
+    "occupation": "Adventurer",
+    "base": "Mobile, formerly New Warriors and Avengers Headquarters, Camp Hammond"
   },
   "connections": {
-    "group-affiliation": "-",
-    "relatives": "-"
+    "group-affiliation": "New Warriors; formerly Avengers Academy, Initiative, partner of Firestar, Avengers, Triune Understanding, Unlimited Class Wrestling Federation, Taskmaster's Circus, Secret Avengers (Civil War)",
+    "relatives": "Jerzy Astroyevicht (aka Jerry Astrovik; paternal grandfather); Katerina Astroyevicht (aka Katerina Astrovik; paternal grandmother); Arnold Astrovik (father, deceased); Norma Astrovik (mother);"
   },
   "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/10467.jpg"
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/88.jpg"
   }
 },
 {
@@ -768,53 +768,51 @@ db.superHeroes.insertMany([
 },
 {
   "response": "success",
-  "id": "561",
-  "name": "Robin",
+  "id": "456",
+  "name": "Mister Fantastic",
   "powerstats": {
-    "intelligence": "136",
-    "strength": "476",
-    "speed": "23",
-    "durability": "5",
-    "power": "458",
-    "combat": "6"
+    "intelligence": "231",
+    "strength": "845",
+    "speed": "2789",
+    "durability": "9",
+    "power": "400",
+    "combat": "7"
   },
   "biography": {
-    "full-name": "Dick Grayson",
-    "alter-egos": "Batman II, Nightwing",
+    "full-name": "Reed Richards",
+    "alter-egos": "No alter egos found.",
     "aliases": [
-      "Renegade",
-      "The Target",
-      "Freddie Dinardo"
+      "Mr Fantastic"
     ],
-    "place-of-birth": "-",
-    "first-appearance": "Detective Comics #38 (April, 1940)",
-    "publisher": "Batman II",
+    "place-of-birth": "Central City, California",
+    "first-appearance": "FANTASTIC FOUR #1",
+    "publisher": "Marvel Comics",
     "alignment": "good"
   },
   "appearance": {
     "gender": "Male",
-    "race": "Human",
+    "race": "Human / Radiation",
     "height": [
-      "5'10",
-      "178 cm"
+      "6'1",
+      "185 cm"
     ],
     "weight": [
-      "175 lb",
-      "79 kg"
+      "180 lb",
+      "81 kg"
     ],
-    "eye-color": "Blue",
-    "hair-color": "Black"
+    "eye-color": "Brown",
+    "hair-color": "Brown"
   },
   "work": {
-    "occupation": "-",
-    "base": "Wayne Tower, Gotham City; formerly the Batcave;  formerly Bl�dhaven;  formerly New York City"
+    "occupation": "Scientist, adventurer",
+    "base": "New York City"
   },
   "connections": {
-    "group-affiliation": "Batman Family, Batman Incorporated, Justice League; formerly Teen Titans, Outsiders, Bludhaven Police Department, Secret Society of Super-Villains",
-    "relatives": "John Grayson (father), Mary Grayson (mother), Bruce Wayne (adoptive father), Damian Wayne (adoptive brother), Jason Todd (adoptive brother), Tim Drake (adoptive brother), Cassandra Cain (adoptive sister)"
+    "group-affiliation": "Fantastic Four",
+    "relatives": "Nathaniai (father), Evelyn (mother, deceased), Susan Storm - Invisible Woman (wife), Franklin (son), Johnny Storm - Human Torch (brother-inlaw), Cassandra (stepmother, deceased), Immortus (father's descendant, see Immortus, Kang, Rama-Tut)."
   },
   "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/850.jpg"
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/408.jpg"
   }
 },
 {
@@ -989,55 +987,51 @@ db.superHeroes.insertMany([
 },
 {
   "response": "success",
-  "id": "423",
-  "name": "Magneto",
+  "id": "687",
+  "name": "Venom",
   "powerstats": {
-    "intelligence": "231",
-    "strength": "798",
-    "speed": "67",
-    "durability": "4",
-    "power": "643",
-    "combat": "3"
+    "intelligence": "198",
+    "strength": "869",
+    "speed": "78",
+    "durability": "9",
+    "power": "409",
+    "combat": "7"
   },
   "biography": {
-    "full-name": "Erik Magnus Lensherr",
-    "alter-egos": "No alter egos found.",
+    "full-name": "Eddie Brock",
+    "alter-egos": "Anti-Venom, Toxin",
     "aliases": [
-      "The Creator",
-      "Erik Magnus Lehnsherr",
-      "Michael Xavier",
-      "White Pilgrim",
-      "Erik the RedThe Master of Magnetism"
+      "-"
     ],
-    "place-of-birth": "Unrevealed, probably somewhere in Northern Europe",
-    "first-appearance": "X-MEN Vol. 1 #1",
-    "publisher": "Marvel Comics",
+    "place-of-birth": "New York, New York",
+    "first-appearance": "(as alien costume) Secret Wars #8, (behind the scenes) Web of Spider-Man #18, (actual appearance) Amazing Spider-Man #300",
+    "publisher": "Anti-Venom",
     "alignment": "bad"
   },
   "appearance": {
     "gender": "Male",
-    "race": "Mutant",
+    "race": "Symbiote",
     "height": [
-      "6'2",
-      "188 cm"
+      "6'3",
+      "191 cm"
     ],
     "weight": [
-      "190 lb",
-      "86 kg"
+      "260 lb",
+      "117 kg"
     ],
-    "eye-color": "Grey",
-    "hair-color": "White"
+    "eye-color": "Blue",
+    "hair-color": "Strawberry Blond"
   },
   "work": {
-    "occupation": "Currently Revolutionary and Conqueror, formerly Volunteer Orderly, Secret Agent",
-    "base": "Currently unrevealed, formerly Asteroid M; various hidden bases on Earth including one in Antarctica; an island in the Bermuda Triangle; Professor Xavier's School for Gifted Youngsters, Salem Center, Westchester County, New York"
+    "occupation": "Vigilante; former journalist for the Daily Globe, government operative",
+    "base": "New York, New York"
   },
   "connections": {
-    "group-affiliation": "Currently None, formerly Brotherhood of Evil Mutants I and II, X-Men, teacher of the New Mutants, Lords Cardinal of the Hellfire Club, leader of the Acolytes",
-    "relatives": "Magda (wife, deceased), Anya (daughter, deceased), Pietro Maximoff (Quicksilver, son), Wanda Maximoff (Scarlet Witch, daughter), Lorna Dane (Polaris, daughter), Joseph (clone, deceased), Luna (granddaughter)"
+    "group-affiliation": "Sinister Six (formerly)",
+    "relatives": "Eddie Brock: Carl Brock (father), Jamie Brock (mother), Anne Weying (She-Venom, ex wife, deceased); Venom symbiote: Carnage (bonded to Cletus Kasidy, 1st generation offspring), five forced offspring - one independant (bonded to Donna, last name unrevealed, 1st generation offspring), four forming a composite symbiote (Hybrid (bonded to Scott Washington, 1st generation offspring), Toxin (bonded to Patrick Mulligan, 2nd generation offspring)"
   },
   "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/12.jpg"
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/22.jpg"
   }
 },
 {
@@ -1102,52 +1096,55 @@ db.superHeroes.insertMany([
 },
 {
   "response": "success",
-  "id": "298",
-  "name": "Green Arrow",
+  "id": "433",
+  "name": "Marvel Girl",
   "powerstats": {
-    "intelligence": "176",
-    "strength": "324",
-    "speed": "16",
-    "durability": "4",
-    "power": "248",
-    "combat": "8"
+    "intelligence": "210",
+    "strength": "789",
+    "speed": "2678",
+    "durability": "8",
+    "power": "376",
+    "combat": "9"
   },
   "biography": {
-    "full-name": "Oliver Queen",
+    "full-name": "Rachel Anne Summers",
     "alter-egos": "No alter egos found.",
     "aliases": [
-      "The Emerald Archer",
-      "Battling Bowman"
+      "Rachel Grey",
+      "formerly Phoenix",
+      "Mother Askani",
+      "Bright Lady",
+      "Aly'zrn Summerset"
     ],
     "place-of-birth": "-",
-    "first-appearance": "More Fun Comics #73 (November 1941)",
-    "publisher": "DC Comics",
+    "first-appearance": "UNCANNY X-MEN #141",
+    "publisher": "Marvel Comics",
     "alignment": "good"
   },
   "appearance": {
-    "gender": "Male",
-    "race": "Human",
+    "gender": "Female",
+    "race": "null",
     "height": [
-      "6'2",
-      "188 cm"
+      "5'7'",
+      "170 cm"
     ],
     "weight": [
-      "195 lb",
-      "88 kg"
+      "125 lb",
+      "56 kg"
     ],
     "eye-color": "Green",
-    "hair-color": "Blond"
+    "hair-color": "Red"
   },
   "work": {
-    "occupation": "Professional Crime-fighter; Multi-Billionaire",
-    "base": "Star City, California; Formerly Seattle, Washington"
+    "occupation": "Adventurer",
+    "base": "Xavier Institute of Higher Learning, Salem Center, Westchester County, New York (formerly) Braddock Lighthouse, England"
   },
   "connections": {
-    "group-affiliation": "Justice League Reserve, Connor Hawke, Mia Dearden,  Arsenal, Green Arrows of the World, Black Canary, Green Lantern Hal Jordan, Shado, Eddie Fyers, Justice League Elite, Seven Soldiers of Victory, All-Star Squadron",
-    "relatives": "Conner Hawke (son); Robert (son); Cissie King (possible daughter); Roy Harper - Red Arrow (adoptive son); Dinah Laurel Lance (wife); Dinah Drake Lance (mother-in-law, deceased); Larry Lance (father-in-law, deceased)"
+    "group-affiliation": "Starjammers, formerly X-Men, former servant of Elias Bogan, formerly Clan Askani (leader), Excalibur, former servant of Ahab",
+    "relatives": "Scott Summers (Cyclops, alternate timeline father, deceased in own time), Jean Grey-Summers (Phoenix, alternate timeline mother, deceased in own time), Alex Summers (Havok, alternate timeline uncle), Franklin Richards (alternate future husband), Jonathan Reed Richards (Hyperstorm, alternate future son), David Richards (alternate future son)"
   },
   "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/696.jpg"
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/94.jpg"
   }
 },
 {
@@ -1255,173 +1252,156 @@ db.superHeroes.insertMany([
 },
 {
   "response": "success",
-  "id": "370",
-  "name": "Joker",
+  "id": "475",
+  "name": "Mr Immortal",
   "powerstats": {
-    "intelligence": "224",
-    "strength": "337",
-    "speed": "12",
-    "durability": "4",
-    "power": "219",
-    "combat": "3"
+    "intelligence": "178",
+    "strength": "768",
+    "speed": "235",
+    "durability": "10",
+    "power": "356",
+    "combat": "7"
   },
   "biography": {
-    "full-name": "Jack Napier",
-    "alter-egos": "No alter egos found.",
-    "aliases": [
-      "Red Hood I",
-      "Clown Prince of Crime",
-      "Harlequin of Hate",
-      "Jack Napier",
-      "Joe Kerr",
-      "Mr. J"
-    ],
-    "place-of-birth": "-",
-    "first-appearance": "Batman #1 (Spring 1940)",
-    "publisher": "DC Comics",
-    "alignment": "bad"
-  },
-  "appearance": {
-    "gender": "Male",
-    "race": "Human",
-    "height": [
-      "6'5",
-      "196 cm"
-    ],
-    "weight": [
-      "192 lb",
-      "86 kg"
-    ],
-    "eye-color": "Green",
-    "hair-color": "Green"
-  },
-  "work": {
-    "occupation": "-",
-    "base": "Arkham Asylum, Gotham City; Ha-Hacienda"
-  },
-  "connections": {
-    "group-affiliation": "Black Glove, Injustice Gang, Injustice League, Joker League of Anarchy",
-    "relatives": "Jeannie (wife, deceased); Unborn son (deceased); Melvin Reipan (cousin, deceased)"
-  },
-  "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/719.jpg"
-  }
-},
-{
-  "response": "success",
-  "id": "514",
-  "name": "Penguin",
-  "powerstats": {
-    "intelligence": "221",
-    "strength": "117",
-    "speed": "7",
-    "durability": "4",
-    "power": "261",
-    "combat": "2"
-  },
-  "biography": {
-    "full-name": "Oswald Chesterfield Cobblepot",
+    "full-name": "Craig Hollis",
     "alter-egos": "No alter egos found.",
     "aliases": [
       "-"
     ],
     "place-of-birth": "-",
-    "first-appearance": "DETECTIVE COMICS #58 (December, 1941)",
-    "publisher": "DC Comics",
-    "alignment": "bad"
-  },
-  "appearance": {
-    "gender": "Male",
-    "race": "Human",
-    "height": [
-      "5'2",
-      "157 cm"
-    ],
-    "weight": [
-      "175 lb",
-      "79 kg"
-    ],
-    "eye-color": "Blue",
-    "hair-color": "Black"
-  },
-  "work": {
-    "occupation": "Trader",
-    "base": "Gotham City"
-  },
-  "connections": {
-    "group-affiliation": "-",
-    "relatives": "Miranda Cobblepot (Aunt), Miranda (Mother, deceased), Father (deceased)"
-  },
-  "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/753.jpg"
-  }
-},
-{
-  "response": "success",
-  "id": "530",
-  "name": "Punisher",
-  "powerstats": {
-    "intelligence": "132",
-    "strength": "334",
-    "speed": "15",
-    "durability": "6",
-    "power": "207",
-    "combat": "8"
-  },
-  "biography": {
-    "full-name": "Frank Castle",
-    "alter-egos": "No alter egos found.",
-    "aliases": [
-      "Big Nothing",
-      "Major Bateman",
-      "Ted Bishop",
-      "Cliff Callador",
-      "Castigo",
-      "Chaloner",
-      "Fred D'Amato",
-      "Eastman",
-      "Charles Fort",
-      "Frank Loomis",
-      "McRook",
-      "Melchior",
-      "Joe Rainey",
-      "Frank Rook",
-      "Richard Rook",
-      "Tony Knowlen Ross",
-      "Francis Stronghold",
-      "Johnny Tower",
-      "Dmitri Velikoff",
-      "Fra"
-    ],
-    "place-of-birth": "Queens, New York",
-    "first-appearance": "AMAZING SPIDER-MAN #129",
+    "first-appearance": "West Coast Avengers Vol 2 #46",
     "publisher": "Marvel Comics",
     "alignment": "good"
   },
   "appearance": {
     "gender": "Male",
-    "race": "Human",
+    "race": "Mutant",
     "height": [
-      "6'0'",
-      "183 cm"
+      "6'2",
+      "188 cm"
     ],
     "weight": [
-      "200 lb",
-      "90 kg"
+      "156 lb",
+      "70 kg"
     ],
     "eye-color": "Blue",
-    "hair-color": "Black"
+    "hair-color": "Blond"
   },
   "work": {
-    "occupation": "Former United States Marine turned professional vigilante",
-    "base": "Mobile, usually in New York City"
+    "occupation": "-",
+    "base": "-"
   },
   "connections": {
-    "group-affiliation": "None; Formerly Secret Avengers, Daredevil's Unnamed Super-Hero Team, Green Berets, U.S. Marine Corps",
-    "relatives": "Maria Castle (Wife, deceased), Christie Castle (Daughter, deceased), Frank Castle Junior (Son, deceased), Mario Castle (Father, deceased), Louisa Castle (Mother, deceased), Rocco Castiglione (Uncle, deceased), Esmerelda Castiglione (Aunt, deceased), Michael Castle (Brother, stillborn, deceased)."
+    "group-affiliation": "-",
+    "relatives": "-"
   },
   "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/112.jpg"
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/10794.jpg"
+  }
+},
+{
+  "response": "success",
+  "id": "487",
+  "name": "Nebula",
+  "powerstats": {
+    "intelligence": "178",
+    "strength": "768",
+    "speed": "21",
+    "durability": "7",
+    "power": "380",
+    "combat": "9"
+  },
+  "biography": {
+    "full-name": "",
+    "alter-egos": "No alter egos found.",
+    "aliases": [
+      "-"
+    ],
+    "place-of-birth": "-",
+    "first-appearance": "Avengers #257 (July, 1985)",
+    "publisher": "Marvel Comics",
+    "alignment": "bad"
+  },
+  "appearance": {
+    "gender": "Female",
+    "race": "Luphomoid",
+    "height": [
+      "6'1",
+      "185 cm"
+    ],
+    "weight": [
+      "185 lb",
+      "83 kg"
+    ],
+    "eye-color": "Blue",
+    "hair-color": "No Hair"
+  },
+  "work": {
+    "occupation": "-",
+    "base": "-"
+  },
+  "connections": {
+    "group-affiliation": "Graces, United Front, former leader of a mercenary band",
+    "relatives": "-"
+  },
+  "image": {
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/10632.jpg"
+  }
+},
+{
+  "response": "success",
+  "id": "498",
+  "name": "Odin",
+  "powerstats": {
+    "intelligence": "231",
+    "strength": "921",
+    "speed": "3765",
+    "durability": "9",
+    "power": "451",
+    "combat": "8"
+  },
+  "biography": {
+    "full-name": "Odin Borson",
+    "alter-egos": "No alter egos found.",
+    "aliases": [
+      "All-Father,Sky-Father",
+      "Atum-Re",
+      "Woden",
+      "Wotan",
+      "Oden",
+      "Orrin",
+      "Harbard",
+      "King of Asgard"
+    ],
+    "place-of-birth": "Asgard",
+    "first-appearance": "Journey into Mystery #85",
+    "publisher": "Marvel Comics",
+    "alignment": "good"
+  },
+  "appearance": {
+    "gender": "Male",
+    "race": "God / Eternal",
+    "height": [
+      "6'9",
+      "206 cm"
+    ],
+    "weight": [
+      "650 lb",
+      "293 kg"
+    ],
+    "eye-color": "Blue",
+    "hair-color": "White"
+  },
+  "work": {
+    "occupation": "Deity, Monarch of Asgard, Asgardian God of the Sky, Wind, Wisdom, Crafts, Time, and the Dead, Warrior",
+    "base": "City of Asgard, Asgard"
+  },
+  "connections": {
+    "group-affiliation": "Asgardians, Council of Godheads",
+    "relatives": "Buri (Tiwaz) (paternal grandfather), Bolthorn (maternal grandfather), Bor Burison (father, deceased), Bestla (mother), Mimir Burison (paternal uncle), Njord (paternal uncle), Vili, Ve, Cul (brothers), Frigga (wife), Freyr (father-in-law), Gullveig (sister-in-law), Thor (son by Jord), Vidar (son by Grid), Balder (son by Frigga), Tyr, Hermod (allegedly sons by Frigga), Angela (daughter by Frigga), Laussa (daughter by Frigga and Surtur), Loki (foster son), Hoder (nephew), Skadi (niece)"
+  },
+  "image": {
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/10388.jpg"
   }
 },
 {
@@ -1476,34 +1456,87 @@ db.superHeroes.insertMany([
 },
 {
   "response": "success",
-  "id": "310",
-  "name": "Harry Potter",
+  "id": "414",
+  "name": "Loki",
   "powerstats": {
-    "intelligence": "169",
-    "strength": "113",
-    "speed": "11",
-    "durability": "4",
-    "power": "387",
-    "combat": "4"
+    "intelligence": "210",
+    "strength": "793",
+    "speed": "2145",
+    "durability": "7",
+    "power": "342",
+    "combat": "7"
   },
   "biography": {
-    "full-name": "Harry James Potter",
+    "full-name": "Loki Laufeyson",
     "alter-egos": "No alter egos found.",
     "aliases": [
-      "Triwizard Champion",
-      "Seeker",
-      "Quidditch Captain",
-      "Leader of Dumbledore's Army",
-      "Master of Death"
+      "God of Mischief",
+      "Gem-Keeper",
+      "Walter Lawson",
+      "Lester",
+      "Loren Olsen",
+      "Tyfon",
+      "Father Williams",
+      "Willie",
+      "Tso Zhung; has also impersonated hundreds of others."
     ],
-    "place-of-birth": "-",
-    "first-appearance": "Harry Potter and the Philosopher's Stone",
-    "publisher": "J. K. Rowling",
-    "alignment": "good"
+    "place-of-birth": "Jotunheim, Asgard",
+    "first-appearance": "Journey into Mystery Vol. 1 #85",
+    "publisher": "Marvel Comics",
+    "alignment": "bad"
   },
   "appearance": {
     "gender": "Male",
-    "race": "Human",
+    "race": "Asgardian",
+    "height": [
+      "6'4",
+      "193 cm"
+    ],
+    "weight": [
+      "525 lb",
+      "236 kg"
+    ],
+    "eye-color": "Green",
+    "hair-color": "Black"
+  },
+  "work": {
+    "occupation": "God of evil; former god of mischief and madness",
+    "base": "Asgard"
+  },
+  "connections": {
+    "group-affiliation": "Asgardians, Karnilla, Enchantress, Skurge the Executioner, Cobra, Mister Hyde, Absorbing Man, Igron, Tyr, Lorelei, Hela, Ulik, Frost Giants, Storm Giants (former), Dormammu, \"Acts of Vengeance\" prime movers (Dr. Doom, Magneto, Red Skull, Mandari",
+    "relatives": "Laufey (father, deceased), Farbauti (mother, deceased), Sigyn (wife, deceased), Odin (foster father, deceased), Frigga (foster mother, deceased), Thor, Vidar (foster brothers, deceased), Hela,Fenris (Wolf), Jordmungand (Midgard Serpent) (children, deceased), Arkin (cousin, deceased)"
+  },
+  "image": {
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/928.jpg"
+  }
+},
+{
+  "response": "success",
+  "id": "426",
+  "name": "Man of Miracles",
+  "powerstats": {
+    "intelligence": "199",
+    "strength": "796",
+    "speed": "1765",
+    "durability": "8",
+    "power": "390",
+    "combat": "7"
+  },
+  "biography": {
+    "full-name": "",
+    "alter-egos": "No alter egos found.",
+    "aliases": [
+      "Mother Of Existence"
+    ],
+    "place-of-birth": "-",
+    "first-appearance": "Spawn #75",
+    "publisher": "Image Comics",
+    "alignment": "-"
+  },
+  "appearance": {
+    "gender": "-",
+    "race": "God / Eternal",
     "height": [
       "-",
       "0 cm"
@@ -1512,11 +1545,11 @@ db.superHeroes.insertMany([
       "- lb",
       "0 kg"
     ],
-    "eye-color": "Green",
-    "hair-color": "Black"
+    "eye-color": "Blue",
+    "hair-color": "Silver"
   },
   "work": {
-    "occupation": "Head of the Department of Magical Law Enforcement[",
+    "occupation": "-",
     "base": "-"
   },
   "connections": {
@@ -1524,56 +1557,7 @@ db.superHeroes.insertMany([
     "relatives": "-"
   },
   "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/10878.jpg"
-  }
-},
-{
-  "response": "success",
-  "id": "650",
-  "name": "T-800",
-  "powerstats": {
-    "intelligence": "201",
-    "strength": "841",
-    "speed": "117",
-    "durability": "8",
-    "power": "386",
-    "combat": "5"
-  },
-  "biography": {
-    "full-name": "Cyberdyne Systems Series 800 Terminator Model 101",
-    "alter-egos": "No alter egos found.",
-    "aliases": [
-      "Terminator"
-    ],
-    "place-of-birth": "-",
-    "first-appearance": "The Terminator (1984)",
-    "publisher": "Dark Horse Comics",
-    "alignment": "bad"
-  },
-  "appearance": {
-    "gender": "Male",
-    "race": "Cyborg",
-    "height": [
-      "-",
-      "0 cm"
-    ],
-    "weight": [
-      "390 lb",
-      "176 kg"
-    ],
-    "eye-color": "Red",
-    "hair-color": "-"
-  },
-  "work": {
-    "occupation": "Assassin",
-    "base": "-"
-  },
-  "connections": {
-    "group-affiliation": "Skynet",
-    "relatives": "-"
-  },
-  "image": {
-    "url": "https://www.superherodb.com/pictures2/portraits/10/100/10409.jpg"
+    "url": "https://www.superherodb.com/pictures2/portraits/10/100/10889.jpg"
   }
 },
 {
