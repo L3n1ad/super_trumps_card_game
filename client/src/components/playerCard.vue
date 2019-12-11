@@ -21,15 +21,12 @@
 import {eventBus} from '../main.js'
 export default {
   name: "player-card",
-  props: ['hero', 'displayPlayer'],
-  data(){
-    return{
-      attribute: ''
-    }
-  },
+  props: ['hero', 'displayPlayer', 'clickable'],
   methods:{
-    chooseAttribute(attribute, value){
-      eventBus.$emit('chosenAttribute', attribute, value)
+    chooseAttribute(attribute){
+      if(this.clickable === true){
+        eventBus.$emit('chosenAttribute', attribute)
+      }
     }
   }
 }
