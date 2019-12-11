@@ -118,6 +118,8 @@ export default {
           .then( data => {
             this.playerOne = data[0]
             this.playerTwo = data[1]
+            this.playerOne.name = 'Player 1'
+            this.playerTwo.name = 'Player 2'
             this.displayPlayerOne = this.playerOne.inTurn
             this.displayPlayerTwo = this.playerTwo.inTurn
           })
