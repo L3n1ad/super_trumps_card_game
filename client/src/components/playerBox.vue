@@ -2,7 +2,7 @@
   <div>
     <h1 class="winner" v-if='playerWins'>Winner</h1>
     <player-head class="player-head":player='player' :score='score'></player-head>
-    <player-card class="player-card" :hero='hero' :displayPlayer='displayPlayer'></player-card>
+    <player-card class="player-card" :hero='hero' :displayPlayer='displayPlayer' :clickable='clickable'></player-card>
   </div>
 
 </template>
@@ -13,7 +13,7 @@ import playerCard from "./playerCard"
 
 export default {
   name: "player-box",
-  props: ['hero', 'player', 'displayPlayer', 'playerWins', 'score'],
+  props: ['hero', 'player', 'displayPlayer', 'playerWins', 'score', 'clickable'],
   components: {
     "player-head": playerHead,
     "player-card": playerCard
