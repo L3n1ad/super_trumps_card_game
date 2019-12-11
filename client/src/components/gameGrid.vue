@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="game-grid-grid">
-    <player-box class="player-box-1" :hero="playerOneHero" :player='playerOne' :displayPlayer='displayPlayerOne' :playerWins='playerOneWins' :score='scorePlayerOne'>{{playerOneHero}}</player-box>
-    <player-box class="player-box-2" :hero="playerTwoHero" :player='playerTwo' :displayPlayer='displayPlayerTwo' :playerWins='playerTwoWins' :score="scorePlayerTwo"></player-box>
+    <player-box class="player-box-1" :hero="playerOneHero" :player='playerOne' :displayPlayer='displayPlayerOne' :playerWins='playerOneWins' :score='scorePlayerOne' :clickable='clickable'>{{playerOneHero}}</player-box>
+    <player-box class="player-box-2" :hero="playerTwoHero" :player='playerTwo' :displayPlayer='displayPlayerTwo' :playerWins='playerTwoWins' :score="scorePlayerTwo" :clickable='clickable'></player-box>
     <h1 class="draw" v-if="draw">Draw</h1>
   </div>
 </template>
@@ -13,6 +13,16 @@ import {eventBus} from '../main.js'
 export default {
   name: "game-grid",
   props: ['playerOne', 'playerTwo', 'playerOneHero', 'playerTwoHero', 'displayPlayerOne', 'displayPlayerTwo', 'draw', 'playerOneWins', 'playerTwoWins', 'scorePlayerOne', 'scorePlayerTwo'],
+  data(){
+    return {
+      clickable: true
+    }
+  },
+  mounted(){
+    eventBus.$on('chosenAttribute', () => this.clickable = false)
+
+    eventBus.$on('next-round', () => this.clickable = true)
+  },
   components: {
     "player-box": playerBox
   }
