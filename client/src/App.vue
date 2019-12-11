@@ -4,11 +4,11 @@
 
     </div>
     <form-names v-if="showForm" class="form"></form-names>
-    <h1 class="start-game" v-on:click="toggleForm(), stopTotalTimer()" >{{startButtonText}}</h1>
+    <h1 class="start-game" v-on:click="toggleForm(), stopTotalTimer(), stopRoundTimer()" >{{startButtonText}}</h1>
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
-    <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
+    <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame(), stopRoundTimer()">End Game</h1>
     <div class="display-winner-container" v-if="endGame || endGameButton || this.totalTime === 0 ">
       <h1 class="display-winner-item" v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 class="display-winner-item" v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
@@ -222,6 +222,11 @@ export default {
     stopTotalTimer(){
       eventBus.$emit("stop-total-timer")
     },
+    stopRoundTimer(){
+      this.roundTime = null
+      eventBus.$emit("stop-round-timer")
+    },
+
     trueOrFalse(){
       return Math.random() >= 0.5;
     },

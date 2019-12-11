@@ -62,8 +62,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  /* .form-contents {
+  .form-contents {
     text-align: center;
-    font-size: 3rem;
-  } */
+    font-size: 1rem;
+  }
 </style>

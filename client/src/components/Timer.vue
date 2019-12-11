@@ -48,6 +48,9 @@ export default {
     eventBus.$on("stop-total-timer", stop =>{
       this.stopTotalTimer()
     })
+    eventBus.$on("stop-round-timer", stop =>{
+      this.stopRoundTimer()
+    })
   },
   methods:{
 
@@ -62,6 +65,7 @@ export default {
     stopRoundTimer() {
       clearInterval(this.roundTimer);
       this.roundTimer = null;
+      this.roundTime = null
 
     },
     stopTotalTimer() {
