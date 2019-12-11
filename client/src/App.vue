@@ -61,10 +61,12 @@ export default {
     }
   },
   mounted() {
+
+
     this.getStartingData()
 
-    eventBus.$on('chosenAttribute', (attribute, value) =>{
-      this.getWinner(attribute, value)
+    eventBus.$on('chosenAttribute', attribute =>{
+      this.getWinner(attribute)
       this.displayPlayerOne = true
       this.displayPlayerTwo = true
     });
@@ -122,6 +124,8 @@ export default {
           .then( data => {
             this.playerOne = data[0]
             this.playerTwo = data[1]
+            this.playerOne.name = 'Player 1'
+            this.playerTwo.name = 'Player 2'
             this.displayPlayerOne = this.playerOne.inTurn
             this.displayPlayerTwo = this.playerTwo.inTurn
           })
@@ -152,7 +156,7 @@ export default {
       GameService.updateData(this.playerTwo)
         .then(dbDetailsTwo => this.playerTwo = dbDetailsTwo)
     },
-    getWinner(attribute, value){
+    getWinner(attribute){
       const playerOneAttr = parseInt(this.playerOneHero.powerstats[attribute])
       const playerTwoAttr = parseInt(this.playerTwoHero.powerstats[attribute])
 
@@ -204,8 +208,11 @@ export default {
       this.displayPlayerOne = this.playerOne.inTurn
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.draw = this.playerOneWins = this.playerTwoWins = false
+      eventBus.$emit('next-round')
       if(this.roundTime){
-      eventBus.$emit("next-round-starts", this.roundTime)}
+        eventBus.$emit("next-round-starts", this.roundTime)
+      }
+
 
     },
     scoreCount() {

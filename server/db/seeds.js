@@ -1157,7 +1157,7 @@ db.superHeroes.insertMany([
   "powerstats": {
     "intelligence": "146",
     "strength": "345",
-    "speed": "945786",
+    "speed": "94578",
     "durability": "7",
     "power": "341",
     "combat": "3"

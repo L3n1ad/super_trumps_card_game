@@ -117,6 +117,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.game-timer {
+  position: absolute;
+  right: 0;
+  padding-top: 20px;
+  padding-right: 40px;
+  color: #d3dbdf;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
+}
+
 #message {
 color: #DDD;
 font-size: 50px;
