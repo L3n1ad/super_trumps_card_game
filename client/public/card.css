@@ -41,7 +41,7 @@ body {
 .start-game {
   grid-column-start: 1;
   color: white;
-  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
   font-size: 3em;
   /* margin-bottom: 1%; */
   text-align: center;
@@ -64,7 +64,7 @@ body {
 .next-round {
   grid-area: 4 / 1 / 4 / 1;
   color: white;
-  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
   margin: 2%;
   text-align: center;
   cursor: pointer;
@@ -88,7 +88,7 @@ body {
 .end-game {
   grid-area: 5 / 1 / 5 / 1;
   color: white;
-  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
   margin: 2%;
   text-align: center;
   cursor: pointer;
