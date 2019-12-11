@@ -54,7 +54,7 @@ export default {
   font-size: 1.2rem;
 }
 .player-box-1 >>> .splat {
-  background-image: url('../../public/images/splat-white-1.png');
+  background-image: url('../../public/images/splat-offwhite-1.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -77,6 +77,10 @@ export default {
   box-shadow: 2px 2px;
 }
 
+/* .player-box-1 >>> .selected-attribute:hover {
+  background-color: green;
+} */
+
 .player-box-2 >>> .player-head {
   grid-area: 1/1/1/1;
   margin-left: 12%;
@@ -90,7 +94,7 @@ export default {
 }
 
 .player-box-2 >>> .splat {
-  background-image: url('../../public/images/splat-white-2.png');
+  background-image: url('../../public/images/splat-offwhite-2.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

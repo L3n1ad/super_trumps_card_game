@@ -4,7 +4,7 @@
       <h4 class="character-name">{{hero.name}}</h4>
       <img class="image" v-bind:src="hero.image.url">
       <div class="attribute-title">
-        <div v-for='(value, attribute) in hero.powerstats' v-on:click='chooseAttribute(attribute, value)'>{{attribute}}:
+        <div class="selected-attribute" v-for='(value, attribute) in hero.powerstats' v-on:click='chooseAttribute(attribute, value)'>{{attribute}}:
         </div>
       </div>
       <div class="attribute-value">
