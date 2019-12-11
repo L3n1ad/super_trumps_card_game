@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="fix-height">
     <div v-if='displayPlayer && hero' class="">
       <h4 class="character-name">{{hero.name}}</h4>
       <img class="image" v-bind:src="hero.image.url">
@@ -18,8 +18,8 @@
           </div>
       </div>
     </div>
-    <div v-else class="">
-      <h1>Whatever</h1>
+    <div v-else class="back-card-div">
+      <!-- <img class="back-card" src="../../public/images/backcard.jpg" alt="" width="285" > -->
     </div>
   </div>
 </template>
@@ -131,5 +131,11 @@ export default {
     margin-bottom: 13px;
     border: solid 2px black;
     box-shadow: 2px 2px;
+  }
+  .back-card{
+
+  }
+  .fix-height{
+    height: 91%;
   }
 </style>

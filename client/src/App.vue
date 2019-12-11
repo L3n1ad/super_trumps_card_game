@@ -1,8 +1,6 @@
 <template lang="html">
   <div id='main-screen'>
-    <div class="background">
-
-    </div>
+    <div class="background"></div>
     <form-names v-if="showForm" class="form"></form-names>
     <h1 class="start-game" v-on:click="toggleForm">{{startButtonText}}</h1>
 
