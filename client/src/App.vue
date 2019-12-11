@@ -95,7 +95,9 @@ export default {
       this.gameStarted = true
       this.totalTime = null
     })
-
+    eventBus.$on("round-time-end", roundTimeOut => {
+      this.roundTimeOutWinner()
+    })
 
     eventBus.$on("time-out-end", timeOut => {
       this.totalTime = timeOut;
@@ -166,6 +168,26 @@ export default {
         this.playerTwoWins = true
       } else {
         this.draw = true
+      }
+      this.sendPlayersToDB()
+      this.nextRoundButton = true
+      this.scoreCount()
+    },
+    roundTimeOutWinner(){
+      if(this.playerOne.inTurn = true){
+        this.playerTwo.hand.push(this.inPlay)
+        this.playerTwo.hand = this.playerTwo.hand.flat(2)
+        this.playerOne.inTurn = false
+        this.playerTwo.inTurn = true
+        this.inPlay = []
+        this.playerTwoWins = true
+      }else{
+        this.playerOne.hand.push(this.inPlay)
+        this.playerOne.hand = this.playerOne.hand.flat(2)
+        this.playerOne.inTurn = true
+        this.playerTwo.inTurn = false
+        this.inPlay = []
+        this.playerOneWins = true
       }
       this.sendPlayersToDB()
       this.nextRoundButton = true
