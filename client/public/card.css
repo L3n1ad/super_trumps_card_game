@@ -10,7 +10,7 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 450px auto auto;
+  grid-template-rows: 100px 450px auto auto;
   overflow: scroll;
 }
 

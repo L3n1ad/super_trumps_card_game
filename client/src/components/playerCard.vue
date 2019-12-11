@@ -88,7 +88,6 @@ export default {
     text-transform: uppercase;
   }
   .attribute-title > div:hover {
-    float: left;
     text-align: left;
     cursor: pointer;
     grid-area: 3/1/3/1;
