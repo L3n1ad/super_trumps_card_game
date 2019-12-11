@@ -22,6 +22,8 @@ export default {
     eventBus.$on('chosenAttribute', () => this.clickable = false)
 
     eventBus.$on('next-round', () => this.clickable = true)
+
+    eventBus.$on('form-names', () => this.clickable = true)
   },
   components: {
     "player-box": playerBox
