@@ -1,5 +1,5 @@
 <template>
-  <form class="" v-on:submit.prevent="handleSubmit">
+  <form class="form-contents" v-on:submit.prevent="handleSubmit">
     <label for="player1">Player 1:</label>
     <input type="text" id="player1" placeholder="Name" v-model="player1" required/>
     <label for="player2">Player 2:</label>
@@ -8,15 +8,18 @@
     <label for="noOfCards">Select number of cards:</label>
     <br>
     <input type="radio" name="cardAmount" value="30"  v-model="cardAmount" id="noOfCards">30 cards<br>
-    <input type="radio" name="cardAmount" value="16" v-model="cardAmount">16 cards
+    <input type="radio" name="cardAmount" value="16" v-model="cardAmount">16 cards<br>
+    <input type="radio" name="cardAmount" value="6" v-model="cardAmount">6 cards
     <p>OR</p>
     <label for="gameTime">Select duration of game:</label><br>
-    <input type="radio" name="gameTime" value="1" v-model="gameTime" id="gameTime">1 min<br>
+    <input type="radio" name="gameTime" value="0" v-model="gameTime" id="gameTime">No time<br>
+    <input type="radio" name="gameTime" value="1" v-model="gameTime" >1 min<br>
     <input type="radio" name="gameTime" value="5" v-model="gameTime">5 min
+
     <br>
     <input type="submit" name="submit" value="START" />
+    <button v-on:click="closeWindow" name="close-window">Close Form</button>
   </form>
-
 </template>
 
 <script>
@@ -39,6 +42,9 @@ export default {
       if(this.gameTime > 0){
         eventBus.$emit("form-game-time", this.gameTime)
         }
+      },
+      closeWindow(){
+        eventBus.$emit('close-window')
       }
     }
   }
@@ -46,4 +52,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  /* .form-contents {
+    text-align: center;
+    font-size: 3rem;
+  } */
 </style>

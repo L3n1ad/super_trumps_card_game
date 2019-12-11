@@ -1,23 +1,22 @@
 <template lang="html">
-  <div>
-    <form-names></form-names>
-    <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
-    <button v-if="nextRoundButton" v-on:click="nextRound" type="button" name="button">Next Round</button>
-    <div v-if="endGame">
-      <div v-if="this.totalTime === 0">
-        <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
-        <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
-        <h1 v-else> DRAW</h1>
-      </div>
-      <div v-else>
-        <h1 v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
-        <h1 v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
-        <h1 v-else> DRAW</h1>
-      </div>
+  <div id='main-screen'>
+    <div class="background">
 
+    </div>
+    <form-names v-if="showForm" class="form"></form-names>
+    <h1 class="start-game" v-on:click="toggleForm">{{startButtonText}}</h1>
+
+    <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
+    <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
+    <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
+    <div class="display-winner-container" v-if="endGame || endGameButton || this.totalTime === 0 ">
+      <h1 class="display-winner-item" v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
+      <h1 class="display-winner-item" v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
+      <h1 class="display-winner-item" v-else> DRAW</h1>
     </div>
     <timer>Countdown!</timer>
   </div>
+
 </template>
 
 <script>
@@ -53,26 +52,16 @@ export default {
       draw: false,
       scorePlayerOne: 15,
       scorePlayerTwo: 15,
-      totalTime: null
+      totalTime: null,
+      showForm: false,
+      gameStarted: false,
+      startButtonText: "Start Game",
+      endGameButton: false
     }
   },
   mounted() {
-    GameService.getAllSuperHeroes()
-    .then(data => this.allHeroes = data)
-    .then(() => this.allHeroes.map(obj => {
-      return obj._id
-    }))
-    .then( ids => this.allHeroesID = ids)
-    .then(() =>{
-      GameService.getAllPlayers()
-        .then( data => {
-          this.playerOne = data[0]
-          this.playerTwo = data[1]
-          this.displayPlayerOne = this.playerOne.inTurn
-          this.displayPlayerTwo = this.playerTwo.inTurn
-        })
-        .then(() => this.splitCards())
-    });
+    this.getStartingData()
+
     eventBus.$on('chosenAttribute', (attribute, value) =>{
       this.getWinner(attribute, value)
       this.displayPlayerOne = true
@@ -80,8 +69,8 @@ export default {
     });
     //EventBus from Form.
     eventBus.$on('form-card-amount', amountOfCards =>{
+      this.splitCards()
       if(amountOfCards != 30){
-        console.log(amountOfCards);
         let cardsPerPlayer = amountOfCards / 2;
         let manyToRemove = 15 - cardsPerPlayer;
         this.playerOne.hand.splice( cardsPerPlayer, manyToRemove );
@@ -90,6 +79,7 @@ export default {
     });
 
     eventBus.$on('form-names', names => {
+      this.playerOneWins = this.playerTwoWins = this.draw = false
       this.playerOne.name = names[0];
       this.playerTwo.name = names[1];
       this.playerOne.inTurn = this.trueOrFalse();
@@ -99,15 +89,42 @@ export default {
       this.sendPlayersToDB();
       this.displayPlayerOne = this.playerOne.inTurn
       this.displayPlayerTwo = this.playerTwo.inTurn
-
+      this.showForm = false
+      this.startButtonText = "Start New Game"
+      this.endGameButton = false
+      this.gameStarted = true
+      this.totalTime = null
     })
+
+
     eventBus.$on("time-out-end", timeOut => {
       this.totalTime = timeOut;
     })
 
+    eventBus.$on('close-window', () => this.showForm = false)
   },
   methods: {
+    getStartingData(){
+      GameService.getAllSuperHeroes()
+      .then(data => this.allHeroes = data)
+      .then(() => this.allHeroes.map(obj => {
+        return obj._id
+      }))
+      .then( ids => this.allHeroesID = ids)
+      .then(() =>{
+        GameService.getAllPlayers()
+          .then( data => {
+            this.playerOne = data[0]
+            this.playerTwo = data[1]
+            this.displayPlayerOne = this.playerOne.inTurn
+            this.displayPlayerTwo = this.playerTwo.inTurn
+          })
+          .then(() => this.splitCards())
+      });
+    },
     splitCards() {
+      this.playerOne.hand = []
+      this.playerTwo.hand = []
       const arrayToRandomise = this.allHeroesID.slice(0)
       const numCards = arrayToRandomise.length
       const numOfSlices = 2
@@ -119,6 +136,7 @@ export default {
     getTopCards(){
       this.playerOneCard = this.playerOne.hand.shift()
       this.playerTwoCard = this.playerTwo.hand.shift()
+      this.inPlay = []
       this.inPlay.push(this.playerOneCard, this.playerTwoCard)
     },
     //Send Players to DB and retrieve Players.
@@ -167,6 +185,12 @@ export default {
     },
     trueOrFalse(){
       return Math.random() >= 0.5;
+    },
+    toggleForm(){
+      this.showForm = !this.showForm
+    },
+    triggerEndGame(){
+      this.endGameButton = true
     }
   },
   computed: {
@@ -187,11 +211,28 @@ export default {
       return this.allHeroes.filter(hero => hero._id == this.playerTwoCard)[0]
     },
     endGame(){
-      return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0 || this.totalTime ===0
+      return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
     }
   }
 }
 </script>
 
 <style lang="css" scoped>
+  .display-winner-container{
+    grid-area: 2/1/2/1;
+    font-size: 6rem;
+    text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 4px 4px 0 grey;
+    font-family: tomorrow;
+    color: white;
+    z-index: 5;
+    font-weight: bold;
+  }
+
+  .display-winner-item {
+    text-align: center;
+    background-color: #d3dbdf;
+    opacity: 0.95;
+    padding-bottom: 3%;
+    font-weight: bold;
+  }
 </style>
