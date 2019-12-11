@@ -18,7 +18,7 @@
 <!-- v-if="this.scorePlayerTwo > 1 && this.randomChance() === 3 && this.playerOne.inTurn === true" -->
 
       <h2 class="player-one-boost" v-if="this.playerOneBoost === 1" v-on:click="addBoostOne()">Boost!</h2>
-      <h2 class="chosen-boost-1" v-else>+50%</h2>
+      <h2 class="chosen-boost-1" v-else>+{{((playerOneBoost -1) * 100).toFixed()}}%</h2>
     </div>
 
     <div class="player-two-boost-container" >
@@ -26,7 +26,7 @@
 <!-- v-if="this.scorePlayerOne > 1 && this.randomChance() === 3 && this.playerTwo.inTurn === true" -->
 
       <h2 class="player-two-boost" v-if="this.playerTwoBoost === 1" v-on:click="addBoostTwo()">Boost!</h2>
-      <h2 class="chosen-boost-2" v-else>+50%</h2>
+      <h2 class="chosen-boost-2" v-else>+{{((playerTwoBoost -1) * 100).toFixed()}}%</h2>
     </div>
   </div>
 
@@ -214,11 +214,14 @@ export default {
     triggerEndGame(){
       this.endGameButton = true
     },
+    boostByAmount(){
+      return (Math.random() / 2)
+    },
     addBoostOne(){
-      this.playerOneBoost = this.playerOneBoost + 0.5
+      this.playerOneBoost = this.playerOneBoost + this.boostByAmount()
     },
     addBoostTwo(){
-      this.playerTwoBoost = this.playerTwoBoost + 0.5
+      this.playerTwoBoost = this.playerTwoBoost + this.boostByAmount()
     },
     clearBoosts(){
       this.playerOneBoost = 1
@@ -247,7 +250,7 @@ export default {
     },
     endGame(){
       return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
-    }
+    },
   }
 }
 </script>
