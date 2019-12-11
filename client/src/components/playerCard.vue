@@ -55,7 +55,7 @@ export default {
 <style lang="css" scoped>
   .chosen {
     color: #FFEB3B;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     transition: 1s;
   }
 

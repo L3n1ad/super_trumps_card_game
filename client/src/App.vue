@@ -10,10 +10,24 @@
     <div class="display-winner-container" v-if="endGame || endGameButton || this.totalTime === 0 ">
       <h1 class="display-winner-item" v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 class="display-winner-item" v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
-      <h1 class="display-winner-item" v-else> DRAW</h1>
+      <h1 class="display-winner-item" v-else>DRAW</h1>
     </div>
     <timer>Countdown!</timer>
-    <h2 v-on:click="addBoost()">Boost!</h2>
+    <div class="player-one-boost-container" >
+
+<!-- v-if="this.scorePlayerTwo > 1 && this.randomChance() === 3 && this.playerOne.inTurn === true" -->
+
+      <h2 class="player-one-boost" v-if="this.playerOneBoost === 1" v-on:click="addBoostOne()">Boost!</h2>
+      <h2 class="chosen-boost-1" v-else>+50%</h2>
+    </div>
+
+    <div class="player-two-boost-container" >
+
+<!-- v-if="this.scorePlayerOne > 1 && this.randomChance() === 3 && this.playerTwo.inTurn === true" -->
+
+      <h2 class="player-two-boost" v-if="this.playerTwoBoost === 1" v-on:click="addBoostTwo()">Boost!</h2>
+      <h2 class="chosen-boost-2" v-else>+50%</h2>
+    </div>
   </div>
 
 </template>
@@ -56,8 +70,8 @@ export default {
       gameStarted: false,
       startButtonText: "Start Game",
       endGameButton: false,
-      playerOneBoost: 0,
-      playerTwoBoost: 0
+      playerOneBoost: 1,
+      playerTwoBoost: 1
     }
   },
   mounted() {
@@ -137,6 +151,8 @@ export default {
       const randomisedArray = arrayToRandomise.sort(() => Math.random() - 0.5);
       this.playerOne.hand = randomisedArray.slice(0,n)
       this.playerTwo.hand = randomisedArray.slice(n,numCards)
+      //Not neccesarily here
+      this.clearBoosts()
     },
     getTopCards(){
       this.playerOneCard = this.playerOne.hand.shift()
@@ -155,14 +171,14 @@ export default {
       const playerOneAttr = parseInt(this.playerOneHero.powerstats[attribute])
       const playerTwoAttr = parseInt(this.playerTwoHero.powerstats[attribute])
 
-      if((playerOneAttr + this.playerOneBoost) > playerTwoAttr){
+      if((playerOneAttr * this.playerOneBoost) > playerTwoAttr){
         this.playerOne.hand.push(this.inPlay)
         this.playerOne.hand = this.playerOne.hand.flat(2)
         this.playerOne.inTurn = true
         this.playerTwo.inTurn = false
         this.inPlay = []
         this.playerOneWins = true
-      } else if (playerOneAttr < (playerTwoAttr + this.playerTwoBoost)){
+      } else if (playerOneAttr < (playerTwoAttr * this.playerTwoBoost)){
         this.playerTwo.hand.push(this.inPlay)
         this.playerTwo.hand = this.playerTwo.hand.flat(2)
         this.playerOne.inTurn = false
@@ -183,6 +199,7 @@ export default {
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.draw = this.playerOneWins = this.playerTwoWins = false
       eventBus.$emit('next-round')
+      this.clearBoosts()
     },
     scoreCount() {
          this.scorePlayerOne = this.playerOne.hand.length
@@ -197,8 +214,18 @@ export default {
     triggerEndGame(){
       this.endGameButton = true
     },
-    addBoost(){
-      this.playerOneBoost = this.playerOneBoost + 50
+    addBoostOne(){
+      this.playerOneBoost = this.playerOneBoost + 0.5
+    },
+    addBoostTwo(){
+      this.playerTwoBoost = this.playerTwoBoost + 0.5
+    },
+    clearBoosts(){
+      this.playerOneBoost = 1
+      this.playerTwoBoost = 1
+    },
+    randomChance(){
+      return Math.floor(Math.random() * 4)
     }
   },
   computed: {
@@ -242,5 +269,68 @@ export default {
     opacity: 0.95;
     padding-bottom: 3%;
     font-weight: bold;
+  }
+
+  .player-one-boost {
+    position: absolute;
+    top: 45%;
+    left: 4%;
+    color: gold;
+    font-size: 2.3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+  }
+
+  .player-one-boost:hover {
+    position: absolute;
+    top: 45%;
+    left: 4%;
+    color: green;
+    font-size: 2.3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+  }
+
+  .chosen-boost-1{
+    position: absolute;
+    top: 45%;
+    left: 4%;
+    color: green;
+    font-size: 3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .player-two-boost {
+    position: absolute;
+    top: 45%;
+    right: 4%;
+    color: gold;
+    font-size: 2.3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+}
+
+  .player-two-boost:hover {
+    position: absolute;
+    top: 45%;
+    right: 4%;
+    color: green;
+    font-size: 2.3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .chosen-boost-2{
+    position: absolute;
+    top: 45%;
+    right: 4%;
+    color: green;
+    font-size: 3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+    transition: 0.5s;
   }
 </style>
