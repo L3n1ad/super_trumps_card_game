@@ -13,6 +13,7 @@
       <h1 class="display-winner-item" v-else> DRAW</h1>
     </div>
     <timer>Countdown!</timer>
+    <h2 v-on:click="addBoost()">Boost!</h2>
   </div>
 
 </template>
@@ -54,7 +55,9 @@ export default {
       showForm: false,
       gameStarted: false,
       startButtonText: "Start Game",
-      endGameButton: false
+      endGameButton: false,
+      playerOneBoost: 0,
+      playerTwoBoost: 0
     }
   },
   mounted() {
@@ -152,14 +155,14 @@ export default {
       const playerOneAttr = parseInt(this.playerOneHero.powerstats[attribute])
       const playerTwoAttr = parseInt(this.playerTwoHero.powerstats[attribute])
 
-      if(playerOneAttr > playerTwoAttr){
+      if((playerOneAttr + this.playerOneBoost) > playerTwoAttr){
         this.playerOne.hand.push(this.inPlay)
         this.playerOne.hand = this.playerOne.hand.flat(2)
         this.playerOne.inTurn = true
         this.playerTwo.inTurn = false
         this.inPlay = []
         this.playerOneWins = true
-      } else if (playerOneAttr < playerTwoAttr){
+      } else if (playerOneAttr < (playerTwoAttr + this.playerTwoBoost)){
         this.playerTwo.hand.push(this.inPlay)
         this.playerTwo.hand = this.playerTwo.hand.flat(2)
         this.playerOne.inTurn = false
@@ -193,6 +196,9 @@ export default {
     },
     triggerEndGame(){
       this.endGameButton = true
+    },
+    addBoost(){
+      this.playerOneBoost = this.playerOneBoost + 50
     }
   },
   computed: {
