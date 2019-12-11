@@ -62,8 +62,8 @@ export default {
   mounted() {
     this.getStartingData()
 
-    eventBus.$on('chosenAttribute', (attribute, value) =>{
-      this.getWinner(attribute, value)
+    eventBus.$on('chosenAttribute', attribute =>{
+      this.getWinner(attribute)
       this.displayPlayerOne = true
       this.displayPlayerTwo = true
     });
@@ -146,7 +146,7 @@ export default {
       GameService.updateData(this.playerTwo)
         .then(dbDetailsTwo => this.playerTwo = dbDetailsTwo)
     },
-    getWinner(attribute, value){
+    getWinner(attribute){
       const playerOneAttr = parseInt(this.playerOneHero.powerstats[attribute])
       const playerTwoAttr = parseInt(this.playerTwoHero.powerstats[attribute])
 
@@ -177,7 +177,7 @@ export default {
       this.displayPlayerOne = this.playerOne.inTurn
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.draw = this.playerOneWins = this.playerTwoWins = false
-
+      eventBus.$emit('next-round')
     },
     scoreCount() {
          this.scorePlayerOne = this.playerOne.hand.length
