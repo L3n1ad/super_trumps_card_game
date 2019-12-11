@@ -4,7 +4,7 @@
 
     </div>
     <form-names v-if="showForm" class="form"></form-names>
-    <h1 class="start-game" v-on:click="toggleForm">{{startButtonText}}</h1>
+    <h1 class="start-game" v-on:click="toggleForm(), stopTotalTimer()" >{{startButtonText}}</h1>
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
@@ -56,7 +56,8 @@ export default {
       showForm: false,
       gameStarted: false,
       startButtonText: "Start Game",
-      endGameButton: false
+      endGameButton: false,
+      roundTime: null
     }
   },
   mounted() {
@@ -94,6 +95,9 @@ export default {
       this.endGameButton = false
       this.gameStarted = true
       this.totalTime = null
+    })
+    eventBus.$on("game-speed", gameSpeed =>{
+      this.roundTime = (parseInt(gameSpeed))
     })
     eventBus.$on("round-time-end", roundTimeOut => {
       this.roundTimeOutWinner()
@@ -175,7 +179,7 @@ export default {
       eventBus.$emit("winner-chosen-stop-counter")
     },
     roundTimeOutWinner(){
-      if(this.playerOne.inTurn = true){
+      if(this.playerOne.inTurn){
         this.playerTwo.hand.push(this.inPlay)
         this.playerTwo.hand = this.playerTwo.hand.flat(2)
         this.playerOne.inTurn = false
@@ -200,12 +204,16 @@ export default {
       this.displayPlayerOne = this.playerOne.inTurn
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.draw = this.playerOneWins = this.playerTwoWins = false
-      eventBus.$emit("next-round-starts", 10)
+      if(this.roundTime){
+      eventBus.$emit("next-round-starts", this.roundTime)}
 
     },
     scoreCount() {
          this.scorePlayerOne = this.playerOne.hand.length
          this.scorePlayerTwo = this.playerTwo.hand.length
+    },
+    stopTotalTimer(){
+      eventBus.$emit("stop-total-timer")
     },
     trueOrFalse(){
       return Math.random() >= 0.5;

@@ -24,24 +24,29 @@ export default {
       totalTimer: null,
       roundTimer: null,
       totalTime: null,
-      roundTime: null
+      roundTime: null,
 
 
     }},
   mounted() {
     eventBus.$on("form-game-time", gameTime =>{
       this.totalTime = (parseInt(gameTime) * 60)
-      this.roundTime = (5)
       this.startTotalTimer()
+    })
+    eventBus.$on("game-speed", gameSpeed =>{
+      this.roundTime = (parseInt(gameSpeed))
       this.startRoundTimer()
     })
     eventBus.$on("winner-chosen-stop-counter", stop =>{
       this.stopRoundTimer()
     })
     eventBus.$on("next-round-starts", newTime =>{
-      this.roundTime = (5)
+      this.roundTime = (parseInt(newTime))
       console.log("received next round starts");
       this.startRoundTimer()
+    })
+    eventBus.$on("stop-total-timer", stop =>{
+      this.stopTotalTimer()
     })
   },
   methods:{
@@ -57,6 +62,12 @@ export default {
     stopRoundTimer() {
       clearInterval(this.roundTimer);
       this.roundTimer = null;
+
+    },
+    stopTotalTimer() {
+      clearInterval(this.totalTimer);
+      this.totalTimer = null;
+      this.totalTime = null
 
     },
     totalCountdown() {
