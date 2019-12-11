@@ -60,6 +60,8 @@ export default {
     }
   },
   mounted() {
+
+
     this.getStartingData()
 
     eventBus.$on('chosenAttribute', attribute =>{
