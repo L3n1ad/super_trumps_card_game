@@ -90,7 +90,7 @@ export default {
   background-size:cover;
   display: grid;
   grid-template-rows: auto;
-  padding-bottom: 19px;
+  padding-bottom: 18px;
   box-shadow: 2px 2px;
 }
 
@@ -141,7 +141,7 @@ export default {
     background-size:cover;
     display: grid;
     grid-template-rows: auto;
-    padding-bottom: 17px;
+    padding-bottom: 18px;
     box-shadow: 2px 2px;
 }
 
