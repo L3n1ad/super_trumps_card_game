@@ -42,6 +42,7 @@ export default {
     letter-spacing: 2px;
     font-size: 1.5rem;
     cursor: default;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
   }
 
   .attribute-title {
@@ -100,6 +101,7 @@ export default {
     margin-left: 25px;
     margin-right: 25px;
     margin-bottom: 5px;
-    border: solid 5px black;
+    border: solid 2px black;
+    box-shadow: 2px 2px;
   }
 </style>

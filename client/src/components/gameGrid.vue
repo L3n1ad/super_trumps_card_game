@@ -74,6 +74,7 @@ export default {
   display: grid;
   grid-template-rows: auto;
   padding-bottom: 10px;
+  box-shadow: 2px 2px;
 }
 
 .player-box-2 >>> .player-head {
@@ -109,6 +110,7 @@ export default {
   display: grid;
   grid-template-rows: auto;
   padding-bottom: 10px;
+  box-shadow: 2px 2px;
 }
 
 .draw {

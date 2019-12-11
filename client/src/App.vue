@@ -210,10 +210,11 @@ export default {
   .display-winner-container{
     grid-area: 2/1/2/1;
     font-size: 6rem;
-    text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
+    text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 4px 4px 0 grey;
     font-family: tomorrow;
     color: white;
     z-index: 5;
+    font-weight: bold;
   }
 
   .display-winner-item {
@@ -221,5 +222,6 @@ export default {
     background-color: #d3dbdf;
     opacity: 0.95;
     padding-bottom: 3%;
+    font-weight: bold;
   }
 </style>
