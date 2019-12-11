@@ -146,7 +146,6 @@ export default {
     getTopCards(){
       this.playerOneCard = this.playerOne.hand.shift()
       this.playerTwoCard = this.playerTwo.hand.shift()
-      this.inPlay = []
       this.inPlay.push(this.playerOneCard, this.playerTwoCard)
     },
     //Send Players to DB and retrieve Players.
