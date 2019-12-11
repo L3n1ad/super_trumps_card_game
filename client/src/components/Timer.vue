@@ -24,15 +24,19 @@ export default {
       totalTimer: null,
       roundTimer: null,
       totalTime: null,
-      roundTime: null
+      roundTime: 10
 
 
     }},
   mounted() {
     eventBus.$on("form-game-time", gameTime =>{
       this.totalTime = (parseInt(gameTime) * 60)
-      this.roundTime = (10)
+      // this.roundTime = (10)
       this.startTotalTimer()
+      this.startRoundTimer()
+    })
+    eventBus.$on("next-round-starts", newTime =>{
+      // this.roundTime = (10)
       this.startRoundTimer()
     })
   },

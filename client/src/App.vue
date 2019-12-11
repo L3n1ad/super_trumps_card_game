@@ -199,6 +199,7 @@ export default {
       this.displayPlayerOne = this.playerOne.inTurn
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.draw = this.playerOneWins = this.playerTwoWins = false
+      eventBus.$emit("next-round-starts", 10)
 
     },
     scoreCount() {
