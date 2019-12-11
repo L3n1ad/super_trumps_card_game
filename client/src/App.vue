@@ -172,6 +172,7 @@ export default {
       this.sendPlayersToDB()
       this.nextRoundButton = true
       this.scoreCount()
+      eventBus.$emit("winner-chosen-stop-counter")
     },
     roundTimeOutWinner(){
       if(this.playerOne.inTurn = true){
