@@ -55,20 +55,18 @@ export default {
     eventBus
   },
   methods:{
-
     startTotalTimer() {
-      console.log("total timer running");
-    this.totalTimer = setInterval(() => this.totalCountdown(), 1000);
-  },
-    startRoundTimer() {
-      console.log("round timer running");
-    this.roundTimer = setInterval(() => this.roundCountdown(), 1000);
-  },
-    stopRoundTimer() {
-      clearInterval(this.roundTimer);
-      this.roundTimer = null;
-      this.roundTime = null
-
+        console.log("total timer running");
+      this.totalTimer = setInterval(() => this.totalCountdown(), 1000);
+    },
+      startRoundTimer() {
+        console.log("round timer running");
+      this.roundTimer = setInterval(() => this.roundCountdown(), 1000);
+    },
+      stopRoundTimer() {
+        clearInterval(this.roundTimer);
+        this.roundTimer = null;
+        this.roundTime = null
     },
     stopTotalTimer() {
       clearInterval(this.totalTimer);
@@ -84,21 +82,21 @@ export default {
         clearInterval(this.totalTimer);
         this.totalTimer = null;
         eventBus.$emit("time-out-end", this.totalTime)
-        }
-     },
-      roundCountdown() {
-        if (this.roundTime > 0){
-        this.roundTime--;
-        }
-        else {
-          clearInterval(this.roundTimer);
-          this.roundTimer = null;
-          eventBus.$emit("round-time-end", this.roundTime)
-          }
-      },
-      padTime(time) {
-        return (time < 10 ? '0' : '') + time;
-      },
+      }
+    },
+    roundCountdown() {
+      if (this.roundTime > 0){
+      this.roundTime--;
+      }
+      else {
+        clearInterval(this.roundTimer);
+        this.roundTimer = null;
+        eventBus.$emit("round-time-end", this.roundTime)
+      }
+    },
+    padTime(time) {
+      return (time < 10 ? '0' : '') + time;
+    },
   },
   computed: {
     totalMinutes() {
