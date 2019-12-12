@@ -331,7 +331,7 @@ export default {
   }
 
   .player-one-boost {
-    background-image: url('../public/images/splat-offwhite-1.png');
+    background-image: url('../public/images/splat-offwhite-2.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -339,7 +339,7 @@ export default {
     padding:40px;
     position: absolute;
     top: 38%;
-    color: #0373ba;
+    color: #e57e13;
     font-size: 2.3rem;
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
@@ -367,7 +367,7 @@ export default {
   }
 
   .player-two-boost {
-    background-image: url('../public/images/splat-offwhite-2.png');
+    background-image: url('../public/images/splat-offwhite-1.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -375,7 +375,7 @@ export default {
     padding:50px;
     top: 42%;
     right: 0;
-    color: #e57e13;
+    color: #0373ba;
     font-size: 2.3rem;
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;

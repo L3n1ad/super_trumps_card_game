@@ -171,9 +171,9 @@ export default {
 
   .button-close{
     position: absolute;
-    left:98%;
-    top:-2%;
-    background-color: #DD5C13;
+    left:98.5%;
+    top:-2.5%;
+    background-color: #1775B6;
     border:0;
     border-radius: 50%;
     width:40px;
@@ -186,9 +186,9 @@ export default {
     color: #4D4D4D;
   }
   .player-1{
-    color: #1775B6;
+    color: #E2852D;
   }
   .player-2{
-    color: #E2852D;
+    color: #1775B6;
   }
 </style>
