@@ -34,8 +34,8 @@ export default {
   name: "form-names",
   data(){
     return {
-      player1: "",
-      player2: "",
+      player1: "Player 1",
+      player2: "Player 2",
       cardAmount: 30,
       gameTime: 0,
       gameSpeed: null

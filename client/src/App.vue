@@ -10,9 +10,24 @@
     <div class="display-winner-container" v-if="endGame || endGameButton || this.totalTime === 0 ">
       <h1 class="display-winner-item" v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 class="display-winner-item" v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
-      <h1 class="display-winner-item" v-else> DRAW</h1>
+      <h1 class="display-winner-item" v-else>DRAW</h1>
     </div>
     <timer>Countdown!</timer>
+    <div v-if="(this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true" class="player-one-boost-container" >
+
+
+
+      <h2 class="player-one-boost" v-if="this.playerOneBoost === 1" v-on:click="addBoostOne()">{{playerOneTotalBoosts}} Boosts!</h2>
+      <h2 class="chosen-boost-1" v-else>+{{((playerOneBoost -1) * 100).toFixed()}}%</h2>
+    </div>
+
+    <div v-if="(this.playerTwoTotalBoosts >= 0) && this.playerTwo.inTurn === true" class="player-two-boost-container" >
+
+
+
+      <h2 class="player-two-boost" v-if="this.playerTwoBoost === 1" v-on:click="addBoostTwo()">{{playerTwoTotalBoosts}} Boosts!</h2>
+      <h2 class="chosen-boost-2" v-else>+{{((playerTwoBoost -1) * 100).toFixed()}}%</h2>
+    </div>
   </div>
 
 </template>
@@ -55,6 +70,10 @@ export default {
       gameStarted: false,
       startButtonText: "Start Game",
       endGameButton: false,
+      playerOneBoost: 1,
+      playerTwoBoost: 1,
+      playerOneTotalBoosts: 3,
+      playerTwoTotalBoosts: 3,
       roundTime: null
     }
   },
@@ -95,6 +114,7 @@ export default {
       this.endGameButton = false
       this.gameStarted = true
       this.totalTime = null
+      this.playerOneTotalBoosts = this.playerTwoTotalBoosts = 3
     })
     eventBus.$on("game-speed", gameSpeed =>{
       this.roundTime = (parseInt(gameSpeed))
@@ -140,6 +160,8 @@ export default {
       const randomisedArray = arrayToRandomise.sort(() => Math.random() - 0.5);
       this.playerOne.hand = randomisedArray.slice(0,n)
       this.playerTwo.hand = randomisedArray.slice(n,numCards)
+      //Not neccesarily here
+      this.clearBoosts()
     },
     getTopCards(){
       this.playerOneCard = this.playerOne.hand.shift()
@@ -157,14 +179,28 @@ export default {
       const playerOneAttr = parseInt(this.playerOneHero.powerstats[attribute])
       const playerTwoAttr = parseInt(this.playerTwoHero.powerstats[attribute])
 
-      if(playerOneAttr > playerTwoAttr){
+      if((playerOneAttr * this.playerOneBoost) > (playerTwoAttr * this.playerTwoBoost)){
+        console.log(`P1 WIN P1 Attr: ${playerOneAttr}`)
+        console.log(`P1 WIN P1 Boost: ${this.playerOneBoost}`)
+        console.log(`P1 WIN P1Combined: ${(playerOneAttr * this.playerOneBoost)}`)
+        console.log(`P1 WIN P2 Attr: ${playerTwoAttr}`)
+        console.log(`P1 WIN P2 Boost: ${this.playerTwoBoost}`)
+        console.log(`P1 WIN P2 Combo: ${(playerTwoAttr * this.playerTwoBoost)}`)
+        console.log("////////////////////")
         this.playerOne.hand.push(this.inPlay)
         this.playerOne.hand = this.playerOne.hand.flat(2)
         this.playerOne.inTurn = true
         this.playerTwo.inTurn = false
         this.inPlay = []
         this.playerOneWins = true
-      } else if (playerOneAttr < playerTwoAttr){
+      } else if ((playerOneAttr * this.playerOneBoost) < (playerTwoAttr * this.playerTwoBoost)){
+        console.log(`P2 WIN P1 Attr: ${playerOneAttr}`)
+        console.log(`P2 WIN P1 Boost: ${this.playerOneBoost}`)
+        console.log(`P2 WIN P1 Combo: ${(playerOneAttr * this.playerOneBoost)}`)
+        console.log(`P2 WIN P2 Attr: ${playerTwoAttr}`)
+        console.log(`P2 WIN P2 Boost: ${this.playerTwoBoost}`)
+        console.log(`P2 WIN P2 Combo: ${(playerTwoAttr * this.playerTwoBoost)}`)
+        console.log("////////////////////")
         this.playerTwo.hand.push(this.inPlay)
         this.playerTwo.hand = this.playerTwo.hand.flat(2)
         this.playerOne.inTurn = false
@@ -173,6 +209,13 @@ export default {
         this.playerTwoWins = true
       } else {
         this.draw = true
+        console.log(`P2 WIN P1 Attr: ${playerOneAttr}`)
+        console.log(`P2 WIN P1 Boost: ${this.playerOneBoost}`)
+        console.log(`P2 WIN P1 Combo: ${(playerOneAttr * this.playerOneBoost)}`)
+        console.log(`P2 WIN P2 Attr: ${playerTwoAttr}`)
+        console.log(`P2 WIN P2 Boost: ${this.playerTwoBoost}`)
+        console.log(`P2 WIN P2 Combo: ${(playerTwoAttr * this.playerTwoBoost)}`)
+        console.log("////////////////////")
       }
       this.sendPlayersToDB()
       this.nextRoundButton = true
@@ -209,8 +252,12 @@ export default {
       if(this.roundTime){
         eventBus.$emit("next-round-starts", this.roundTime)
       }
-
-
+      this.clearBoosts()
+      if(this.playerOneTotalBoosts === 0){
+        this.playerOneTotalBoosts -= 1
+      } else if (this.playerTwoTotalBoosts === 0 ){
+        this.playerTwoTotalBoosts -=1
+      }
     },
     scoreCount() {
          this.scorePlayerOne = this.playerOne.hand.length
@@ -232,7 +279,22 @@ export default {
     },
     triggerEndGame(){
       this.endGameButton = true
-    }
+    },
+    boostByAmount(){
+      return (Math.random() / 2)
+    },
+    addBoostOne(){
+      this.playerOneBoost = this.playerOneBoost + this.boostByAmount()
+      this.playerOneTotalBoosts -= 1
+    },
+    addBoostTwo(){
+      this.playerTwoBoost = this.playerTwoBoost + this.boostByAmount()
+      this.playerTwoTotalBoosts -= 1
+    },
+    clearBoosts(){
+      this.playerOneBoost = 1
+      this.playerTwoBoost = 1
+    },
   },
   computed: {
     // scorePlayerOne() {
@@ -253,7 +315,7 @@ export default {
     },
     endGame(){
       return this.scorePlayerOne === 0 || this.scorePlayerTwo === 0
-    }
+    },
   }
 }
 </script>
@@ -275,5 +337,68 @@ export default {
     opacity: 0.95;
     padding-bottom: 3%;
     font-weight: bold;
+  }
+
+  .player-one-boost {
+    position: absolute;
+    top: 42%;
+    left: 2%;
+    color: gold;
+    font-size: 2.3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+  }
+
+  .player-one-boost:hover {
+    position: absolute;
+    top: 42%;
+    left: 2%;
+    color: green;
+    font-size: 2.3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+  }
+
+  .chosen-boost-1{
+    position: absolute;
+    top: 45%;
+    left: 4%;
+    color: green;
+    font-size: 3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .player-two-boost {
+    position: absolute;
+    top: 42%;
+    right: 2%;
+    color: gold;
+    font-size: 2.3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+}
+
+  .player-two-boost:hover {
+    position: absolute;
+    top: 42%;
+    right: 2%;
+    color: green;
+    font-size: 2.3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .chosen-boost-2{
+    position: absolute;
+    top: 45%;
+    right: 4%;
+    color: green;
+    font-size: 3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    cursor: pointer;
+    transition: 0.5s;
   }
 </style>
