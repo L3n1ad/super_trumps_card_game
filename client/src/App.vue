@@ -3,7 +3,6 @@
     <div class="background"></div>
     <form-names v-if="showForm" class="form"></form-names>
     <h1 class="start-game" v-on:click="toggleForm(), stopTotalTimer(), stopRoundTimer()" >{{startButtonText}}</h1>
-
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
     <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame(), stopRoundTimer()">End Game</h1>
@@ -13,23 +12,15 @@
       <h1 class="display-winner-item" v-else>DRAW</h1>
     </div>
     <timer>Countdown!</timer>
-    <div v-if="(this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true" class="player-one-boost-container" >
-
-
-
+    <div v-if="(this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true && this.gameStarted && !this.nextRoundButton" class="player-one-boost-container" >
       <h2 class="player-one-boost" v-if="this.playerOneBoost === 1" v-on:click="addBoostOne()">{{playerOneTotalBoosts}} Boosts!</h2>
       <h2 class="chosen-boost-1" v-else>+{{((playerOneBoost -1) * 100).toFixed()}}%</h2>
     </div>
-
-    <div v-if="(this.playerTwoTotalBoosts >= 0) && this.playerTwo.inTurn === true" class="player-two-boost-container" >
-
-
-
+    <div v-if="(this.playerTwoTotalBoosts >= 0) && this.playerTwo.inTurn === true && this.gameStarted && !this.nextRoundButton" class="player-two-boost-container" >
       <h2 class="player-two-boost" v-if="this.playerTwoBoost === 1" v-on:click="addBoostTwo()">{{playerTwoTotalBoosts}} Boosts!</h2>
       <h2 class="chosen-boost-2" v-else>+{{((playerTwoBoost -1) * 100).toFixed()}}%</h2>
     </div>
   </div>
-
 </template>
 
 <script>
