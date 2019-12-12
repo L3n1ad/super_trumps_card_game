@@ -69,7 +69,7 @@ export default {
 
   .character-name {
     margin: 2%;
-    color: #d3dbdf;
+    color: white;
     letter-spacing: 2px;
     font-size: 1.5rem;
     cursor: default;

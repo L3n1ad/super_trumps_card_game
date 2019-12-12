@@ -75,7 +75,6 @@ export default {
   background-repeat: no-repeat;
   text-align: center;
   text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
-  font-size: 1.2rem;
 }
 
 .player-box-1 >>> .player-card {
