@@ -1,31 +1,31 @@
 <template>
   <form class="form-contents" v-on:submit.prevent="handleSubmit">
     <div class="players-wrapper">
-      <label for="player1" class="label-player">Player 1:</label>
+      <label for="player1" class="label-player player-1">Player 1:</label>
       <input type="text" id="player1" placeholder="Name" v-model="player1" required/>
-      <label for="player2" class="label-player">Player 2:</label>
+      <label for="player2" class="label-player player-2">Player 2:</label>
       <input type="text" id="player2" placeholder="Name" v-model="player2" required/>
       <br>
     </div>
     <div class="option-wrapper">
 
       <div class="option-container">
-        <label for="noOfCards" class="label-option">Select number of cards:</label><br>
-        <input class="input-option" type="radio" name="cardAmount" value="30"  v-model="cardAmount" id="noOfCards"><p class="input-option">30 cards</p><br>
-        <input class="input-option" type="radio" name="cardAmount" value="16" v-model="cardAmount"><p class="input-option">16 cards</p><br>
-        <input class="input-option" type="radio" name="cardAmount" value="6" v-model="cardAmount"><p class="input-option">6 cards</p>
+        <label for="noOfCards" class="label-option">Select number of cards:</label><br><br>
+        <input class="input-radio" type="radio" name="cardAmount" value="30"  v-model="cardAmount" id="noOfCards"><p class="input-option">30 cards</p><br>
+        <input class="input-radio" type="radio" name="cardAmount" value="16" v-model="cardAmount"><p class="input-option">16 cards</p><br>
+        <input class="input-radio" type="radio" name="cardAmount" value="6" v-model="cardAmount"><p class="input-option">6 cards</p>
       </div>
       <div class="option-container">
-        <label for="gameTime" class="label-option">Select duration of game:</label><br>
-        <input class="input-option" type="radio" name="gameTime" value="0" v-model="gameTime" id="gameTime"><p>No time</p><br>
-        <input class="input-option" type="radio" name="gameTime" value="1" v-model="gameTime"><p>1 min</p><br>
-        <input class="input-option" type="radio" name="gameTime" value="5" v-model="gameTime"><p>5 min</p>
+        <label for="gameTime" class="label-option">Select duration of game:</label><br><br>
+        <input class="input-radio" type="radio" name="gameTime" value="0" v-model="gameTime" id="gameTime"><p class="input-option">No time</p><br>
+        <input class="input-radio" type="radio" name="gameTime" value="1" v-model="gameTime"><p class="input-option">1 min</p><br>
+        <input class="input-radio" type="radio" name="gameTime" value="5" v-model="gameTime"><p class="input-option">5 min</p>
       </div>
       <div class="option-container">
-        <label for="gameSpeed" class="label-option">Choose game speed:</label><br>
-        <input class="input-option" type="radio" name="gameSpeed" value="0" v-model="gameSpeed" id="gameSpeed"><p>No timer</p><br>
-        <input class="input-option" type="radio" name="gameSpeed" value="20" v-model="gameSpeed"><p>SLOW</p><br>
-        <input class="input-option" type="radio" name="gameSpeed" value="5" v-model="gameSpeed"><p>FAST</p><br>
+        <label for="gameSpeed" class="label-option">Choose game speed:</label><br><br>
+        <input class="input-radio" type="radio" name="gameSpeed" value="0" v-model="gameSpeed" id="gameSpeed"><p class="input-option">No timer</p><br>
+        <input class="input-radio" type="radio" name="gameSpeed" value="20" v-model="gameSpeed"><p class="input-option">SLOW</p><br>
+        <input class="input-radio" type="radio" name="gameSpeed" value="5" v-model="gameSpeed"><p class="input-option">FAST</p><br>
       </div>
 
     </div>
@@ -48,7 +48,7 @@ export default {
       player2: "Player 2",
       cardAmount: 30,
       gameTime: 0,
-      gameSpeed: null
+      gameSpeed: 0
     }
   },
     methods: {
@@ -74,22 +74,23 @@ export default {
 <style lang="css" scoped>
   .form-contents {
     padding-top: 60px;
-    font-size: 1rem;
+
   }
   .option-wrapper{
     padding-top: 40px;
     display: flex;
     justify-content: space-evenly;
+    font-size: 1.5rem;
   }
   .option-container{
     /* display: flex;
     flex-direction: column;
     justify-content: center; */
+    color: white;
   }
   .option-container input{
     float: left;
     margin-left: 20px;
-    /* text-align: left; */
 
   }
   .option-container p{
@@ -103,15 +104,34 @@ export default {
     margin: 0 10px 0 60px;
   }
   .label-option{
-
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
+    font-size: 1.3em;
   }
   .input-option{
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
+    color: #E6E6E6;
+  }
 
+  .input-radio{
+    width: 20px;
   }
 
   .players-wrapper{
     text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
+    margin-bottom: 35px;
+  }
 
+  .players-wrapper input {
+    width: 200px;
+    height: 40px;
+    position: relative;
+    bottom: 6px;
+    font-size: 0.5em;
+    color: #4D4D4D;
   }
 
   .start-button{
@@ -119,10 +139,9 @@ export default {
     font-family: inherit;
     border: 0;
     padding: 0;
-    color: white;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
-    font-size: 3em;
-    text-align: center;
+    color: #E2852D;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
+    font-size: 10em;
     cursor: pointer;
     padding-right: 2px;
     margin-block-start: 0.67em;
@@ -130,18 +149,31 @@ export default {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-    text-align: center;
+    float:left;
+    padding-left: 300px;
+    background: none;
+    position: relative;
+    bottom: 0px;
   }
+
+  .start-button:hover{
+    transition: 0.5s;
+    font-size: 12em;
+    padding-left: 250px;
+    position: relative;
+    bottom: 40px;
+  }
+
   .start-button-wrapper{
     text-align: center;
-    color:white;
+
   }
 
   .button-close{
     position: absolute;
-    left:99%;
-    top:-1%;
-    background-color: red;
+    left:98%;
+    top:-2%;
+    background-color: #DD5C13;
     border:0;
     border-radius: 50%;
     width:40px;
@@ -150,5 +182,13 @@ export default {
     margin:0;
     font-weight: bold;
     cursor: pointer;
+    font-size: 1.4em;
+    color: #4D4D4D;
+  }
+  .player-1{
+    color: #1775B6;
+  }
+  .player-2{
+    color: #E2852D;
   }
 </style>
