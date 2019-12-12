@@ -65,6 +65,9 @@ export default {
   grid-template-columns: 2fr 1fr;
   font-size: 1.2rem;
 }
+
+
+
 .player-box-1 >>> .splat {
   background-image: url('../../public/images/splat-offwhite-1.png');
   background-position: center;
@@ -82,11 +85,22 @@ export default {
   border: solid 2px black;
   border-radius: 25px;
   text-align: center;
-  background-color: #0473ba;
+  background-image: url("../../public/images/frontcard1.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
   display: grid;
   grid-template-rows: auto;
-  padding-bottom: 10px;
+  padding-bottom: 19px;
   box-shadow: 2px 2px;
+}
+
+.player-box-1 >>> .back-card-div{
+  background-image: url("../../public/images/backcard1.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 276px;
+  height: 396px;
+  border-radius: 23px;
 }
 
 /* .player-box-1 >>> .selected-attribute:hover {
@@ -116,17 +130,28 @@ export default {
 }
 
 .player-box-2 >>> .player-card {
-  grid-area: 2/1/2/1;
-  margin-left: 15%;
-  margin-right:15%;
-  border: solid 2px black;
-  border-radius: 25px;
-  text-align: center;
-  background-color: #e57e14;
-  display: grid;
-  grid-template-rows: auto;
-  padding-bottom: 10px;
-  box-shadow: 2px 2px;
+    grid-area: 2/1/2/1;
+    margin-left: 15%;
+    margin-right:15%;
+    border: solid 2px black;
+    border-radius: 25px;
+    text-align: center;
+    background-image: url("../../public/images/frontcard2.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: grid;
+    grid-template-rows: auto;
+    padding-bottom: 17px;
+    box-shadow: 2px 2px;
+}
+
+.player-box-2 >>> .back-card-div{
+  background-image: url("../../public/images/backcard2.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 276px;
+  height: 396px;
+  border-radius: 23px;
 }
 
 .draw {
