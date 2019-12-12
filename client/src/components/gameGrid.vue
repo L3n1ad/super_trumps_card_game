@@ -21,6 +21,8 @@ export default {
   mounted(){
     eventBus.$on('chosenAttribute', () => this.clickable = false)
 
+    eventBus.$on('round-time-end', () => this.clickable = false)
+
     eventBus.$on('next-round', () => this.clickable = true)
 
     eventBus.$on('form-names', () => this.clickable = true)
