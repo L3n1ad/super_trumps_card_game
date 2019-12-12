@@ -171,14 +171,28 @@ export default {
       const playerOneAttr = parseInt(this.playerOneHero.powerstats[attribute])
       const playerTwoAttr = parseInt(this.playerTwoHero.powerstats[attribute])
 
-      if((playerOneAttr * this.playerOneBoost) > playerTwoAttr){
+      if((playerOneAttr * this.playerOneBoost) > (playerTwoAttr * this.playerTwoBoost)){
+        console.log(`P1 WIN P1 Attr: ${playerOneAttr}`)
+        console.log(`P1 WIN P1 Boost: ${this.playerOneBoost}`)
+        console.log(`P1 WIN P1Combined: ${(playerOneAttr * this.playerOneBoost)}`)
+        console.log(`P1 WIN P2 Attr: ${playerTwoAttr}`)
+        console.log(`P1 WIN P2 Boost: ${this.playerTwoBoost}`)
+        console.log(`P1 WIN P2 Combo: ${(playerTwoAttr * this.playerTwoBoost)}`)
+        console.log("////////////////////")
         this.playerOne.hand.push(this.inPlay)
         this.playerOne.hand = this.playerOne.hand.flat(2)
         this.playerOne.inTurn = true
         this.playerTwo.inTurn = false
         this.inPlay = []
         this.playerOneWins = true
-      } else if (playerOneAttr < (playerTwoAttr * this.playerTwoBoost)){
+      } else if ((playerOneAttr * this.playerOneBoost) < (playerTwoAttr * this.playerTwoBoost)){
+        console.log(`P2 WIN P1 Attr: ${playerOneAttr}`)
+        console.log(`P2 WIN P1 Boost: ${this.playerOneBoost}`)
+        console.log(`P2 WIN P1 Combo: ${(playerOneAttr * this.playerOneBoost)}`)
+        console.log(`P2 WIN P2 Attr: ${playerTwoAttr}`)
+        console.log(`P2 WIN P2 Boost: ${this.playerTwoBoost}`)
+        console.log(`P2 WIN P2 Combo: ${(playerTwoAttr * this.playerTwoBoost)}`)
+        console.log("////////////////////")
         this.playerTwo.hand.push(this.inPlay)
         this.playerTwo.hand = this.playerTwo.hand.flat(2)
         this.playerOne.inTurn = false
@@ -187,6 +201,13 @@ export default {
         this.playerTwoWins = true
       } else {
         this.draw = true
+        console.log(`P2 WIN P1 Attr: ${playerOneAttr}`)
+        console.log(`P2 WIN P1 Boost: ${this.playerOneBoost}`)
+        console.log(`P2 WIN P1 Combo: ${(playerOneAttr * this.playerOneBoost)}`)
+        console.log(`P2 WIN P2 Attr: ${playerTwoAttr}`)
+        console.log(`P2 WIN P2 Boost: ${this.playerTwoBoost}`)
+        console.log(`P2 WIN P2 Combo: ${(playerTwoAttr * this.playerTwoBoost)}`)
+        console.log("////////////////////")
       }
       this.sendPlayersToDB()
       this.nextRoundButton = true
