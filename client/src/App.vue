@@ -13,7 +13,7 @@
       <h1 class="display-winner-item" v-else>DRAW</h1>
     </div>
     <timer>Countdown!</timer>
-    <div v-if="this.scorePlayerTwo > 1 && (this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true" class="player-one-boost-container" >
+    <div v-if="(this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true" class="player-one-boost-container" >
 
 
 
@@ -21,7 +21,7 @@
       <h2 class="chosen-boost-1" v-else>+{{((playerOneBoost -1) * 100).toFixed()}}%</h2>
     </div>
 
-    <div v-if="this.scorePlayerOne > 1 && (this.playerTwoTotalBoosts >= 0) && this.playerTwo.inTurn === true" class="player-two-boost-container" >
+    <div v-if="(this.playerTwoTotalBoosts >= 0) && this.playerTwo.inTurn === true" class="player-two-boost-container" >
 
 
 
