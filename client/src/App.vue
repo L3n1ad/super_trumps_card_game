@@ -13,19 +13,19 @@
       <h1 class="display-winner-item" v-else>DRAW</h1>
     </div>
     <timer>Countdown!</timer>
-    <div class="player-one-boost-container" >
+    <div v-if="this.scorePlayerTwo > 1 && (this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true" class="player-one-boost-container" >
 
-<!-- v-if="this.scorePlayerTwo > 1 && this.randomChance() === 3 && this.playerOne.inTurn === true" -->
 
-      <h2 class="player-one-boost" v-if="this.playerOneBoost === 1" v-on:click="addBoostOne()">Boost!</h2>
+
+      <h2 class="player-one-boost" v-if="this.playerOneBoost === 1" v-on:click="addBoostOne()">{{playerOneTotalBoosts}} Boosts!</h2>
       <h2 class="chosen-boost-1" v-else>+{{((playerOneBoost -1) * 100).toFixed()}}%</h2>
     </div>
 
-    <div class="player-two-boost-container" >
+    <div v-if="this.scorePlayerOne > 1 && (this.playerTwoTotalBoosts >= 0) && this.playerTwo.inTurn === true" class="player-two-boost-container" >
 
-<!-- v-if="this.scorePlayerOne > 1 && this.randomChance() === 3 && this.playerTwo.inTurn === true" -->
 
-      <h2 class="player-two-boost" v-if="this.playerTwoBoost === 1" v-on:click="addBoostTwo()">Boost!</h2>
+
+      <h2 class="player-two-boost" v-if="this.playerTwoBoost === 1" v-on:click="addBoostTwo()">{{playerTwoTotalBoosts}} Boosts!</h2>
       <h2 class="chosen-boost-2" v-else>+{{((playerTwoBoost -1) * 100).toFixed()}}%</h2>
     </div>
   </div>
@@ -71,7 +71,9 @@ export default {
       startButtonText: "Start Game",
       endGameButton: false,
       playerOneBoost: 1,
-      playerTwoBoost: 1
+      playerTwoBoost: 1,
+      playerOneTotalBoosts: 3,
+      playerTwoTotalBoosts: 3
     }
   },
   mounted() {
@@ -111,6 +113,7 @@ export default {
       this.endGameButton = false
       this.gameStarted = true
       this.totalTime = null
+      this.playerOneTotalBoosts = this.playerTwoTotalBoosts = 3
     })
 
 
@@ -221,6 +224,11 @@ export default {
       this.draw = this.playerOneWins = this.playerTwoWins = false
       eventBus.$emit('next-round')
       this.clearBoosts()
+      if(this.playerOneTotalBoosts === 0){
+        this.playerOneTotalBoosts -= 1
+      } else if (this.playerTwoTotalBoosts === 0 ){
+        this.playerTwoTotalBoosts -=1
+      }
     },
     scoreCount() {
          this.scorePlayerOne = this.playerOne.hand.length
@@ -240,17 +248,16 @@ export default {
     },
     addBoostOne(){
       this.playerOneBoost = this.playerOneBoost + this.boostByAmount()
+      this.playerOneTotalBoosts -= 1
     },
     addBoostTwo(){
       this.playerTwoBoost = this.playerTwoBoost + this.boostByAmount()
+      this.playerTwoTotalBoosts -= 1
     },
     clearBoosts(){
       this.playerOneBoost = 1
       this.playerTwoBoost = 1
     },
-    randomChance(){
-      return Math.floor(Math.random() * 4)
-    }
   },
   computed: {
     // scorePlayerOne() {
@@ -297,8 +304,8 @@ export default {
 
   .player-one-boost {
     position: absolute;
-    top: 45%;
-    left: 4%;
+    top: 42%;
+    left: 2%;
     color: gold;
     font-size: 2.3rem;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
@@ -307,8 +314,8 @@ export default {
 
   .player-one-boost:hover {
     position: absolute;
-    top: 45%;
-    left: 4%;
+    top: 42%;
+    left: 2%;
     color: green;
     font-size: 2.3rem;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
@@ -328,8 +335,8 @@ export default {
 
   .player-two-boost {
     position: absolute;
-    top: 45%;
-    right: 4%;
+    top: 42%;
+    right: 2%;
     color: gold;
     font-size: 2.3rem;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
@@ -338,8 +345,8 @@ export default {
 
   .player-two-boost:hover {
     position: absolute;
-    top: 45%;
-    right: 4%;
+    top: 42%;
+    right: 2%;
     color: green;
     font-size: 2.3rem;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
