@@ -2,11 +2,11 @@
   <div id='main-screen'>
     <div class="background"></div>
     <form-names v-if="showForm" class="form"></form-names>
-    <h1 class="start-game" v-on:click="toggleForm">{{startButtonText}}</h1>
+    <h1 class="start-game" v-on:click="toggleForm(), stopTotalTimer(), stopRoundTimer()" >{{startButtonText}}</h1>
 
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
-    <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame">End Game</h1>
+    <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame(), stopRoundTimer()">End Game</h1>
     <div class="display-winner-container" v-if="endGame || endGameButton || this.totalTime === 0 ">
       <h1 class="display-winner-item" v-if='scorePlayerOne  > scorePlayerTwo'>{{playerOne.name}} wins!</h1>
       <h1 class="display-winner-item" v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
@@ -54,7 +54,8 @@ export default {
       showForm: false,
       gameStarted: false,
       startButtonText: "Start Game",
-      endGameButton: false
+      endGameButton: false,
+      roundTime: null
     }
   },
   mounted() {
@@ -95,7 +96,12 @@ export default {
       this.gameStarted = true
       this.totalTime = null
     })
-
+    eventBus.$on("game-speed", gameSpeed =>{
+      this.roundTime = (parseInt(gameSpeed))
+    })
+    eventBus.$on("round-time-end", roundTimeOut => {
+      this.roundTimeOutWinner()
+    })
 
     eventBus.$on("time-out-end", timeOut => {
       this.totalTime = timeOut;
@@ -138,7 +144,6 @@ export default {
     getTopCards(){
       this.playerOneCard = this.playerOne.hand.shift()
       this.playerTwoCard = this.playerTwo.hand.shift()
-      this.inPlay = []
       this.inPlay.push(this.playerOneCard, this.playerTwoCard)
     },
     //Send Players to DB and retrieve Players.
@@ -172,6 +177,27 @@ export default {
       this.sendPlayersToDB()
       this.nextRoundButton = true
       this.scoreCount()
+      eventBus.$emit("winner-chosen-stop-counter")
+    },
+    roundTimeOutWinner(){
+      if(this.playerOne.inTurn){
+        this.playerTwo.hand.push(this.inPlay)
+        this.playerTwo.hand = this.playerTwo.hand.flat(2)
+        this.playerOne.inTurn = false
+        this.playerTwo.inTurn = true
+        this.inPlay = []
+        this.playerTwoWins = true
+      }else{
+        this.playerOne.hand.push(this.inPlay)
+        this.playerOne.hand = this.playerOne.hand.flat(2)
+        this.playerOne.inTurn = true
+        this.playerTwo.inTurn = false
+        this.inPlay = []
+        this.playerOneWins = true
+      }
+      this.sendPlayersToDB()
+      this.nextRoundButton = true
+      this.scoreCount()
     },
     nextRound(){
       this.nextRoundButton = false
@@ -180,11 +206,24 @@ export default {
       this.displayPlayerTwo = this.playerTwo.inTurn
       this.draw = this.playerOneWins = this.playerTwoWins = false
       eventBus.$emit('next-round')
+      if(this.roundTime){
+        eventBus.$emit("next-round-starts", this.roundTime)
+      }
+
+
     },
     scoreCount() {
          this.scorePlayerOne = this.playerOne.hand.length
          this.scorePlayerTwo = this.playerTwo.hand.length
     },
+    stopTotalTimer(){
+      eventBus.$emit("stop-total-timer")
+    },
+    stopRoundTimer(){
+      this.roundTime = null
+      eventBus.$emit("stop-round-timer")
+    },
+
     trueOrFalse(){
       return Math.random() >= 0.5;
     },

@@ -15,6 +15,12 @@
     <input type="radio" name="gameTime" value="0" v-model="gameTime" id="gameTime">No time<br>
     <input type="radio" name="gameTime" value="1" v-model="gameTime" >1 min<br>
     <input type="radio" name="gameTime" value="5" v-model="gameTime">5 min
+    <br>
+    <label for="gameSpeed">Choose game speed:</label><br>
+    <input type="radio" name="gameSpeed" value="0" v-model="gameSpeed" id="gameSpeed">NO TIMER<br>
+    <input type="radio" name="gameSpeed" value="20" v-model="gameSpeed">SLOW<br>
+    <input type="radio" name="gameSpeed" value="5" v-model="gameSpeed">FAST<br>
+
 
     <br>
     <input type="submit" name="submit" value="START" />
@@ -31,7 +37,8 @@ export default {
       player1: "",
       player2: "",
       cardAmount: 30,
-      gameTime: 0
+      gameTime: 0,
+      gameSpeed: null
     }
   },
     methods: {
@@ -42,8 +49,11 @@ export default {
       if(this.gameTime > 0){
         eventBus.$emit("form-game-time", this.gameTime)
         }
+      if(this.gameSpeed > 0){
+        eventBus.$emit("game-speed", this.gameSpeed);
+      }
       },
-      closeWindow(){
+    closeWindow(){
         eventBus.$emit('close-window')
       }
     }
@@ -52,8 +62,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  /* .form-contents {
+  .form-contents {
     text-align: center;
-    font-size: 3rem;
-  } */
+    font-size: 1rem;
+  }
 </style>
