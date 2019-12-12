@@ -1,12 +1,12 @@
 <template lang="html">
   <div>
-    <div v-if="startTotalTimer" id="total-timer">
+    <div v-if="totalTime" id="total-timer">
       <span>Game: </span><br>
       <span id="minutes">{{totalMinutes}}</span>
       <span id="middle">:</span>
       <span id="seconds">{{totalSeconds}}</span>
     </div>
-    <div v-if="startRoundTimer" id="round-timer">
+    <div v-if="roundTime" id="round-timer">
       <span id="minutes">{{roundMinutes}}</span>
       <span id="middle">:</span>
       <span id="seconds">{{roundSeconds}}</span>
@@ -52,6 +52,7 @@ export default {
     eventBus.$on("stop-round-timer", stop =>{
       this.stopRoundTimer()
     })
+    eventBus
   },
   methods:{
 
