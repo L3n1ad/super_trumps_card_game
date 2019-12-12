@@ -11,7 +11,7 @@
       <h1 class="display-winner-item" v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
       <h1 class="display-winner-item" v-else>DRAW</h1>
     </div>
-    <timer>Countdown!</timer>
+    <timer class="round-timer">Countdown!</timer>
     <div v-if="(this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true && this.gameStarted && !this.nextRoundButton" class="player-one-boost-container" >
       <h2 class="player-one-boost" v-if="this.playerOneBoost === 1" v-on:click="addBoostOne()">{{playerOneTotalBoosts}} Boosts!</h2>
       <h2 class="chosen-boost-1" v-else>+{{((playerOneBoost -1) * 100).toFixed()}}%</h2>
@@ -331,23 +331,28 @@ export default {
   }
 
   .player-one-boost {
+    background-image: url('../public/images/splat-offwhite-1.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
-    top: 42%;
-    left: 2%;
-    color: gold;
+    padding:40px;
+    position: absolute;
+    top: 38%;
+    color: #0373ba;
     font-size: 2.3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
   }
 
   .player-one-boost:hover {
     position: absolute;
-    top: 42%;
-    left: 2%;
+    top: 38%;
     color: green;
     font-size: 2.3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
+    transition: 0.3s;
   }
 
   .chosen-boost-1{
@@ -362,22 +367,26 @@ export default {
   }
 
   .player-two-boost {
+    background-image: url('../public/images/splat-offwhite-2.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
+    padding:50px;
     top: 42%;
-    right: 2%;
-    color: gold;
+    right: 0;
+    color: #e57e13;
     font-size: 2.3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
 }
 
   .player-two-boost:hover {
     position: absolute;
     top: 42%;
-    right: 2%;
     color: green;
     font-size: 2.3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
     transition: 0.3s;
   }
