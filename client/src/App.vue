@@ -3,7 +3,6 @@
     <div class="background"></div>
     <form-names v-if="showForm" class="form"></form-names>
     <h1 class="start-game" v-on:click="toggleForm(), stopTotalTimer(), stopRoundTimer()" >{{startButtonText}}</h1>
-
     <game-grid :playerOne='playerOne' :playerTwo='playerTwo' :playerOneHero='playerOneHero' :playerTwoHero='playerTwoHero' :displayPlayerOne='displayPlayerOne' :displayPlayerTwo='displayPlayerTwo' :draw='draw' :playerOneWins='playerOneWins' :playerTwoWins='playerTwoWins' :scorePlayerOne='scorePlayerOne' :scorePlayerTwo="scorePlayerTwo"></game-grid>
     <h1 class="next-round" v-if="nextRoundButton" v-on:click="nextRound">Next Round</h1>
     <h1 class="end-game" v-if="gameStarted" v-on:click="triggerEndGame(), stopRoundTimer()">End Game</h1>
@@ -12,24 +11,16 @@
       <h1 class="display-winner-item" v-else-if="scorePlayerTwo > scorePlayerOne">{{playerTwo.name}} wins!</h1>
       <h1 class="display-winner-item" v-else>DRAW</h1>
     </div>
-    <timer>Countdown!</timer>
-    <div v-if="(this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true" class="player-one-boost-container" >
-
-
-
+    <timer class="round-timer">Countdown!</timer>
+    <div v-if="(this.playerOneTotalBoosts >= 0) && this.playerOne.inTurn === true && this.gameStarted && !this.nextRoundButton" class="player-one-boost-container" >
       <h2 class="player-one-boost" v-if="this.playerOneBoost === 1" v-on:click="addBoostOne()">{{playerOneTotalBoosts}} Boosts!</h2>
       <h2 class="chosen-boost-1" v-else>+{{((playerOneBoost -1) * 100).toFixed()}}%</h2>
     </div>
-
-    <div v-if="(this.playerTwoTotalBoosts >= 0) && this.playerTwo.inTurn === true" class="player-two-boost-container" >
-
-
-
+    <div v-if="(this.playerTwoTotalBoosts >= 0) && this.playerTwo.inTurn === true && this.gameStarted && !this.nextRoundButton" class="player-two-boost-container" >
       <h2 class="player-two-boost" v-if="this.playerTwoBoost === 1" v-on:click="addBoostTwo()">{{playerTwoTotalBoosts}} Boosts!</h2>
       <h2 class="chosen-boost-2" v-else>+{{((playerTwoBoost -1) * 100).toFixed()}}%</h2>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -340,23 +331,28 @@ export default {
   }
 
   .player-one-boost {
+    background-image: url('../public/images/splat-offwhite-1.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
-    top: 42%;
-    left: 2%;
-    color: gold;
+    padding:40px;
+    position: absolute;
+    top: 38%;
+    color: #0373ba;
     font-size: 2.3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
   }
 
   .player-one-boost:hover {
     position: absolute;
-    top: 42%;
-    left: 2%;
+    top: 38%;
     color: green;
     font-size: 2.3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
+    transition: 0.3s;
   }
 
   .chosen-boost-1{
@@ -371,22 +367,26 @@ export default {
   }
 
   .player-two-boost {
+    background-image: url('../public/images/splat-offwhite-2.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
+    padding:50px;
     top: 42%;
-    right: 2%;
-    color: gold;
+    right: 0;
+    color: #e57e13;
     font-size: 2.3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
 }
 
   .player-two-boost:hover {
     position: absolute;
     top: 42%;
-    right: 2%;
     color: green;
     font-size: 2.3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 4px 4px 0 black;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 4px 4px 0 black;
     cursor: pointer;
     transition: 0.3s;
   }

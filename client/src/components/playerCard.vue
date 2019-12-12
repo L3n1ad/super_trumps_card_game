@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="fix-height">
-    <div v-if='displayPlayer && hero' class="">
+    <div v-if='displayPlayer && hero' class="fix-padding">
       <h4 class="character-name">{{hero.name}}</h4>
       <img class="image" v-bind:src="hero.image.url">
       <div class="attribute-title">
@@ -69,7 +69,7 @@ export default {
 
   .character-name {
     margin: 2%;
-    color: #d3dbdf;
+    color: white;
     letter-spacing: 2px;
     font-size: 1.5rem;
     cursor: default;
@@ -108,6 +108,7 @@ export default {
     color: #d3dbdf;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+
   }
 
   .attribute-value > div:hover {
@@ -136,6 +137,9 @@ export default {
 
   }
   .fix-height{
-    height: 91%;
+    height: 90%;
+  }
+  .fix-padding{
+    padding-bottom: 15px;
   }
 </style>

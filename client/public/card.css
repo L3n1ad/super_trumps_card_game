@@ -45,6 +45,7 @@ body {
 
 .start-game {
   grid-column-start: 1;
+  grid-row-start: 1;
   color: white;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
   font-size: 3em;
@@ -52,6 +53,18 @@ body {
   text-align: center;
   cursor: pointer;
   margin-top:1%;
+  transition: 1s;
+}
+
+.round-timer {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  color: white;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
+  font-size: 3em;
+  margin: 150px;
+  text-align: center;
+  cursor: pointer;
   transition: 1s;
 }
 
@@ -113,6 +126,7 @@ body {
   font-size: 3.5rem;
   transition: 1s;
 }
+
 
 /* .game-grid-grid {
   grid-area: 2 / 3 / 2 / 10;

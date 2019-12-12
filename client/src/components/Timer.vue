@@ -1,11 +1,12 @@
 <template lang="html">
   <div>
-    <div v-if="startTotalTimer" id="totalTimer">
+    <div v-if="totalTime" id="total-timer">
+      <span>Game: </span><br>
       <span id="minutes">{{totalMinutes}}</span>
       <span id="middle">:</span>
       <span id="seconds">{{totalSeconds}}</span>
     </div>
-    <div v-if="startRoundTimer" id="roundTimer">
+    <div v-if="roundTime" id="round-timer">
       <span id="minutes">{{roundMinutes}}</span>
       <span id="middle">:</span>
       <span id="seconds">{{roundSeconds}}</span>
@@ -51,6 +52,7 @@ export default {
     eventBus.$on("stop-round-timer", stop =>{
       this.stopRoundTimer()
     })
+    eventBus
   },
   methods:{
 
@@ -121,16 +123,21 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.game-timer {
+#total-timer {
   position: absolute;
-  right: 0;
-  padding-top: 20px;
-  padding-right: 40px;
-  color: #d3dbdf;
+  top: 10px;
+  right: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  color: white;
+  font-size: 3rem;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
 }
 
-#message {
+/* #round-timer {
+
+} */
+/* #message {
 color: #DDD;
 font-size: 50px;
 margin-bottom: 20px;
@@ -140,5 +147,5 @@ margin-bottom: 20px;
 font-size: 50px;
 line-height: 1;
 margin-bottom: 40px;
-}
+} */
 </style>
