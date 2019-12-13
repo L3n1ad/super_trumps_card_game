@@ -721,7 +721,7 @@ db.superHeroes.insertMany([
     "strength": "769",
     "speed": "2785",
     "durability": "9",
-    "power": "825",
+    "power": "462",
     "combat": "8"
   },
   "biography": {
@@ -876,7 +876,7 @@ db.superHeroes.insertMany([
     "strength": "632",
     "speed": "146",
     "durability": "6",
-    "power": "561",
+    "power": "410",
     "combat": "7"
   },
   "biography": {
