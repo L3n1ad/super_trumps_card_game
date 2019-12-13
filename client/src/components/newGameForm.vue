@@ -106,10 +106,12 @@ export default {
   .label-option{
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
     font-size: 1.3em;
+    /* letter-spacing: 1px; */
   }
   .input-option{
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
     color: #E6E6E6;
+    letter-spacing: 1.5px;
   }
 
   .input-radio{
