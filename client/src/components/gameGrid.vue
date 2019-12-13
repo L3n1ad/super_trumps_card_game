@@ -59,7 +59,7 @@ export default {
  .player-box-1 >>> .player-head {
   grid-area: 1/1/1/1;
   margin-left: 12%;
-  color: #0473ba;
+  color: #e57e14;
   text-shadow: -2px -2px 0 #d3dbdf, 2px -2px 0 #d3dbdf, -2px 2px 0 #d3dbdf, 2px 2px 0 #d3dbdf;
   letter-spacing: 2px;
   cursor: default;
@@ -71,7 +71,7 @@ export default {
 
 
 .player-box-1 >>> .splat {
-  background-image: url('../../public/images/splat-offwhite-1.png');
+  background-image: url('../../public/images/splat-offwhite-2.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -86,17 +86,17 @@ export default {
   border: solid 2px black;
   border-radius: 25px;
   text-align: center;
-  background-image: url("../../public/images/frontcard1.jpg");
+  background-image: url("../../public/images/frontcard2.jpg");
   background-repeat: no-repeat;
   background-size:cover;
   display: grid;
   grid-template-rows: auto;
-  padding-bottom: 19px;
+  padding-bottom: 18px;
   box-shadow: 2px 2px;
 }
 
 .player-box-1 >>> .back-card-div{
-  background-image: url("../../public/images/backcard1.jpg");
+  background-image: url("../../public/images/backcard2.jpg");
   background-repeat: no-repeat;
   background-size:cover;
   width: 276px;
@@ -111,7 +111,7 @@ export default {
 .player-box-2 >>> .player-head {
   grid-area: 1/1/1/1;
   margin-left: 12%;
-  color: #e57e14;
+  color: #0473ba;
   text-shadow: -2px -2px 0 #d3dbdf, 2px -2px 0 #d3dbdf, -2px 2px 0 #d3dbdf, 2px 2px 0 #d3dbdf;
   letter-spacing: 2px;
   cursor: default;
@@ -121,7 +121,7 @@ export default {
 }
 
 .player-box-2 >>> .splat {
-  background-image: url('../../public/images/splat-offwhite-2.png');
+  background-image: url('../../public/images/splat-offwhite-1.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -137,17 +137,17 @@ export default {
     border: solid 2px black;
     border-radius: 25px;
     text-align: center;
-    background-image: url("../../public/images/frontcard2.jpg");
+    background-image: url("../../public/images/frontcard1.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     display: grid;
     grid-template-rows: auto;
-    padding-bottom: 17px;
+    padding-bottom: 18px;
     box-shadow: 2px 2px;
 }
 
 .player-box-2 >>> .back-card-div{
-  background-image: url("../../public/images/backcard2.jpg");
+  background-image: url("../../public/images/backcard1.jpg");
   background-repeat: no-repeat;
   background-size:cover;
   width: 276px;

@@ -16,18 +16,23 @@ body {
 
 .form {
   position: absolute;
-  height: 90%;
+  height: 80%;
   width: 90%;
   left: 5%;
   top: 5%;
   background-color: white;
   z-index: 10;
-  opacity: 0.9;
+  opacity: 0.95;
+  background-image: url('./images/hex_avengers.png');
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 40%;
 }
+
 
 .background {
   background-color: black;
-  background-image: url(./images/background.jpg);
+  background-image: url(./images/new_background.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
