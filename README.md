@@ -50,4 +50,4 @@ Once everything is running the app will be accessible on localhost:8080. Enjoy t
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [https://choosealicense.com/licenses/mit/] documentation for details
