@@ -1,6 +1,6 @@
 # Super Trumps Game
 
-This project is Top Trumps based browser game featuring superheroes. It has an option to choose deck size, total time for the game and to choose between flash and slow game mode. The game also has a boost feature, every player has three chance per game to boost their next chosen attribute by a random percentage between 0 and 50.
+This project is Top Trumps based browser game featuring superheroes. It has an option to choose deck size, total time for the game and to choose between flash and slow game mode. The game also has a boost feature, every player has three chances per game to boost their next chosen attribute by a random percentage between 0 and 50.
 
 ### Installing and Running the code 
 
